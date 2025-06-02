@@ -52,7 +52,7 @@ const recentPosts = (await getCollection("blog"))
   {
     recentPosts.map((post) => (
       <BlogPost
-        url={`/astro-blog/posts/${post.id}/`}
+        url={`/posts/${post.id}/`}
         title={post.data.title}
         image={post.data.image}
         pubDate={post.formattedDate}
