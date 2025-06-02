@@ -1,0 +1,99 @@
+---
+const { title, url, pubDate, description, tags, image } = Astro.props;
+import "../styles/global.css";
+---
+
+<a class="card" href={url}>
+  <div class="card-content">
+    <img src={image.url} alt={image.alt} class="thumbnail" />
+    <div class="text-content">
+      <p id="title">{title}</p>
+      <p id="pdate">Published: {pubDate}</p>
+      <p>{description}</p>
+    </div>
+  </div>
+</a>
+
+<style>
+  #title {
+    font-size: 20px;
+    color: var(--text-color);
+    text-decoration: underline;
+  }
+  #pdate {
+    font-style: italic;
+    color: gray;
+    margin-bottom: 0.5em;
+  }
+  .card {
+    border: 1px solid var(--hamburger-border);
+    border-radius: 10px;
+    align-items: ce;
+    overflow: hidden;
+    display: block;
+    transition: transform 0.2s ease;
+    margin-top: 9px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card:hover {
+    transform: scale(1.02);
+  }
+
+  .card-content {
+    display: flex;
+    align-items: flex-start;
+    padding: 1em;
+    gap: 1em;
+  }
+
+  .thumbnail {
+    width: 30%; /* Adjust based on layout */
+    aspect-ratio: 16 / 9; /* Maintain video-style aspect */
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+    max-width: 300px; /* Prevent image from getting too large */
+  }
+
+  .text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+    justify-content: center;
+  }
+
+  h3 {
+    margin: 0 0 0.5em;
+    font-size: 1.2em;
+  }
+
+  p {
+    margin: 0;
+  }
+  @media (max-width: 600px) {
+    .card-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .thumbnail {
+      width: 90%; /* Smaller width than 100% */
+      max-width: 280px; /* Cap the size */
+      height: auto;
+      aspect-ratio: auto; /* Let image set its own height from width */
+      border-radius: 6px;
+    }
+
+    .text-content {
+      align-items: center;
+    }
+
+    #title {
+      font-size: 1.1em;
+    }
+  }
+</style>

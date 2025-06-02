@@ -1,0 +1,47 @@
+---
+import "../styles/global.css";
+import { getCollection } from "astro:content";
+import BlogPost from "../components/BlogPost.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// get and sort blog posts by pubDate (newest first)
+const allPosts = (await getCollection("blog"))
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+  )
+  .map((post) => ({
+    ...post,
+    formattedDate: new Date(post.data.pubDate).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }),
+  }));
+---
+
+<BaseLayout>
+  <h1>Blog</h1>
+  <p>Read what you like or also what you don't like.</p>
+  <p>tags are yet to come...</p>
+
+  <!-- Render blog posts -->
+  {
+    allPosts.map((post) => (
+      <BlogPost
+        url={`/astro-blog/posts/${post.id}/`}
+        title={post.data.title}
+        image={post.data.image}
+        pubDate={post.formattedDate}
+        image={post.data.image}
+        description={post.data.description}
+      />
+    ))
+  }
+
+  <script>
+    document.querySelector(".hamburger")?.addEventListener("click", () => {
+      document.querySelector(".nav-links")?.classList.toggle("expanded");
+    });
+  </script>
+</BaseLayout>

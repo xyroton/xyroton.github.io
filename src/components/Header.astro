@@ -1,0 +1,25 @@
+---
+import DarkMode from "./DarkMode.astro";
+import DropDown from "./DropDown.astro";
+---
+
+<header class="page-header header">
+  <nav>
+    <div class="hey">
+      <a href="/astro-blog/" class="hey">
+        <img src="/astro-blog/logo/logo_dark.svg" alt="" class="logo-dark" />
+        <img src="/astro-blog/logo/logo_light.svg" alt="" class="logo" />
+      </a>
+    </div>
+
+    <div class="internal-links">
+      <a href="/astro-blog/">Home</a>
+      <a href="/astro-blog/about">About</a>
+      <a href="/astro-blog/blog">Posts</a>
+    </div>
+    <div class="hello">
+      <DarkMode />
+      <DropDown />
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,116 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout pageTitle={frontmatter.title}>
+  <div class="blog-post-container">
+    <!-- Title should be placed above content -->
+    <title>{frontmatter.title}</title>
+
+    <!-- If you want to show more metadata like description, date, and author -->
+
+    <h1 class="post-title">{frontmatter.title}</h1>
+    <hr />
+    <div class="date">
+      <FormattedDate date={frontmatter.pubDate} />
+      {
+        frontmatter.updatedDate && (
+          <span class="dot">·</span>
+          <div class="last-updated-on">
+            Last updated on <FormattedDate date={frontmatter.updatedDate} />
+          </div>
+        )
+      }
+    </div>
+    <hr />
+    <div class="hero-image">
+      {frontmatter.image.url && (
+        <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
+      )}
+    </div>
+    
+    <!-- Main content of the post -->
+    <slot />
+  </div>
+</BaseLayout>
+
+<style>
+  .hero-image {
+    width: 100%;
+  }
+
+  .hero-image img {
+    display: block;
+  margin: 0 auto;
+  max-width: 100%; /* Ensures the image doesn't exceed the container */
+  height: auto; /* Maintains aspect ratio */
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  }
+
+  .dot {
+    margin: 0 0.5rem; /* Adds space around the dot */
+    color: #777; /* Light grey color */
+    font-size: 1.5rem; /* Adjust the size of the dot */
+  }
+
+  .prose {
+    width: 720px;
+    max-width: calc(100% - 2em);
+    margin: auto;
+    padding: 1em;
+    color: rgb(var(--gray-dark));
+  }
+
+  .title {
+    margin-bottom: 1em;
+    padding: 1em 0;
+    text-align: center;
+    line-height: 1;
+  }
+
+  .title h1 {
+    margin: 0 0 0.5em 0;
+  }
+
+  .date {
+    margin-bottom: 0.5em;
+    color: rgb(var(--gray));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+
+  .last-updated-on {
+    font-style: italic;
+  }
+
+  a {
+    color: #00539f;
+  }
+
+  .post-title {
+    font-size: 2.5rem; /* Large title */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Ensures tags are centered */
+  }
+
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    font-size: 1.15em;
+    background-color: #f8fcfd;
+  }
+</style>

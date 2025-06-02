@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import BlogPost from "../components/BlogPost.astro";
+
+// Fetch, sort, and format pubDate
+const recentPosts = (await getCollection("blog"))
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+  )
+  .slice(0, 3)
+  .map((post) => ({
+    ...post,
+    formattedDate: new Date(post.data.pubDate).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }),
+  }));
+---
+
+<BaseLayout>
+  <h1>xyroton</h1>
+  <p><i>Inspired by the kanagawa colors</i></p>
+
+  <div class="bubble">
+    <p>
+      My blog post is written in the popular web framewok <a
+        href="https://astro.build/"
+        target="_blank"
+        rel="noopener noreferrer">Astro</a
+      >.
+    </p>
+  </div>
+
+  <h2 class="underl">Topics:</h2>
+  <p>
+    I mostly write about AI and related technologies like Machine Learning,
+    Natural Language Processing, and Deep Learning — you get the idea.
+  </p>
+  <p>
+    I'm also a strong proponent of Linux and open-source software, as well as
+    developer efficiency and the tools that support it. So don’t be surprised if
+    you come across posts about those or general computer science topics as
+    well.
+  </p>
+
+  <h2 class="underl">My most recent blogs:</h2>
+
+  <!-- Render top 3 recent posts -->
+  {
+    recentPosts.map((post) => (
+      <BlogPost
+        url={`/astro-blog/posts/${post.id}/`}
+        title={post.data.title}
+        image={post.data.image}
+        pubDate={post.formattedDate}
+        description={post.data.description}
+      />
+    ))
+  }
+</BaseLayout>

@@ -1,0 +1,51 @@
+---
+// DropDown.astro
+---
+
+<div class="dropdown-container">
+  <button id="nav-toggle" aria-label="Toggle Navigation">
+    <div class="icon-container">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="20"
+        height="20"
+      >
+        <path
+          d="M3 6h18M3 12h18M3 18h18"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </div>
+  </button>
+
+  <div class="dropdown-menu">
+    <li><a href="/astro-blog/">Home</a></li>
+    <li><a href="/astro-blog/blog">Blog</a></li>
+    <li><a href="/astro-blog/about">About</a></li>
+    <li><a href="/astro-blog/tags">Tags</a></li>
+  </div>
+</div>
+
+<script is:inline>
+  const dropdownMenu = document.querySelector(".dropdown-menu");
+  const navToggleBtn = document.getElementById("nav-toggle");
+
+  function toggleDropdownMenu() {
+    dropdownMenu.classList.toggle("active");
+  }
+
+  navToggleBtn.addEventListener("click", toggleDropdownMenu);
+
+  document.addEventListener("click", function (e) {
+    if (
+      dropdownMenu.classList.contains("active") &&
+      !dropdownMenu.contains(e.target) &&
+      !navToggleBtn.contains(e.target)
+    ) {
+      dropdownMenu.classList.remove("active");
+    }
+  });
+</script>
