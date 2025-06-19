@@ -56,8 +56,8 @@
 }
 
 main {
-	width: 720px;
-	max-width: calc(100% - 2em);
+	width: 100%;
+	max-width: 720px;
 	margin: auto;
 	padding: 3em 1em;
 }
@@ -144,15 +144,19 @@ pre>code {
 	cursor: pointer;
 }
 
+
 nav {
-	width: 900px;
-	max-width: calc(100% - 2em);
+	width: 100%;
+	/* change this */
+	max-width: 900px;
+	/* keep this */
 	margin: auto;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	padding: 0.5em 1em;
 }
+
 
 nav a {
 	color: var(--nav-fg);
