@@ -22,20 +22,27 @@ const recentPosts = (await getCollection("blog"))
 
 <BaseLayout>
   <!-- Typewriter heading -->
+  <!-- Typewriter heading -->
   <h1 id="typedtext" class="typewriter"></h1>
-
-  <p><i>Inspired by the kanagawa colors</i></p>
 
   <div class="bubble">
     <p>
-      My blog post is written in the popular web framework
+      My blog post is written using the popular web framework
       <a href="https://astro.build/" target="_blank" rel="noopener noreferrer"
         >Astro</a
-      >.
+      >
+      and styled with the popular Neovim color theme
+      <a
+        href="https://github.com/rebelot/kanagawa.nvim"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="default-link">Kanagawa</a
+      >
+      in the Dragon flavor.
     </p>
   </div>
 
-  <h2 class="underl">Topics:</h2>
+  <h2 class="underl">Me:</h2>
   <p class="justified">
     I mostly write about AI and related technologies like Machine Learning,
     Natural Language Processing, and Deep Learning — you get the idea.
@@ -47,7 +54,7 @@ const recentPosts = (await getCollection("blog"))
     well.
   </p>
 
-  <h2 class="underl">My most recent blogs:</h2>
+  <h2 class="underl">Latest Blog Posts:</h2>
 
   <!-- Render top 3 recent posts -->
   {
@@ -64,7 +71,7 @@ const recentPosts = (await getCollection("blog"))
 
   <!-- typewriter -->
   <script>
-    const aText = ["Hi, welcome at Xyroton"];
+    const aText = ["Hi, welcome at Xyroton!"];
     const iSpeed = 80;
 
     let iIndex = 0;

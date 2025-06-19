@@ -134,7 +134,7 @@ pre>code {
 }
 
 .bubble a {
-	color: var(--text-color);
+	color: var(--mode-button-bg);
 	text-decoration: underline;
 }
 
@@ -317,7 +317,6 @@ body {
 .justified {
 	text-align: justify;
 }
-
 
 .typewriter {
 	font-family: 'JetBrains Mono', monospace;
