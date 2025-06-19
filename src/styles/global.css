@@ -37,6 +37,12 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'JetBrains Mono';
+	src: url('/JetBrainsMono-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
 
 /* make footer stick */
 
@@ -312,17 +318,27 @@ body {
 	text-align: justify;
 }
 
+
+.typewriter {
+	font-family: 'JetBrains Mono', monospace;
+	overflow: hidden;
+	letter-spacing: 0.05em;
+	font-weight: 600;
+	font-size: 2rem;
+	color: var(--text-color);
+}
+
 .blinking-cursor {
-	font-weight: bold;
-	font-size: 1.2em;
+	font-weight: 600;
+	font-size: 2rem;
 	color: var(--text-color);
 	animation: blink 0.7s step-end infinite;
 }
 
 @keyframes blink {
 
-	from,
-	to {
+	0%,
+	100% {
 		opacity: 0;
 	}
 
