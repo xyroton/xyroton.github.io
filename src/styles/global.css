@@ -147,8 +147,8 @@ pre>code {
 	background-color: var(--mode-button-bg);
 	border-radius: 8px;
 	border: none;
-	padding: 0;
 	cursor: pointer;
+	margin-right: 5px;
 }
 
 
@@ -190,6 +190,9 @@ h2 {
 }
 
 #nav-toggle {
+	/* don't know where the spacing is coming from on the sides */
+	all: unset;
+	margin-right: 5px;
 	display: none;
 	background: none;
 	border: none;
@@ -237,7 +240,8 @@ h2 {
 .hello {
 	display: flex;
 	align-items: center;
-	gap: 0.1rem;
+	/*padding between icons */
+	gap: 2px;
 	position: relative;
 }
 
