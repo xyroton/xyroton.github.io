@@ -21,25 +21,25 @@ const recentPosts = (await getCollection("blog"))
 ---
 
 <BaseLayout>
-  <h1>xyroton</h1>
+  <!-- Typewriter heading -->
+  <h1 id="typedtext"></h1>
   <p><i>Inspired by the kanagawa colors</i></p>
 
   <div class="bubble">
     <p>
-      My blog post is written in the popular web framewok <a
-        href="https://astro.build/"
-        target="_blank"
-        rel="noopener noreferrer">Astro</a
+      My blog post is written in the popular web framework
+      <a href="https://astro.build/" target="_blank" rel="noopener noreferrer"
+        >Astro</a
       >.
     </p>
   </div>
 
   <h2 class="underl">Topics:</h2>
-  <p>
+  <p class="justified">
     I mostly write about AI and related technologies like Machine Learning,
     Natural Language Processing, and Deep Learning — you get the idea.
   </p>
-  <p>
+  <p class="justified">
     I'm also a strong proponent of Linux and open-source software, as well as
     developer efficiency and the tools that support it. So don’t be surprised if
     you come across posts about those or general computer science topics as
@@ -60,4 +60,47 @@ const recentPosts = (await getCollection("blog"))
       />
     ))
   }
+
+  <!-- typewriter -->
+  <script>
+    const aText = ["Hi, welcome at Xyroton"];
+    const iSpeed = 80;
+
+    let iIndex = 0;
+    let iTextPos = 0;
+    let sContents = "";
+    let iRow;
+    let iArrLength = aText[0].length;
+    const iScrollAt = 20;
+
+    function typewriter() {
+      sContents = "";
+      iRow = Math.max(0, iIndex - iScrollAt);
+      const destination = document.getElementById("typedtext");
+
+      while (iRow < iIndex) {
+        sContents += aText[iRow++] + "<br />";
+      }
+
+      destination.innerHTML =
+        sContents +
+        aText[iIndex].substring(0, iTextPos) +
+        '<span class="blinking-cursor">|</span>';
+
+      if (iTextPos++ === iArrLength) {
+        iTextPos = 0;
+        iIndex++;
+        if (iIndex < aText.length) {
+          iArrLength = aText[iIndex].length;
+          setTimeout(typewriter, 500);
+        }
+      } else {
+        setTimeout(typewriter, iSpeed);
+      }
+    }
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("DOMContentLoaded", typewriter);
+    }
+  </script>
 </BaseLayout>

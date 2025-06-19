@@ -308,6 +308,29 @@ body {
 	/* border-bottom: 1px solid var(--header-border); */
 }
 
+.justified {
+	text-align: justify;
+}
+
+.blinking-cursor {
+	font-weight: bold;
+	font-size: 1.2em;
+	color: var(--text-color);
+	animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+
+	from,
+	to {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 1;
+	}
+}
+
 @media (max-width: 720px) {
 	.internal-links {
 		display: none;
