@@ -22,7 +22,6 @@ const recentPosts = (await getCollection("blog"))
 
 <BaseLayout>
   <!-- Typewriter heading -->
-  <!-- Typewriter heading -->
   <h1 id="typedtext" class="typewriter"></h1>
 
   <div class="bubble">
@@ -74,26 +73,29 @@ const recentPosts = (await getCollection("blog"))
     const aText = ["Hi, welcome at Xyroton!"];
     const iSpeed = 80;
 
-    let iIndex = 0;
-    let iTextPos = 0;
-    let sContents = "";
-    let iRow;
-    let iArrLength = aText[0].length;
-    const iScrollAt = 20;
+    let iIndex = 0; // Which string in aText is being typed, for multi line with ,
+    let iTextPos = 0; // which charcter of the current line is typed.
+    let sContents = ""; // All the lines typed so far (fully typed), used for multiline support. ul
+    let iRow; // Helper to manage which rows are visible (used for scrolling effect) (not used to few lines) ul
+    let iArrLength = aText[0].length; // Length of the current string / lines
+    const iScrollAt = 20; // Max lines before scrolling logic kicks in (not really needed for 1 line) ul
 
+    // add one letter at a time
     function typewriter() {
       sContents = "";
       iRow = Math.max(0, iIndex - iScrollAt);
+      // grab HTML element where the text will appear
       const destination = document.getElementById("typedtext");
 
       while (iRow < iIndex) {
         sContents += aText[iRow++] + "<br />";
       }
 
+      // set HTML
       destination.innerHTML =
         sContents +
         aText[iIndex].substring(0, iTextPos) +
-        '<span class="blinking-cursor">|</span>';
+        '<span class="blinking-cursor">_</span>';
 
       if (iTextPos++ === iArrLength) {
         iTextPos = 0;
