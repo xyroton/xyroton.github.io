@@ -22,9 +22,6 @@ const allPosts = (await getCollection("blog"))
 
 <BaseLayout>
   <h1>Blog</h1>
-  <p>Read what you like or also what you don't like.</p>
-  <p>tags are yet to come...</p>
-
   <!-- Render blog posts -->
   {
     allPosts.map((post) => (
