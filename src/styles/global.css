@@ -358,4 +358,19 @@ body {
 	#nav-toggle {
 		display: block;
 	}
+
+	.typewriter {
+		/* reserve space for welcome */
+		min-height: 3em;
+
+	}
+
+}
+
+@media (max-width: 415px) {
+	.typewriter {
+		/* reserve space for welcome */
+		min-height: 5em;
+
+	}
 }

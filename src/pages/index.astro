@@ -70,47 +70,41 @@ const recentPosts = (await getCollection("blog"))
 
   <!-- typewriter -->
   <script>
-    const aText = ["Hi, welcome at Xyroton!"];
+    const aText = [
+      "Hi, welcome to Xyroton!",
+      "嗨，欢迎来到 Xyroton",
+      "Hallo, willkommen bei Xyroton!",
+      "Xyrotonへようこそ", // Japanese
+      "¡Hola, bienvenido a Xyroton!", // spanish
+      "Bonjour, bienvenue à Xyroton!", // french
+      "Ciao, benvenuto a Xyroton!", // italian
+    ];
     const iSpeed = 80;
+    const delayBetween = 3000;
 
-    let iIndex = 0; // Which string in aText is being typed, for multi line with ,
-    let iTextPos = 0; // which charcter of the current line is typed.
-    let sContents = ""; // All the lines typed so far (fully typed), used for multiline support. ul
-    let iRow; // Helper to manage which rows are visible (used for scrolling effect) (not used to few lines) ul
-    let iArrLength = aText[0].length; // Length of the current string / lines
-    const iScrollAt = 20; // Max lines before scrolling logic kicks in (not really needed for 1 line) ul
+    let i = 0;
+    let char = 0;
 
-    // add one letter at a time
     function typewriter() {
-      sContents = "";
-      iRow = Math.max(0, iIndex - iScrollAt);
-      // grab HTML element where the text will appear
-      const destination = document.getElementById("typedtext");
+      const element = document.getElementById("typedtext");
+      if (!element) return;
 
-      while (iRow < iIndex) {
-        sContents += aText[iRow++] + "<br />";
-      }
+      element.innerHTML =
+        aText[i].slice(0, char++) + '<span class="blinking-cursor">_</span>';
 
-      // set HTML
-      destination.innerHTML =
-        sContents +
-        aText[iIndex].substring(0, iTextPos) +
-        '<span class="blinking-cursor">_</span>';
-
-      if (iTextPos++ === iArrLength) {
-        iTextPos = 0;
-        iIndex++;
-        if (iIndex < aText.length) {
-          iArrLength = aText[iIndex].length;
-          setTimeout(typewriter, 500);
-        }
-      } else {
+      if (char <= aText[i].length) {
         setTimeout(typewriter, iSpeed);
+      } else {
+        setTimeout(() => {
+          char = 0;
+          i++;
+          if (i >= aText.length) i = 0;
+          element.innerHTML = "";
+          typewriter();
+        }, delayBetween);
       }
     }
 
-    if (typeof window !== "undefined") {
-      window.addEventListener("DOMContentLoaded", typewriter);
-    }
+    window.addEventListener("DOMContentLoaded", typewriter);
   </script>
 </BaseLayout>
