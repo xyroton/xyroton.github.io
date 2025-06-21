@@ -9,6 +9,7 @@
 	--drop-menu-highlight: #c9cbd1;
 	/* --header-border: #e4e4e5; */
 	--logo-fg: #1d1d1f;
+	--gray-tone: #8a8980;
 	--hamburger-icon-fg: #5a7785;
 	--hamburger-border: #d5cea3;
 	--buble: #e5ddb0;
@@ -25,6 +26,7 @@
 	--drop-menu-highlight: #223249;
 	/* --header-border: #363638; */
 	--logo-fg: #f5f5f7;
+	--gray-tone: #737c73;
 	--hamburger-icon-fg: #c8c093;
 	--hamburger-border: #54546d;
 	--buble: #282727;
@@ -40,6 +42,13 @@
 @font-face {
 	font-family: 'JetBrains Mono';
 	src: url('/public/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'JetBrains Mono Italic';
+	src: url('/public/fonts/JetBrainsMono-LightItalic.woff2') format('woff2');
 	font-weight: 400;
 	font-style: normal;
 }
@@ -328,7 +337,7 @@ body {
 }
 
 .typewriter {
-	font-family: 'JetBrains Mono', monospace;
+	font-family: 'JetBrains Mono';
 	overflow: hidden;
 	letter-spacing: 0.05em;
 	font-weight: 600;
