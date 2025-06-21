@@ -44,6 +44,11 @@
 	font-style: normal;
 }
 
+html {
+	color-scheme: light dark;
+
+}
+
 /* make footer stick */
 
 .footer {
