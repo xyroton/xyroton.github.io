@@ -11,5 +11,11 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
+    shikiConfig: {
+      themes: {
+        light: "gruvbox-light-medium",
+        dark: "kanagawa-wave",
+      },
+    },
   },
 });
