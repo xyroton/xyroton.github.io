@@ -6,6 +6,7 @@ image:
   url: "/blog/perfect_nums.png"
   alt: "The word astro against an illustration of planets and stars."
 pubDate: 2025-05-30
+updatedDate: 2025-06-01
 tags: ["python", "math"]
 ---
 

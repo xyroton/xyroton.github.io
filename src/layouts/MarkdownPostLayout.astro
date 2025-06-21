@@ -12,6 +12,19 @@ const { frontmatter } = Astro.props;
     <!-- If you want to show more metadata like description, date, and author -->
 
     <h1 class="post-title">{frontmatter.title}</h1>
+    <div class="tags-container">
+      <ul class="tags">
+        {
+          frontmatter.tags.map((tag) => (
+            <li class="tag">
+              <img src="/logo/tags.svg" alt="tag icon" class="tag-icon" />
+              {tag}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
     <div class="date">
       <p>
         <FormattedDate date={frontmatter.pubDate} format="long" />
@@ -37,6 +50,11 @@ const { frontmatter } = Astro.props;
 </BaseLayout>
 
 <style>
+  .tags-container {
+    display: flex;
+    align-items: center; /* vertically center the image and tags */
+    gap: 0.5em; /* space between image and tags */
+  }
   .hero-image {
     width: 100%;
     margin-bottom: 1em;
@@ -88,7 +106,7 @@ const { frontmatter } = Astro.props;
   }
 
   .date {
-    margin-top: 0em;
+    margin-top: 1em;
     margin-bottom: 0em;
     padding: 0;
     color: var(--gray-tone);
@@ -115,17 +133,26 @@ const { frontmatter } = Astro.props;
   }
 
   .tags {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Ensures tags are centered */
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
   .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: 0.5em;
-    padding: 0.5em 1em;
-    font-size: 1.15em;
-    background-color: #f8fcfd;
+    display: inline-flex; /* inline-flex for horizontal alignment */
+    align-items: center; /* vertical center icon and text */
+    padding: 2px 6px; /* add some horizontal padding for breathing room */
+    margin-right: 0.25em;
+    font-size: 0.9em;
+    border: none;
+    background-color: var(--mode-button-bg);
+    color: var(--background-color);
+    border-radius: 5px;
+    gap: 0.3em; /* space between icon and text */
+  }
+  .tag-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
   }
 </style>
