@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import { getCollection } from "astro:content";
-import BlogPost from "../components/BlogPost.astro";
+import PostCard from "../components/PostCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 // get and sort blog posts by pubDate (newest first)
@@ -25,7 +25,7 @@ const allPosts = (await getCollection("blog"))
   <!-- Render blog posts -->
   {
     allPosts.map((post) => (
-      <BlogPost
+      <PostCard
         url={`/posts/${post.id}/`}
         title={post.data.title}
         image={post.data.image}
