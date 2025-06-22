@@ -3,6 +3,7 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
 import "../styles/global.css";
 ---
 
+// TODO: figure out the | to the left of the title and the other icons
 <a class="card" href={url}>
   <div class="card-content">
     <img src={image.url} alt={image.alt} class="thumbnail" />
@@ -27,6 +28,7 @@ import "../styles/global.css";
   }
   .card {
     border: 1px solid var(--hamburger-border);
+    background-color: #23202a;
     border-radius: 10px;
     align-items: ce;
     overflow: hidden;
