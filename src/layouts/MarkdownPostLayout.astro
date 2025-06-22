@@ -40,14 +40,15 @@ const { frontmatter } = Astro.props;
 
     <div class="date">
       <p>
-        <FormattedDate date={frontmatter.pubDate} format="long" />
+        <FormattedDate date={frontmatter.pubDate} />
       </p>
-      <p class="updateD">
-        Updated on <FormattedDate
-          date={frontmatter.updatedDate}
-          format="short"
-        />
-      </p>
+      {
+        frontmatter.updatedDate && (
+          <p class="updateD">
+            Updated on <FormattedDate date={frontmatter.updatedDate} />
+          </p>
+        )
+      }
     </div>
     <div class="hero-image">
       {

@@ -1,32 +1,17 @@
 ---
 interface Props {
   date: Date;
-  format?: "long" | "short" | "weekday"; // extendable
 }
 
-const { date, format = "long" } = Astro.props;
-
-let options: Intl.DateTimeFormatOptions;
-
-switch (format) {
-  case "short":
-    options = { year: "numeric", month: "short", day: "numeric" };
-    break;
-  case "weekday":
-    options = { weekday: "long" };
-    break;
-  case "long":
-  default:
-    options = {
-      weekday: "long",
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    };
-    break;
-}
+const { date } = Astro.props;
 ---
 
 <time datetime={date.toISOString()}>
-  {date.toLocaleDateString("en-us", options)}
+  {
+    date.toLocaleDateString("en-CA", {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+    })
+  }
 </time>
