@@ -3,34 +3,85 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
 import "../styles/global.css";
 ---
 
-// TODO: figure out the | to the left of the title and the other icons
 <a class="card" href={url}>
   <div class="card-content">
-    <img src={image.url} alt={image.alt} class="thumbnail" />
     <div class="text-content">
-      <p id="title">{title}</p>
-      <p id="pdate">Published: {pubDate}</p>
+      <div class="title-with-bar">
+        <div class="vertical-bar"></div>
+        <p id="title">{title}</p>
+      </div>
+      <div class="date">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon"
+          ><path d="M8 2v4"></path><path d="M16 2v4"></path><rect
+            width="18"
+            height="18"
+            x="3"
+            y="4"
+            rx="2"></rect><path d="M3 10h18"></path></svg
+        >
+
+        <p id="pdate">Published: {pubDate}</p>
+      </div>
       <p>{description}</p>
     </div>
+    <img src={image.url} alt={image.alt} class="thumbnail" />
   </div>
 </a>
 
 <style>
+  /* TODO: inconify the tag, date */
+  .icon {
+    background-color: yellowgreen;
+    border-radius: 2px;
+  }
+  .date {
+    display: inline-flex;
+  }
+
+  /* --- Vertical bar next to title --- */
+  .vertical-bar {
+    width: 3px;
+    height: 1.5em;
+    background-color: limegreen; /* Make this visible */
+    border-radius: 3px;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .title-with-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5em;
+  }
+
   #title {
     font-size: 20px;
     color: var(--text-color);
     text-decoration: underline;
+    margin: 0;
   }
+
   #pdate {
     font-style: italic;
     color: gray;
     margin-bottom: 0.5em;
   }
+
+  /* --- Card Styles --- */
   .card {
     border: 1px solid var(--hamburger-border);
     background-color: #23202a;
     border-radius: 10px;
-    align-items: ce;
     overflow: hidden;
     display: block;
     transition: transform 0.2s ease;
@@ -45,36 +96,34 @@ import "../styles/global.css";
 
   .card-content {
     display: flex;
-    align-items: flex-start;
-    padding: 1em;
+    align-items: center;
     gap: 1em;
   }
 
   .thumbnail {
-    width: 30%; /* Adjust based on layout */
-    aspect-ratio: 16 / 9; /* Maintain video-style aspect */
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%);
+    width: 40%;
     object-fit: cover;
-    border-radius: 8px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
     flex-shrink: 0;
-    max-width: 300px; /* Prevent image from getting too large */
+    max-width: 300px;
   }
 
   .text-content {
     flex: 1;
+    padding: 1em;
     display: flex;
     flex-direction: column;
     color: var(--text-color);
     justify-content: center;
   }
 
-  h3 {
-    margin: 0 0 0.5em;
-    font-size: 1.2em;
-  }
-
   p {
     margin: 0;
   }
+
+  /* --- Responsive tweaks --- */
   @media (max-width: 600px) {
     .card-content {
       flex-direction: column;
@@ -83,15 +132,19 @@ import "../styles/global.css";
     }
 
     .thumbnail {
-      width: 90%; /* Smaller width than 100% */
-      max-width: 280px; /* Cap the size */
+      width: 90%;
+      max-width: 280px;
       height: auto;
-      aspect-ratio: auto; /* Let image set its own height from width */
+      aspect-ratio: auto;
       border-radius: 6px;
     }
 
     .text-content {
       align-items: center;
+    }
+
+    .title-with-bar {
+      justify-content: center;
     }
 
     #title {
