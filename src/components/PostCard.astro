@@ -1,8 +1,10 @@
 ---
-const { title, url, pubDate, description, tags, image } = Astro.props;
 import "../styles/global.css";
+import FormattedDate from "./FormattedDate.astro";
+const { title, url, pubDate, description, tags, image } = Astro.props;
 ---
 
+<!-- put layer over the image -->
 <a class="card" href={url}>
   <div class="card-content">
     <div class="text-content">
@@ -10,27 +12,56 @@ import "../styles/global.css";
         <div class="vertical-bar"></div>
         <p id="title">{title}</p>
       </div>
-      <div class="date">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="icon"
-          ><path d="M8 2v4"></path><path d="M16 2v4"></path><rect
-            width="18"
-            height="18"
-            x="3"
-            y="4"
-            rx="2"></rect><path d="M3 10h18"></path></svg
-        >
+      <div class="cards">
+        <div class="date">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon"
+            ><path d="M8 2v4"></path><path d="M16 2v4"></path><rect
+              width="18"
+              height="18"
+              x="3"
+              y="4"
+              rx="2"></rect><path d="M3 10h18"></path><path d="M8 14h.01"
+            ></path><path d="M12 14h.01"></path><path d="M16 14h.01"
+            ></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path><path
+              d="M16 18h.01"></path></svg
+          >
 
-        <p id="pdate">Published: {pubDate}</p>
+          <div class="info-text">
+            <FormattedDate date={new Date(pubDate)} />
+          </div>
+        </div>
+        <div class="date">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19"></path>
+            <path
+              d="M9.586 5.586A2 2 0 0 0 8.172 5H3a1 1 0 0 0-1 1v5.172a2 2 0 0 0 .586 1.414L8.29 18.29a2.426 2.426 0 0 0 3.42 0l3.58-3.58a2.426 2.426 0 0 0 0-3.42z"
+            ></path>
+            <circle cx="6.5" cy="9.5" r=".5" fill="currentColor"></circle>
+          </svg>
+          <!-- <div class:list={["tags", "info-text"]}> -->
+          <!--   {tags.map((tag) => <p>#{tag}</p>)} -->
+          <!-- </div> -->
+          <p class="info-text">{tags[0]}</p>
+        </div>
       </div>
       <p>{description}</p>
     </div>
@@ -41,11 +72,39 @@ import "../styles/global.css";
 <style>
   /* TODO: inconify the tag, date */
   .icon {
-    background-color: yellowgreen;
-    border-radius: 2px;
+    background-color: var(--mode-button-bg);
+    color: var(--background-color);
+    border-radius: 7px;
+    margin: 10px;
+    padding: 5px;
+    width: 35px;
+    height: 35px;
   }
   .date {
     display: inline-flex;
+    /* still not aligned */
+    align-items: center;
+    gap: 0.1em;
+  }
+  .info-text {
+    color: var(--hamburger-border);
+    font-size: 1.1rem;
+  }
+
+  .tags-container {
+    display: flex;
+    align-items: center; /* vertically center the image and tags */
+    gap: 0.5em; /* space between image and tags */
+  }
+  .tag-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+  .tags {
+    display: flex;
+    align-items: center; /* vertically center the image and tags */
+    gap: 0.5em; /* space between image and tags */
   }
 
   /* --- Vertical bar next to title --- */
@@ -62,6 +121,8 @@ import "../styles/global.css";
     display: flex;
     align-items: center;
     margin-bottom: 0.5em;
+    gap: 0.5em; /* Adds space between icon and text */
+    margin-bottom: 0.5em;
   }
 
   #title {
@@ -71,10 +132,8 @@ import "../styles/global.css";
     margin: 0;
   }
 
-  #pdate {
-    font-style: italic;
-    color: gray;
-    margin-bottom: 0.5em;
+  .cards {
+    margin-left: 10px;
   }
 
   /* --- Card Styles --- */
