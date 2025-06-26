@@ -85,6 +85,7 @@ const recentPosts = (await getCollection("blog"))
 
     let i = 0;
     let char = 0;
+    let typewriterTimeout;
 
     function typewriter() {
       const element = document.getElementById("typedtext");
@@ -94,9 +95,9 @@ const recentPosts = (await getCollection("blog"))
         aText[i].slice(0, char++) + '<span class="blinking-cursor">_</span>';
 
       if (char <= aText[i].length) {
-        setTimeout(typewriter, iSpeed);
+        typewriterTimeout = setTimeout(typewriter, iSpeed);
       } else {
-        setTimeout(() => {
+        typewriterTimeout = setTimeout(() => {
           char = 0;
           i++;
           if (i >= aText.length) i = 0;
@@ -106,6 +107,14 @@ const recentPosts = (await getCollection("blog"))
       }
     }
 
-    window.addEventListener("DOMContentLoaded", typewriter);
+    function initTypewriter() {
+      clearTimeout(typewriterTimeout);
+      i = 0;
+      char = 0;
+      typewriter();
+    }
+
+    document.addEventListener("astro:page-load", initTypewriter);
+    initTypewriter(); // Also run on initial load
   </script>
 </BaseLayout>

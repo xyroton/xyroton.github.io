@@ -2,7 +2,7 @@
 // No imports needed here
 ---
 
-<button id="mode-icon" class="mode-button" onclick="toggleTheme()"> </button>
+<button id="mode-icon" class="mode-button"></button>
 
 <script is:inline>
   const sunIcon = `
@@ -57,5 +57,15 @@
     }
   }
 
-  detectColors();
+  function initDarkMode() {
+    detectColors();
+    const modeIcon = document.getElementById("mode-icon");
+    if (modeIcon) {
+      modeIcon.removeEventListener("click", toggleTheme); // Prevent duplicate listeners
+      modeIcon.addEventListener("click", toggleTheme);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", initDarkMode);
+  document.addEventListener("astro:page-load", initDarkMode);
 </script>
