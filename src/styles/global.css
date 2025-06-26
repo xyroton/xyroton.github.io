@@ -121,11 +121,11 @@ main {
 	display: none;
 }
 
-body[theme="dark"] .logo {
+html[theme="dark"] .logo {
 	display: none;
 }
 
-body[theme="dark"] .logo-dark {
+html[theme="dark"] .logo-dark {
 	display: inline;
 }
 

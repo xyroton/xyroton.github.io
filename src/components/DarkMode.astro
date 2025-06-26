@@ -23,44 +23,28 @@
       <path fill="#f2ecbc" d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
     </svg>`;
 
-  function detectColors() {
-    const modeIcon = document.getElementById("mode-icon");
-    if (!modeIcon) return;
-
-    if (localStorage.getItem("theme") === "dark") {
-      document.body.setAttribute("theme", "dark");
-      modeIcon.innerHTML = sunIcon;
-    } else if (localStorage.getItem("theme") === "light") {
-      document.body.setAttribute("theme", "light");
-      modeIcon.innerHTML = moonIcon;
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.body.setAttribute("theme", "dark");
-      modeIcon.innerHTML = sunIcon;
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.body.setAttribute("theme", "light");
-      modeIcon.innerHTML = moonIcon;
-      localStorage.setItem("theme", "light");
-    }
-  }
-
   function toggleTheme() {
     const modeIcon = document.getElementById("mode-icon");
-    if (document.body.getAttribute("theme") === "dark") {
-      document.body.setAttribute("theme", "light");
+    if (document.documentElement.getAttribute("theme") === "dark") {
+      document.documentElement.setAttribute("theme", "light");
       modeIcon.innerHTML = moonIcon;
       localStorage.setItem("theme", "light");
     } else {
-      document.body.setAttribute("theme", "dark");
+      document.documentElement.setAttribute("theme", "dark");
       modeIcon.innerHTML = sunIcon;
       localStorage.setItem("theme", "dark");
     }
   }
 
   function initDarkMode() {
-    detectColors();
     const modeIcon = document.getElementById("mode-icon");
     if (modeIcon) {
+      // Set initial icon based on current theme
+      if (document.documentElement.getAttribute("theme") === "dark") {
+        modeIcon.innerHTML = sunIcon;
+      } else {
+        modeIcon.innerHTML = moonIcon;
+      }
       modeIcon.removeEventListener("click", toggleTheme); // Prevent duplicate listeners
       modeIcon.addEventListener("click", toggleTheme);
     }
