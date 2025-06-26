@@ -101,10 +101,11 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
   }
 
   .arrow {
-  width: 35px;
-  height: 35px;
-  stroke-width: 2.2; /* optional: slightly thicker lines */
-}
+    width: 35px;
+    height: 35px;
+    stroke-width: 2.2; /* optional: slightly thicker lines */
+    stroke: var(--mode-button-bg);
+  }
   .date {
     display: inline-flex;
     /* still not aligned */
@@ -113,6 +114,7 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
   .info-text {
     color: var(--nav-fg);
     font-size: 1.1rem;
+    font-family: 'JetBrains Mono';
   }
 
   .tags-container {
