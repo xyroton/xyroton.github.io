@@ -17,34 +17,6 @@ import { ViewTransitions } from 'astro:transitions';
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css"
     />
-    <ViewTransitions />
-    <style is:global>
-      @keyframes slide-from-right {
-        from {
-          transform: translateX(100%);
-        }
-        to {
-          transform: translateX(0);
-        }
-      }
-
-      @keyframes slide-to-left {
-        from {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(-100%);
-        }
-      }
-
-      ::view-transition-old(root) {
-        animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
-      }
-
-      ::view-transition-new(root) {
-        animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
-      }
-    </style>
   </head>
   <body>
     <div class="wrapper">

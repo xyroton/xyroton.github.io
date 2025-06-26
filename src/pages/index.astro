@@ -21,53 +21,55 @@ const recentPosts = (await getCollection("blog"))
 ---
 
 <BaseLayout>
-  <!-- Typewriter heading -->
-  <h1 id="typedtext" class="typewriter"></h1>
+  <div class="animate-on-load">
+    <!-- Typewriter heading -->
+    <h1 id="typedtext" class="typewriter"></h1>
 
-  <div class="bubble">
-    <p>
-      My blog post is written using the popular web framework
-      <a href="https://astro.build/" target="_blank" rel="noopener noreferrer"
-        >Astro</a
-      >
-      and styled with the popular Neovim color theme
-      <a
-        href="https://github.com/rebelot/kanagawa.nvim"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="default-link">Kanagawa</a
-      >
-      in the Dragon flavor.
+    <div class="bubble">
+      <p>
+        My blog post is written using the popular web framework
+        <a href="https://astro.build/" target="_blank" rel="noopener noreferrer"
+          >Astro</a
+        >
+        and styled with the popular Neovim color theme
+        <a
+          href="https://github.com/rebelot/kanagawa.nvim"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="default-link">Kanagawa</a
+        >
+        in the Dragon flavor.
+      </p>
+    </div>
+
+    <h2 class="underl">Me</h2>
+    <p class="justified">
+      I mostly write about AI and related technologies like Machine Learning,
+      Natural Language Processing, and Deep Learning — you get the idea.
     </p>
+    <p class="justified">
+      I'm also a strong proponent of Linux and open-source software, as well as
+      developer efficiency and the tools that support it. So don’t be surprised if
+      you come across posts about those or general computer science topics as
+      well.
+    </p>
+
+    <h2 class="underl">Latest Blog Posts</h2>
+
+    <!-- Render top 3 recent posts -->
+    {
+      recentPosts.map((post) => (
+        <PostCard
+          url={`/posts/${post.id}/`}
+          title={post.data.title}
+          image={post.data.image}
+          pubDate={post.formattedDate}
+          description={post.data.description}
+          tags={post.data.tags}
+        />
+      ))
+    }
   </div>
-
-  <h2 class="underl">Me</h2>
-  <p class="justified">
-    I mostly write about AI and related technologies like Machine Learning,
-    Natural Language Processing, and Deep Learning — you get the idea.
-  </p>
-  <p class="justified">
-    I'm also a strong proponent of Linux and open-source software, as well as
-    developer efficiency and the tools that support it. So don’t be surprised if
-    you come across posts about those or general computer science topics as
-    well.
-  </p>
-
-  <h2 class="underl">Latest Blog Posts</h2>
-
-  <!-- Render top 3 recent posts -->
-  {
-    recentPosts.map((post) => (
-      <PostCard
-        url={`/posts/${post.id}/`}
-        title={post.data.title}
-        image={post.data.image}
-        pubDate={post.formattedDate}
-        description={post.data.description}
-        tags={post.data.tags}
-      />
-    ))
-  }
 
   <!-- typewriter -->
   <script>
@@ -114,7 +116,7 @@ const recentPosts = (await getCollection("blog"))
       typewriter();
     }
 
-    document.addEventListener("astro:page-load", initTypewriter);
+    document.addEventListener("DOMContentLoaded", initTypewriter);
     initTypewriter(); // Also run on initial load
   </script>
 </BaseLayout>

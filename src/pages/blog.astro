@@ -78,7 +78,7 @@ const allPosts = (await getCollection("blog"))
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
+    function initTagFiltering() {
       const tagButtons = document.querySelectorAll<HTMLElement>(".tag-button");
       const postCards = document.querySelectorAll<HTMLElement>(".post-card-wrapper");
       const urlParams = new URLSearchParams(window.location.search);
@@ -104,22 +104,32 @@ const allPosts = (await getCollection("blog"))
       }
 
       tagButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          activeTag = button.dataset.tag ?? "all";
-          const url = new URL(window.location);
-          url.searchParams.set("tag", activeTag);
-          window.history.pushState({}, "", url);
-          filterPosts();
-        });
+        // Remove existing event listeners to prevent duplicates
+        button.removeEventListener("click", handleTagButtonClick);
+        button.addEventListener("click", handleTagButtonClick);
       });
 
-      window.addEventListener("popstate", () => {
+      function handleTagButtonClick(event) {
+        activeTag = (event.currentTarget as HTMLElement).dataset.tag ?? "all";
+        const url = new URL(window.location);
+        url.searchParams.set("tag", activeTag);
+        window.history.pushState({}, "", url);
+        filterPosts();
+      }
+
+      window.removeEventListener("popstate", handlePopstate);
+      window.addEventListener("popstate", handlePopstate);
+
+      function handlePopstate() {
         const urlParams = new URLSearchParams(window.location.search);
         activeTag = urlParams.get("tag") || "all";
         filterPosts();
-      });
+      }
 
       filterPosts();
-    });
+    }
+
+    document.addEventListener("DOMContentLoaded", initTagFiltering);
+    document.addEventListener("astro:page-load", initTagFiltering);
   </script>
 </BaseLayout>
