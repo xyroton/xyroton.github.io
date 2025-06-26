@@ -215,28 +215,36 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
   @media (max-width: 600px) {
     .card-content {
       flex-direction: column;
-      align-items: center;
-      text-align: center;
+      align-items: flex-start; /* Align content to the left on mobile */
+      text-align: left;
     }
 
     .thumbnail {
-      width: 90%;
-      max-width: 280px;
+      width: 100%; /* Make image full width */
+      max-width: none; /* Remove max-width constraint */
       height: auto;
       aspect-ratio: auto;
       border-radius: 6px;
+      padding: 0;
+      order: -1; /* Move image to the top */
     }
 
     .text-content {
-      align-items: center;
+      align-items: flex-start; /* Align text content to the left */
+      padding: 1em;
     }
 
     .title-with-bar {
-      justify-content: center;
+      justify-content: flex-start; /* Align title to the left */
     }
 
     #title {
-      font-size: 1.1em;
+      font-size: 1.2em;
+    }
+
+    .cards {
+      width: 100%; /* Ensure date/tags take full width */
+      justify-content: flex-start; /* Align date/tags to the left */
     }
   }
 </style>
