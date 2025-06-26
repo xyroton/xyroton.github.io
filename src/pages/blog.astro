@@ -23,23 +23,82 @@ const allPosts = (await getCollection("blog"))
 <BaseLayout>
   <h1>Blog</h1>
   <!-- Render blog posts -->
-  {
-    allPosts.map((post) => (
-      <PostCard
-        url={`/posts/${post.id}/`}
-        title={post.data.title}
-        image={post.data.image}
-        pubDate={post.formattedDate}
-        image={post.data.image}
-        description={post.data.description}
-        tags={post.data.tags}
-      />
-    ))
-  }
+
+  <!-- Hey google, listen up here.  -->
+  <!-- I want the tags displayed here of all the blog posts. And when click on a tag i want it to only to see posts that have the corresponding tags in them.  -->
+  <!-- Visulay I want each tag with s border and a border radius and bg should be --mode-button-bg.  -->
+  <!-- Make the necessary changes in the project. -->
+  <div class="tag-container">
+    <button class="tag-button active" data-tag="all">All</button>
+    {
+      [...new Set(allPosts.flatMap((post) => post.data.tags))].map((tag) => (
+        <button class="tag-button" data-tag={tag}>
+          {tag}
+        </button>
+      ))
+    }
+  </div>
+
+  <div class="post-container">
+    {
+      allPosts.map((post) => (
+        <div class="post-card-wrapper" data-tags={post.data.tags.join(" ")}>
+          <PostCard
+            url={`/posts/${post.id}/`}
+            title={post.data.title}
+            image={post.data.image}
+            pubDate={post.formattedDate}
+            description={post.data.description}
+            tags={post.data.tags}
+          />
+        </div>
+      ))
+    }
+  </div>
 
   <script>
-    document.querySelector(".hamburger")?.addEventListener("click", () => {
-      document.querySelector(".nav-links")?.classList.toggle("expanded");
+    document.addEventListener("DOMContentLoaded", () => {
+      const tagButtons = document.querySelectorAll(".tag-button");
+      const postCards = document.querySelectorAll(".post-card-wrapper");
+      const urlParams = new URLSearchParams(window.location.search);
+      let activeTag = urlParams.get("tag") || "all";
+
+      function filterPosts() {
+        postCards.forEach((card) => {
+          const postTags = card.dataset.tags.split(" ");
+          if (activeTag === "all" || postTags.includes(activeTag)) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        tagButtons.forEach((button) => {
+          if (button.dataset.tag === activeTag) {
+            button.classList.add("active");
+          } else {
+            button.classList.remove("active");
+          }
+        });
+      }
+
+      tagButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          activeTag = button.dataset.tag;
+          const url = new URL(window.location);
+          url.searchParams.set("tag", activeTag);
+          window.history.pushState({}, "", url);
+          filterPosts();
+        });
+      });
+
+      window.addEventListener("popstate", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        activeTag = urlParams.get("tag") || "all";
+        filterPosts();
+      });
+
+      filterPosts();
     });
   </script>
 </BaseLayout>

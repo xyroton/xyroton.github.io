@@ -322,6 +322,34 @@ body {
 	flex-direction: column;
 }
 
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tag-button {
+  background-color: var(--mode-button-bg);
+  border: 1px solid var(--mode-button-bg);
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: var(--text-color);
+  font-weight: bold;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.tag-button:hover {
+  background-color: transparent;
+  border-color: var(--mode-button-bg);
+}
+
+.tag-button.active {
+  background-color: transparent;
+  border-color: var(--mode-button-bg);
+}
+
 /* .page-header, */
 .page-footer {
 	padding: 20px;
