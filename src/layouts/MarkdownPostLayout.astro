@@ -68,7 +68,7 @@ const { frontmatter } = Astro.props;
             <circle cx="6.5" cy="9.5" r=".5" fill="currentColor"></circle>
           </svg>
           <div class="info-text">
-            {frontmatter.tags.map((tag) => <p>#{tag}</p>)}
+            {frontmatter.tags.map((tag) => <span>#{tag} </span>)}
           </div>
         </div>
         
@@ -134,9 +134,8 @@ const { frontmatter } = Astro.props;
   }
 
   .tags-container {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 0.5em;
   }
 
   .tag {
