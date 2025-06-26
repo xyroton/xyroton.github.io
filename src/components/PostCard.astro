@@ -11,8 +11,22 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
       <div class="title-with-bar">
         <div class="vertical-bar"></div>
         <p id="title">{title}</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="arrow"
+          ><path d="m9 18 6-6-6-6"></path></svg
+        >
       </div>
       <div class="cards">
+        <!-- date -->
         <div class="date">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +54,8 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
             <FormattedDate date={new Date(pubDate)} />
           </div>
         </div>
-        <div class="date">
+        <!-- tags -->
+        <div class:list={["date", "extra"]}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="icon"
@@ -75,19 +90,22 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
     background-color: var(--mode-button-bg);
     color: var(--background-color);
     border-radius: 7px;
-    margin: 10px;
+    margin: 10px 10px 10px 0;
     padding: 5px;
     width: 35px;
     height: 35px;
+  }
+
+  .extra {
+    margin-left: 10px;
   }
   .date {
     display: inline-flex;
     /* still not aligned */
     align-items: center;
-    gap: 0.1em;
   }
   .info-text {
-    color: var(--hamburger-border);
+    color: var(--nav-fg);
     font-size: 1.1rem;
   }
 
@@ -111,9 +129,9 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
   .vertical-bar {
     width: 3px;
     height: 1.5em;
-    background-color: limegreen; /* Make this visible */
-    border-radius: 3px;
-    margin-right: 0.5rem;
+    background-color: var(--mode-button-bg); /* Make this visible */
+    border-radius: 2px;
+    margin-right: 0.1rem;
     flex-shrink: 0;
   }
 
@@ -133,13 +151,11 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
   }
 
   .cards {
-    margin-left: 10px;
   }
 
   /* --- Card Styles --- */
   .card {
-    border: 1px solid var(--hamburger-border);
-    background-color: #23202a;
+    background-color: var(--buble);
     border-radius: 10px;
     overflow: hidden;
     display: block;
@@ -160,16 +176,23 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
   }
 
   .thumbnail {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%);
     width: 40%;
-    object-fit: cover;
+    padding: 10px;
+    border-radius: 20px;
     aspect-ratio: 16 / 9;
-    object-fit: cover;
     flex-shrink: 0;
     max-width: 300px;
   }
 
-  .text-content {
+  .thumbnail:hover {
+    filter: brightness(0.7); /* Darkens the image slightly */
+  }
+
+
+
+
+    
+ .text-content {
     flex: 1;
     padding: 1em;
     display: flex;

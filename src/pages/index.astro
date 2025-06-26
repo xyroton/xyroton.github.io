@@ -64,6 +64,7 @@ const recentPosts = (await getCollection("blog"))
         image={post.data.image}
         pubDate={post.formattedDate}
         description={post.data.description}
+        tags={post.data.tags}
       />
     ))
   }
