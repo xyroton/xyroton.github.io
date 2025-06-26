@@ -36,8 +36,8 @@
 /* Light theme: default Shiki styles (already included by Astro) */
 
 /* Dark theme override */
-body[theme="dark"] .astro-code,
-body[theme="dark"] .astro-code span {
+html[theme="dark"] .astro-code,
+html[theme="dark"] .astro-code span {
 	color: var(--shiki-dark) !important;
 	background-color: var(--shiki-dark-bg) !important;
 	font-style: var(--shiki-dark-font-style) !important;
@@ -211,11 +211,16 @@ h2 {
 	top: 125%;
 	background-color: var(--drop-menu-bg);
 	width: 200px;
-	display: none;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-10px);
+	transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, max-height 0.3s ease;
 	flex-direction: column;
 	padding: 0.5rem 0;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 	border-radius: 8px;
+	max-height: 0;
+	overflow: hidden;
 }
 
 #nav-toggle {
@@ -263,7 +268,11 @@ h2 {
 }
 
 .dropdown-menu.active {
-	display: flex;
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+	max-height: 200px; /* Adjust based on content height */
+	display: flex; /* Keep display flex for layout */
 }
 
 .hello {
