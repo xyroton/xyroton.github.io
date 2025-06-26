@@ -99,6 +99,12 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
   .extra {
     margin-left: 10px;
   }
+
+  .arrow {
+  width: 35px;
+  height: 35px;
+  stroke-width: 2.2; /* optional: slightly thicker lines */
+}
   .date {
     display: inline-flex;
     /* still not aligned */
@@ -144,7 +150,7 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
   }
 
   #title {
-    font-size: 20px;
+    font-size: 1.4rem;
     color: var(--text-color);
     text-decoration: underline;
     margin: 0;
