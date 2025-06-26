@@ -178,6 +178,17 @@ pre>code {
 	border: none;
 	cursor: pointer;
 	margin-right: 5px;
+	transition: transform 0.2s ease-in-out;
+}
+
+.mode-button.animate {
+	animation: pop 0.2s ease-in-out;
+}
+
+@keyframes pop {
+	0% { transform: scale(1); }
+	50% { transform: scale(1.1); }
+	100% { transform: scale(1); }
 }
 
 
@@ -312,7 +323,7 @@ body {
 	height: 100%;
 	padding: 0;
 	margin: 0;
-	/* font: 1.2em sans-serif; */
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {

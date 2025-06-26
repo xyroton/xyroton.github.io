@@ -25,6 +25,12 @@
 
   function toggleTheme() {
     const modeIcon = document.getElementById("mode-icon");
+    modeIcon.classList.add("animate");
+
+    setTimeout(() => {
+      modeIcon.classList.remove("animate");
+    }, 200); // Match the animation duration
+
     if (document.documentElement.getAttribute("theme") === "dark") {
       document.documentElement.setAttribute("theme", "light");
       modeIcon.innerHTML = moonIcon;
