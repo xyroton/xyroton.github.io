@@ -9,53 +9,77 @@ const { frontmatter } = Astro.props;
     <!-- Title should be placed above content -->
     <title>{frontmatter.title}</title>
 
-    <!-- If you want to show more metadata like description, date, and author -->
-
     <h1 class="post-title">{frontmatter.title}</h1>
-    <div class="tags-container">
-      <ul class="tags">
+    <div class="post-metadata-bubble">
+      <div class="text-content">
+        <div class="date">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon"
+          >
+            <path d="M8 2v4"></path>
+            <path d="M16 2v4"></path>
+            <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+            <path d="M3 10h18"></path>
+            <path d="M8 14h.01"></path>
+            <path d="M12 14h.01"></path>
+            <path d="M16 14h.01"></path>
+            <path d="M8 18h.01"></path>
+            <path d="M12 18h.01"></path>
+            <path d="M16 18h.01"></path>
+          </svg>
+          <div class="info-text">
+            <FormattedDate date={frontmatter.pubDate} />
+          </div>
+        </div>
         {
-          frontmatter.tags.map((tag) => (
-            <li class="tag">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="tag-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19" />
-                <path d="M9.586 5.586A2 2 0 0 0 8.172 5H3a1 1 0 0 0-1 1v5.172a2 2 0 0 0 .586 1.414L8.29 18.29a2.426 2.426 0 0 0 3.42 0l3.58-3.58a2.426 2.426 0 0 0 0-3.42z" />
-                <circle cx="6.5" cy="9.5" r=".5" fill="currentColor" />
-              </svg>
-              {tag}
-            </li>
-          ))
+          frontmatter.updatedDate && (
+            <div class="date">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon lucide lucide-save-all-icon lucide-save-all"><path d="M10 2v3a1 1 0 0 0 1 1h5"/><path d="M18 18v-6a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6"/><path d="M18 22H4a2 2 0 0 1-2-2V6"/><path d="M8 18a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9.172a2 2 0 0 1 1.414.586l2.828 2.828A2 2 0 0 1 22 6.828V16a2 2 0 0 1-2.01 2z"/></svg>
+              <div class="info-text">
+                Updated on <FormattedDate date={frontmatter.updatedDate} />
+              </div>
+            </div>
+          )
         }
-      </ul>
-    </div>
-
-    <div class="date">
-      <p>
-        <FormattedDate date={frontmatter.pubDate} />
-      </p>
-      {
-        frontmatter.updatedDate && (
-          <p class="updateD">
-            Updated on <FormattedDate date={frontmatter.updatedDate} />
-          </p>
-        )
-      }
-    </div>
-    <div class="hero-image">
-      {
-        frontmatter.image.url && (
-          <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
-        )
-      }
+        <div class="tags-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19"></path>
+            <path
+              d="M9.586 5.586A2 2 0 0 0 8.172 5H3a1 1 0 0 0-1 1v5.172a2 2 0 0 0 .586 1.414L8.29 18.29a2.426 2.426 0 0 0 3.42 0l3.58-3.58a2.426 2.426 0 0 0 0-3.42z"
+            ></path>
+            <circle cx="6.5" cy="9.5" r=".5" fill="currentColor"></circle>
+          </svg>
+          <div class="info-text">
+            {frontmatter.tags.map((tag) => <p>#{tag}</p>)}
+          </div>
+        </div>
+        
+      </div>
+      <div class="hero-image">
+        {
+          frontmatter.image.url && (
+            <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
+          )
+        }
+      </div>
     </div>
 
     <!-- Main content of the post -->
@@ -64,15 +88,82 @@ const { frontmatter } = Astro.props;
 </BaseLayout>
 
 <style>
-  .tags-container {
+  .post-metadata-bubble {
+    background-color: var(--buble);
+    border-radius: 10px;
+    margin-bottom: 1em; /* Decreased margin */
+    box-shadow: var(--box-shadow);
     display: flex;
-    align-items: center; /* vertically center the image and tags */
-    gap: 0.5em; /* space between image and tags */
+    align-items: center;
+    gap: 1em;
+  }
+
+  .text-content {
+    flex: 1;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+    justify-content: center;
+  }
+
+  .icon {
+    background-color: var(--mode-button-bg);
+    color: var(--background-color);
+    border-radius: 7px;
+    margin: 10px 10px 10px 0;
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .info-text {
+    color: var(--nav-fg);
+    font-size: 1.1rem;
+    font-family: "JetBrains Mono";
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .date {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .tags-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .tag {
+    display: inline-flex; /* inline-flex for horizontal alignment */
+    align-items: center; /* vertical center icon and text */
+    padding: 2px 6px; /* add some horizontal padding for breathing room */
+    margin-right: 0.25em;
+    font-size: 0.9em;
+    font-family: "JetBrains Mono";
+    border: none;
+    background-color: var(--mode-button-bg);
+    color: var(--background-color);
+    border-radius: 5px;
+    gap: 0.3em; /* space between icon and text */
+  }
+  .tag-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
   }
   .hero-image {
-    width: 100%;
-    margin-bottom: 1em;
-    margin-top: 2em;
+    width: 40%;
+    padding: 10px;
+    border-radius: 20px;
+    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+    max-width: 300px;
   }
 
   .hero-image img {
@@ -113,14 +204,10 @@ const { frontmatter } = Astro.props;
     padding: 0; /* Just in case padding is inherited */
   }
 
-  .updateD {
-    font-size: 0.7em;
-    font-family: "JetBrains Mono Italic";
-    color: var(--mode-button-bg);
-  }
+  
 
   .date {
-    margin-top: 1em;
+    margin-top: 0em;
     margin-bottom: 0em;
     padding: 0;
     color: var(--gray-tone);
@@ -169,5 +256,29 @@ const { frontmatter } = Astro.props;
     width: 16px;
     height: 16px;
     flex-shrink: 0;
+  }
+
+  /* --- Responsive tweaks --- */
+  @media (max-width: 600px) {
+    .post-metadata-bubble {
+      flex-direction: column;
+      align-items: flex-start; /* Align content to the left on mobile */
+      text-align: left;
+    }
+
+    .hero-image {
+      width: 100%; /* Make image full width */
+      max-width: none; /* Remove max-width constraint */
+      height: auto;
+      aspect-ratio: auto;
+      border-radius: 6px;
+      padding: 0;
+      order: -1; /* Move image to the top */
+    }
+
+    .text-content {
+      align-items: flex-start; /* Align text content to the left */
+      padding: 1em;
+    }
   }
 </style>
