@@ -28,6 +28,27 @@ const allPosts = (await getCollection("blog"))
   <!-- I want the tags displayed here of all the blog posts. And when click on a tag i want it to only to see posts that have the corresponding tags in them.  -->
   <!-- Visulay I want each tag with s border and a border radius and bg should be --mode-button-bg.  -->
   <!-- Make the necessary changes in the project. -->
+
+  <!-- It actully did the job very different from the way I would have done it but it works  -->
+
+<!---->
+<!--   follow up. the buttons should not have a border now. and fg should be the --background color from the global.css. on hover do not change the color instead  -->
+<!-- change the size/ hover size of the button. If the button is actice it needs to be bg the --buble and fg --text. -->
+<!---->
+<!-- Also i have some lsp error even though the code works. -->
+<!-- here they:  -->
+<!-- src/pages/blog.astro|77 col 33| Property 'dataset' does not exist on type 'Element'. -->
+<!-- src/pages/blog.astro|77 col 33| Property 'dataset' does not exist on type 'Element'. -->
+<!-- src/pages/blog.astro|79 col 18| Property 'style' does not exist on type 'Element'. -->
+<!-- src/pages/blog.astro|79 col 18| Property 'style' does not exist on type 'Element'. -->
+<!-- src/pages/blog.astro|81 col 18| Property 'style' does not exist on type 'Element'. -->
+<!-- src/pages/blog.astro|81 col 18| Property 'style' does not exist on type 'Element'. -->
+<!-- src/pages/blog.astro|86 col 22| Property 'dataset' does not exist on type 'Element'. -->
+<!-- src/pages/blog.astro|86 col 22| Property 'dataset' does not exist on type 'Element'. -->
+<!-- src/pages/blog.astro|96 col 30| Property 'dataset' does not exist on type 'Element'. -->
+<!-- src/pages/blog.astro|96 col 30| Property 'dataset' does not exist on type 'Element'. -->
+<!---->
+ 
   <div class="tag-container">
     <button class="tag-button active" data-tag="all">All</button>
     {
@@ -58,14 +79,14 @@ const allPosts = (await getCollection("blog"))
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const tagButtons = document.querySelectorAll(".tag-button");
-      const postCards = document.querySelectorAll(".post-card-wrapper");
+      const tagButtons = document.querySelectorAll<HTMLElement>(".tag-button");
+      const postCards = document.querySelectorAll<HTMLElement>(".post-card-wrapper");
       const urlParams = new URLSearchParams(window.location.search);
       let activeTag = urlParams.get("tag") || "all";
 
       function filterPosts() {
         postCards.forEach((card) => {
-          const postTags = card.dataset.tags.split(" ");
+          const postTags = card.dataset.tags?.split(" ") ?? [];
           if (activeTag === "all" || postTags.includes(activeTag)) {
             card.style.display = "block";
           } else {
@@ -84,7 +105,7 @@ const allPosts = (await getCollection("blog"))
 
       tagButtons.forEach((button) => {
         button.addEventListener("click", () => {
-          activeTag = button.dataset.tag;
+          activeTag = button.dataset.tag ?? "all";
           const url = new URL(window.location);
           url.searchParams.set("tag", activeTag);
           window.history.pushState({}, "", url);
