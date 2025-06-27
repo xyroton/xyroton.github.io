@@ -223,6 +223,10 @@ nav a {
   margin-right: 0.1em;
 }
 
+.blog-post-container h2 {
+  font-size: 1.5rem;
+}
+
 .blog-post-container h3::before {
   content: "### ";
   color: var(--mode-button-bg);
