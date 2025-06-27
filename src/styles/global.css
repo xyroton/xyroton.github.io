@@ -238,6 +238,13 @@ h2 {
 	margin: 0;
 }
 
+blockquote {
+  border-left: 4px solid var(--mode-button-bg);
+  padding-left: 1em;
+  margin-left: 0;
+  color: var(--text-color);
+}
+
 .dropdown-menu {
 	position: absolute;
 	right: 6%;
