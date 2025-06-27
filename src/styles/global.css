@@ -275,6 +275,7 @@ blockquote {
 	border-radius: 8px;
 	max-height: 0;
 	overflow: hidden;
+	border: 1px solid var(--hamburger-border);
 }
 
 #nav-toggle {
