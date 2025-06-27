@@ -11,19 +11,7 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
       <div class="title-with-bar">
         <div class="vertical-bar"></div>
         <p id="title">{title}</p>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="arrow"
-          ><path d="m9 18 6-6-6-6"></path></svg
-        >
+        
       </div>
       <div class="cards">
         <!-- date -->
@@ -136,11 +124,11 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
   /* --- Vertical bar next to title --- */
   .vertical-bar {
     width: 3px;
-    height: 1.5em;
     background-color: var(--mode-button-bg); /* Make this visible */
     border-radius: 2px;
     margin-right: 0.1rem;
     flex-shrink: 0;
+    align-self: stretch;
   }
 
   .title-with-bar {
