@@ -66,3 +66,118 @@ sudo pacman -S git
 
 ### Create GitHub account
 If you do not have a [GitHub](https://github.com/) account yet head over and create one. It is free. 
+
+#### TODO for you 
+- Create a repo and clone it.
+- Start *Obsidian* and chose your *git repo* as your vault. 
+
+# Autocommit
+At this point you should have everything working that you need for your functional note taking setup. You have:
+- **Obsidian** to take Notes.
+- **Syncthing** to sync you Notes with other devives.
+- **Git** to track your note chages.
+- **GitHub** to host you git repo, to access it from anywhere. 
+
+One *inconvenience* that is left over to fix it the committing and pushing of your note changes. Right now one has to manually `git commit` and `git push` all the changes which quickly will become a major time consumer. 
+
+So we will automate this.
+
+### Shell scrip 
+One thing I love about unix system espically in linux is the fact you can easily  automate tasks by writing a simple shell scripts. Lets write one!
+Start by creating the following file: `git_auto_commit.sh`
+
+```bash
+#!/bin/bash
+
+export HOME=/home/<user>
+git config --global --add safe.directory /home/<user>/<git-repo>
+
+cd /home/<user>/<git-repo> || exit
+
+git add .
+
+git commit -m "Automatic commit $(date +'%Y-%m-%d %H:%M:%S')"
+
+git push origin main
+```
+
+You might also want to check if `.local/bin` is in your **PATH**, if not you will run in into problems later (for most linux distros out there it will be in PATH by default, but bare bones arch it will not be).
+
+Check by running:
+```bash
+echo "$PATH" | grep -q "$HOME/.local/bin" && echo "In PATH, you are in luck!" || echo "Not in PATH, do not worry we will fix this!"
+```
+
+#### Add to PATH (skip if it is in PATH for you) 
+If it tells you it is not in PATH, you have to add this to your default `shellrc`.
+For me it is **bash** so I run to `.bashrc`:
+```bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+```
+ if you are running **zsh** run:
+ ```bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+ ```
+
+### Executing `git_auto_commit.sh`
+We are going to create a **systemd** service that is going to auto run the shell script for us. We will have to do this as root. I will use neovim to to edit these files please feel free use what you want.
+
+#### Create systemd service
+Run the follwing: `sudo nvim /etc/systemd/system/git_auto_commit.service`
+this will create the file `git_auto_commit.service` and open it in neovim.
+
+Put the following in `git_auto_commit.service`:
+
+```bash
+[Unit]
+Description=Git Auto Commit Service
+
+[Service]
+Type=oneshot
+User=xo
+ExecStart=/home/xo/.local/bin/git_auto_commit.sh
+```
+
+
+#### Create systemd timer
+Now we will create a timer that will execute out service every 4 hours, in other words commit our changes and push them to GitHub.
+
+Create this file: `/etc/systemd/system/git_auto_commit.timer`:
+```bash
+[Unit]
+Description=Runs git_auto_commit.service every 4 hours
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=2h
+
+[Install]
+WantedBy=timers.target
+```
+
+#### Enable the service
+The last step is to enable the service, run the following commands:
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now git_auto_commit.timer
+```
+
+You can check the status by running:
+```bash
+systemctl status git_auto_commit.timer
+```
+
+If you encounter any problems it might be usefull to check the actions of the systemd service by running:
+```bash
+journalctl -u git_auto_commit.service
+```
+
+You can also manually trigger the service by running which also can be useful for debugging:
+```bash
+sudo systemctl start git_auto_commit.service
+ ``` 
+
+# Final Words 
+By now you should have functional and save (not in terms of security) way to take notes locally without the fear of overwriting or losing them as with other services e.g. Notion is the case, but the loss of the power to sync your notes with different devices.  
+
+If you have any suggestions or improvements feel free to message me.
