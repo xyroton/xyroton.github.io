@@ -256,7 +256,7 @@ blockquote {
   height: 1px;
   width: 60%;
   background: linear-gradient(to right, transparent, var(--mode-button-bg) 20%, var(--mode-button-bg) 80%, transparent);
-  margin: 2em auto;
+  margin: 1em auto;
 }
 
 .dropdown-menu {
@@ -389,7 +389,9 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 10px;
+	margin-top: 3em;
 	margin-bottom: 20px;
+	justify-content: center;
 }
 
 .tag-button {
