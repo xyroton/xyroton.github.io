@@ -233,6 +233,10 @@ nav a {
   margin-right: 0.1em;
 }
 
+.blog-post-container h4 {
+  text-decoration: underline;
+}
+
 h2 {
 	font-size: 1.2rem;
 	margin: 0;
