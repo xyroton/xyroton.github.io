@@ -108,16 +108,16 @@ Check by running:
 echo "$PATH" | grep -q "$HOME/.local/bin" && echo "In PATH, you are in luck!" || echo "Not in PATH, do not worry we will fix this!"
 ```
 
-#### Add to PATH (skip if it is in PATH for you) 
-If it tells you it is not in PATH, you have to add this to your default `shellrc`.
-For me it is **bash** so I run to `.bashrc`:
-```bash
-echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
-```
- if you are running **zsh** run:
- ```bash
-echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
- ```
+> #### Add to PATH (skip if it is in PATH for you) 
+> If it tells you it is not in PATH, you have to add this to your default `shellrc`.
+> For me it is **bash** so I run to `.bashrc`:
+> ```bash
+> echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+> ```
+> if you are running **zsh** run:
+> ```bash
+> echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+> ```
 
 ### Executing `git_auto_commit.sh`
 We are going to create a **systemd** service that is going to auto run the shell script for us. We will have to do this as root. I will use neovim to to edit these files please feel free use what you want.
