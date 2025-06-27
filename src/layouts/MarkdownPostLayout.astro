@@ -108,29 +108,29 @@ const { frontmatter } = Astro.props;
     flex: 1;
     padding: 1em;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0.5em;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.25em;
     color: var(--text-color);
   }
 
   .icon {
     color: var(--mode-button-bg);
     border-radius: 7px;
-    margin: 10px 10px 10px 0;
-    width: 40px;
-    height: 40px;
+    margin: 8px 8px 8px 0; /* Adjusted margin for symmetry */
+    width: 32px;
+    height: 32px;
   }
 
   .info-text {
     color: var(--nav-fg);
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-family: "JetBrains Mono";
     display: flex;
     flex-direction: column;
   }
 
   .info-text .label {
-    font-size: 0.7em;
+    font-size: 0.6em;
     color: var(--text-color);
   }
 
@@ -157,19 +157,19 @@ const { frontmatter } = Astro.props;
   .tag {
     display: inline-flex; /* inline-flex for horizontal alignment */
     align-items: center; /* vertical center icon and text */
-    padding: 2px 6px; /* add some horizontal padding for breathing room */
-    margin-right: 0.25em;
-    font-size: 0.9em;
+    padding: 1px 3px; /* Adjusted padding */
+    margin-right: 0.15em;
+    font-size: 0.8em; /* Adjusted font size */
     font-family: "JetBrains Mono";
     border: none;
     background-color: var(--mode-button-bg);
     color: var(--background-color);
     border-radius: 5px;
-    gap: 0.3em; /* space between icon and text */
+    gap: 0.2em; /* Adjusted gap */
   }
   .tag-icon {
-    width: 16px;
-    height: 16px;
+    width: 12px; /* Adjusted icon size */
+    height: 12px; /* Adjusted icon size */
     flex-shrink: 0;
   }
   .hero-image {
@@ -227,7 +227,7 @@ const { frontmatter } = Astro.props;
     color: var(--gray-tone);
     align-items: center;
     /* justify-content: center; */
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-family: "JetBrains Mono";
   }
 
@@ -256,19 +256,19 @@ const { frontmatter } = Astro.props;
   .tag {
     display: inline-flex; /* inline-flex for horizontal alignment */
     align-items: center; /* vertical center icon and text */
-    padding: 2px 6px; /* add some horizontal padding for breathing room */
-    margin-right: 0.25em;
-    font-size: 0.9em;
+    padding: 1px 3px; /* Adjusted padding */
+    margin-right: 0.15em;
+    font-size: 0.8em; /* Adjusted font size */
     font-family: "JetBrains Mono";
     border: none;
     background-color: var(--mode-button-bg);
     color: var(--background-color);
     border-radius: 5px;
-    gap: 0.3em; /* space between icon and text */
+    gap: 0.2em; /* Adjusted gap */
   }
   .tag-icon {
-    width: 16px;
-    height: 16px;
+    width: 12px; /* Adjusted icon size */
+    height: 12px; /* Adjusted icon size */
     flex-shrink: 0;
   }
 
