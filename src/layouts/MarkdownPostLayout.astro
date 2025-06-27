@@ -8,6 +8,13 @@ const { frontmatter } = Astro.props;
   <div class="blog-post-container">
     <!-- Title should be placed above content -->
     <title>{frontmatter.title}</title>
+        <div class="hero-image">
+      {
+        frontmatter.image.url && (
+          <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
+        )
+      }
+    </div>
 
     <h1 class="post-title">{frontmatter.title}</h1>
     <div class="post-metadata-bubble">
@@ -172,20 +179,14 @@ const { frontmatter } = Astro.props;
     height: 12px; /* Adjusted icon size */
     flex-shrink: 0;
   }
-  .hero-image {
-    width: 50%;
-    padding: 10px;
-    border-radius: 20px;
-    flex-shrink: 0;
-    max-width: 500px;
-  }
+
 
   .hero-image img {
     display: block;
     margin: 0 auto;
     max-width: 100%; /* Ensures the image doesn't exceed the container */
     height: auto; /* Maintains aspect ratio */
-    border-radius: 5px;
+    border-radius: 50px;
     box-shadow: var(--box-shadow);
   }
 
