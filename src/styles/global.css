@@ -240,9 +240,11 @@ h2 {
 
 blockquote {
   border-left: 4px solid var(--mode-button-bg);
-  padding-left: 1em;
-  margin-left: 0;
+  padding: 1em;
+  margin: 1em 0;
   color: var(--text-color);
+  background-color: var(--buble);
+  border-radius: 6px;
 }
 
 .dropdown-menu {
