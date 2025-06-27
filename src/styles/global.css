@@ -211,6 +211,24 @@ nav a {
 	padding: 1em;
 }
 
+.blog-post-container h1:not(.post-title)::before {
+  content: "# ";
+  color: var(--mode-button-bg);
+  margin-right: 0.1em;
+}
+
+.blog-post-container h2::before {
+  content: "## ";
+  color: var(--mode-button-bg);
+  margin-right: 0.1em;
+}
+
+.blog-post-container h3::before {
+  content: "### ";
+  color: var(--mode-button-bg);
+  margin-right: 0.1em;
+}
+
 h2 {
 	font-size: 1.2rem;
 	margin: 0;
