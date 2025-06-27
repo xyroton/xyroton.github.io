@@ -251,6 +251,14 @@ blockquote {
   border-radius: 6px;
 }
 
+.blog-divider {
+  border: none;
+  height: 1px;
+  width: 60%;
+  background: linear-gradient(to right, transparent, var(--mode-button-bg) 20%, var(--mode-button-bg) 80%, transparent);
+  margin: 2em auto;
+}
+
 .dropdown-menu {
 	position: absolute;
 	right: 6%;
