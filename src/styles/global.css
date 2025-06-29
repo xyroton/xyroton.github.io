@@ -91,11 +91,21 @@ html {
 	text-align: center;
 }
 
-.underl {
-	text-decoration-line: underline;
-	text-decoration-color: var(--hamburger-border);
-	text-decoration-thickness: 3px;
-	text-underline-offset: 2px;
+.section-heading {
+  position: relative;
+  padding-left: 0.75em; /* Adjust as needed */
+  color: var(--text-color); /* Or a specific heading color */
+}
+
+.section-heading::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px; /* Width of the vertical bar */
+  background-color: var(--hamburger-border); /* Color of the vertical bar */
+  border-radius: 2px; /* Rounded corners for the bar */
 }
 
 main {
