@@ -6,6 +6,7 @@ image:
   url: "/blog/notes.png"
   alt: "The word astro against an illustration of planets and stars."
 pubDate: 2025-06-25
+updatedDate: 2025-06-29
 tags: ["notes", "linux"]
 ---
 For note-taking, I use **[Obsidian](https://obsidian.md/)**. For syncing, I use **[Syncthing](https://wiki.archlinux.org/title/Syncthing)**. And for backing them up, I use **[GitHub](https://github.com/)**, which not only backs up your notes but also tracks your changes over time, making it extremely powerful.
@@ -84,7 +85,7 @@ So, we will automate this.
 
 ## Shell Script
 One thing I love about Unix systems, especially Linux, is the fact that you can easily automate tasks by writing simple shell scripts. Let's write one!
-Start by creating the following file: `git_auto_commit.sh`
+Start by creating the following file: `~/.local/bin/git_auto_commit.sh`
 
 ```bash
 #!/bin/bash
@@ -134,8 +135,8 @@ Description=Git Auto Commit Service
 
 [Service]
 Type=oneshot
-User=xo
-ExecStart=/home/xo/.local/bin/git_auto_commit.sh
+User=<user>
+ExecStart=/home/<user>/.local/bin/git_auto_commit.sh
 ```
 
 
