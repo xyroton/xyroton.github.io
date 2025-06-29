@@ -13,6 +13,10 @@
 	--hamburger-icon-fg: #5a7785;
 	--hamburger-border: #d5cea3;
 	--buble: #e5ddb0;
+	--h1-color: #6693bf;
+	--h2-color: #5e857a;
+	--h3-color: #b35b79;
+	--h4-color: #5d57a3;
 }
 
 /* CSS attribute selector, selecting any element that has the attribute data-theme="dark". */
@@ -30,6 +34,10 @@
 	--hamburger-icon-fg: #c8c093;
 	--hamburger-border: #54546d;
 	--buble: #282727;
+	--h1-color: #8ba4b0;
+	--h2-color: #87a987;
+	--h3-color: #b6927b;
+	--h4-color: #c4b28a;
 
 }
 
@@ -218,6 +226,18 @@ nav a {
   padding-left: 1em;
 }
 
+.blog-post-container h1:not(.post-title) {
+  color: var(--h1-color);
+}
+
+.blog-post-container h2 {
+  color: var(--h2-color);
+}
+
+.blog-post-container h3 {
+  color: var(--h3-color);
+}
+
 .blog-post-container h1:not(.post-title)::before,
 .blog-post-container h2::before,
 .blog-post-container h3::before {
@@ -227,8 +247,19 @@ nav a {
   top: 0;
   bottom: 0;
   width: 4px;
-  background-color: var(--mode-button-bg);
   border-radius: 2px;
+}
+
+.blog-post-container h1:not(.post-title)::before {
+  background-color: var(--h1-color);
+}
+
+.blog-post-container h2::before {
+  background-color: var(--h2-color);
+}
+
+.blog-post-container h3::before {
+  background-color: var(--h3-color);
 }
 
 .blog-post-container h4 {
