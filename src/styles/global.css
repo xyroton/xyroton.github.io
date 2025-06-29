@@ -211,36 +211,31 @@ nav a {
 	padding: 1em;
 }
 
-.blog-post-container h1:not(.post-title)::before {
-  content: "# ";
-  color: var(--mode-button-bg);
-  margin-right: 0.1em;
+.blog-post-container h1:not(.post-title),
+.blog-post-container h2,
+.blog-post-container h3 {
+  position: relative;
+  padding-left: 1em;
 }
 
-.blog-post-container h2::before {
-  content: "## ";
-  color: var(--mode-button-bg);
-  margin-right: 0.1em;
-}
-
-.blog-post-container h2 {
-  font-size: 1.5rem;
-}
-
+.blog-post-container h1:not(.post-title)::before,
+.blog-post-container h2::before,
 .blog-post-container h3::before {
-  content: "### ";
-  color: var(--mode-button-bg);
-  margin-right: 0.1em;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--mode-button-bg);
+  border-radius: 2px;
 }
 
 .blog-post-container h4 {
   text-decoration: underline;
 }
 
-h2 {
-	font-size: 1.2rem;
-	margin: 0;
-}
+
 
 blockquote {
   border-left: 4px solid var(--mode-button-bg);
