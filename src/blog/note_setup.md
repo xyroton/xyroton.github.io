@@ -1,91 +1,93 @@
 ---
 title: Managing Notes on Linux
 author: Xyroton
-description: "Taking Notes, syncing and backing them up on Linux."
+description: "Taking notes, syncing, and backing them up on Linux."
 image:
   url: "/blog/notes.png"
-  alt: "The word astro against an illustration of planets and stars."
+  alt: "A girl taking notes."
 pubDate: 2025-06-25
 updatedDate: 2025-06-29
 tags: ["notes", "linux"]
 ---
-For note-taking, I use **[Obsidian](https://obsidian.md/)**. For syncing, I use **[Syncthing](https://wiki.archlinux.org/title/Syncthing)**. And for backing them up, I use **[GitHub](https://github.com/)**, which not only backs up your notes but also tracks your changes over time, making it extremely powerful.
 
-**Note:** My shell scripts utilize [Systemd](https://systemd.io/). Should your system use a different init system, you will have to make the necessary adjustments.
+Here’s how I write and manage my notes and sync them between different devices on Linux without depending on services like Notion
 
-# Installation and Configuration
-I am on [Arch](https://archlinux.org/), so the *package manager* for me will be `pacman`. Therefore, the installation instructions may vary depending on the system you are on.
+The setup is simple:
+- I write notes in [**Obsidian**](https://obsidian.md/)
+- I sync notes across devices with [**Syncthing**](https://wiki.archlinux.org/title/Syncthing)
+- I back them up and version them using [**Git**](https://git-scm.com/) and [**GitHub**](https://github.com/)
 
-## Obsidian
-Obsidian is a free [markdown](https://www.markdownguide.org/)-based, though not open-source, note-taking app. Its features are unparalleled, and all your notes are stored locally, unlike some competitors like [Notion](https://www.notion.com/).
+> **Note:** My system uses `systemd` (which is usually the default on most systems). If you're using something else you'll need to adapt the relevant parts.
 
-### Installation
+ 
+
+# Obsidian
+
+Obsidian is a Markdown-based note-taking app with a strong community and a big plugin ego system. It’s free (not open source), and all your notes are plain `.md` files stored locally — no forced cloud syncs.
+
+## Install Obsidian (Arch Linux)
 ```bash
 sudo pacman -S obsidian
 ```
-If you are new to Obsidian, you can refer to the [help](https://help.obsidian.md/) pages to get started. 
 
-## Syncthing
-We will use *Syncthing* to synchronize our notes between different devices, such as phones and laptops.
+If you're new to Obsidian, the [help docs](https://help.obsidian.md/) are pretty useful to get started.
 
-### Installation
+ 
 
+# Syncthing
+
+To keep notes synced between devices (like your phone and laptop), I use Syncthing. It works over LAN, and you control everything.
+
+## Install Syncthing
 ```bash
 sudo pacman -S syncthing
 ```
 
-### Configuration
-First, we need to start and enable the Syncthing service so we can work with it. My init system is `systemd`, so that's what I will use.
-- `enable` starts the service at boot time. To immediately enable it, we can append the `--now` flag.
-- Replace `<user>` with your actual username.
+## Enable and Start the Service
 ```bash
 sudo systemctl enable --now syncthing@<user>.service
 ```
 
-Now, in your web browser, navigate to:
-```bash
-http://127.0.0.1:8384/
-```
-It might also be a good time to download the *Syncthing* Android or iOS app.
+> Replace `<user>` with your actual username.
 
-Now, connect your devices.
+Then open [http://127.0.0.1:8384](http://127.0.0.1:8384) in your browser — this is the Syncthing web UI.
 
-If you cannot connect your devices, check your firewall. For [UFW](https://wiki.archlinux.org/title/Uncomplicated_Firewall) run the following:
+## Mobile Syncing
+Install the Syncthing app on Android or iOS to sync your notes to your phone.
 
+## Firewall (if devices can't connect)
+If you're using [UFW](https://wiki.archlinux.org/title/Uncomplicated_Firewall), run:
 ```bash
 sudo ufw allow syncthing
 ```
-If not, Google is your best friend.
 
-## Backing Up
-For this, we will use [Git](https://git-scm.com/) and [GitHub](https://github.com/) to host our *Git repository*.
+If you’re not using UFW, a quick Google search will help you figure it out 🤗.
 
-### Install Git
+ 
+
+# Git & GitHub Backup
+
+Syncthing handles syncing, but it doesn’t track changes. That’s where Git comes in. With Git, you get **version history** and we will use GitHub to host the git repo to be able to access it from anywhere.
+
+## Install Git
 ```bash
 sudo pacman -S git
 ```
 
-### Create GitHub Account
-If you do not have a [GitHub](https://github.com/) account yet, head over and create one. It is free.
+## Create a GitHub Repo
+If you don’t already have a GitHub account, now’s the time. Create a private repo for your notes and clone it locally.
 
-#### TODO for you
-- Create a repo and clone it.
-- Start *Obsidian* and choose your *Git repo* as your vault. 
+Inside Obsidian, set your Git repo folder as your **vault**.
 
-# Autocommit
-At this point, you should have everything working that you need for your functional note-taking setup. You have:
-- **Obsidian** to take notes.
-- **Syncthing** to sync your notes with other devices.
-- **Git** to track your note changes.
-- **GitHub** to host your Git repo, to access it from anywhere.
+ 
 
-One *inconvenience* that is left to fix is the committing and pushing of your note changes. Right now, one has to manually `git commit` and `git push` all the changes, which quickly becomes a major time consumer.
+# Automating Git Commits
 
-So, we will automate this.
+You could manually `git commit` and `git push` your changes every day… but that can be labour intensive. Let’s automate it.
 
-## Shell Script
-One thing I love about Unix systems, especially Linux, is the fact that you can easily automate tasks by writing simple shell scripts. Let's write one!
-Start by creating the following file: `~/.local/bin/git_auto_commit.sh`
+## Write a Commit Script
+
+Create this script at `~/.local/bin/git_auto_commit.sh`:
 
 ```bash
 #!/bin/bash
@@ -96,40 +98,52 @@ git config --global --add safe.directory /home/<user>/<git-repo>
 cd /home/<user>/<git-repo> || exit
 
 git add .
-
-git commit -m "Automatic commit $(date +'%Y-%m-%d %H:%M:%S')"
-
+git commit -m "Auto-commit $(date +'%Y-%m-%d %H:%M:%S')"
 git push origin main
 ```
 
-You might also want to check if `.local/bin` is in your **PATH**. If not, you will run into problems later (for most Linux distros out there, it will be in PATH by default, but for bare-bones Arch, it will not be).
+Make sure to replace:
+- `<user>` with your actual Linux username
+- `<git-repo>` with the folder name of your GitHub repo
 
-Check by running:
+Make it executable:
 ```bash
-echo "$PATH" | grep -q "$HOME/.local/bin" && echo "In PATH, you are in luck!" || echo "Not in PATH, do not worry we will fix this!"
+chmod +x ~/.local/bin/git_auto_commit.sh
 ```
 
-> ### Add to PATH (skip if it is in PATH for you) 
-> If it tells you it is not in PATH, you have to add this to your default `shellrc`.
-> For me it is **bash** so I run to `.bashrc`:
+## Add `.local/bin` to PATH (if needed)
+
+Check if it's already in your `$PATH`:
+```bash
+echo "$PATH" | grep -q "$HOME/.local/bin" && echo "You're good!" || echo "Need to add it."
+```
+
+> If not, add it to your shell config:
+> 
+> ### For Bash:
 > ```bash
 > echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 > ```
-> if you are running **zsh** run:
+> 
+> ### For Zsh:
 > ```bash
 > echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
 > ```
 
-## Executing `git_auto_commit.sh`
-We are going to create a **systemd** service that will automatically run the shell script for us. We will have to do this as root. I will use Neovim to edit these files; feel free to use what you want.
+ 
 
-### Create systemd Service
-Run the following: `sudo nvim /etc/systemd/system/git_auto_commit.service`
-This will create the file `git_auto_commit.service` and open it in Neovim.
+# systemd Automation
 
-Put the following in `git_auto_commit.service`:
+We’ll create a `systemd` timer that runs your script every couple of hours.
 
-```bash
+## Create the Service
+
+Create this file:  
+`/etc/systemd/system/git_auto_commit.service`
+
+e.g. with neovim `sudo nvim /etc/systemd/system/git_auto_commit.service`
+
+```ini
 [Unit]
 Description=Git Auto Commit Service
 
@@ -139,14 +153,16 @@ User=<user>
 ExecStart=/home/<user>/.local/bin/git_auto_commit.sh
 ```
 
+## Create the Timer
 
-### Create systemd Timer
-Now we will create a timer that will execute our service every 4 hours; in other words, it will commit our changes and push them to GitHub.
+Create this file:  
+`/etc/systemd/system/git_auto_commit.timer`
 
-Create this file: `/etc/systemd/system/git_auto_commit.timer`:
-```bash
+e.g. with neovim `sudo nvim /etc/systemd/system/git_auto_commit.timer`
+
+```ini
 [Unit]
-Description=Runs git_auto_commit.service every 4 hours
+Description=Run git_auto_commit.service every 2 hours
 
 [Timer]
 OnBootSec=10min
@@ -156,29 +172,39 @@ OnUnitActiveSec=2h
 WantedBy=timers.target
 ```
 
-### Enable the Service
-The last step is to enable the service. Run the following commands:
+## Enable the Timer
+
+Reload `systemd` and start the timer:
+
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl enable --now git_auto_commit.timer
 ```
 
-You can check the status by running:
+You can check the timer’s status with:
 ```bash
 systemctl status git_auto_commit.timer
 ```
 
-If you encounter any problems, it might be useful to check the actions of the systemd service by running:
+And see logs with:
 ```bash
 journalctl -u git_auto_commit.service
 ```
 
-You can also manually trigger the service by running (which can also be useful for debugging):
+To test it manually:
 ```bash
 sudo systemctl start git_auto_commit.service
- ``` 
+```
 
-# Final Words
-By now, you should have a functional and safe (in terms of data integrity, not security) way to take notes locally without the fear of overwriting or losing them, as can be the case with other services (e.g., Notion), which often sacrifice local control for syncing convenience.
+ 
 
-If you have any suggestions or improvements, feel free to message me.
+# Final Thoughts
+
+That’s it! With this setup you get:
+
+- [x] Local-first note-taking  
+- [x] Syncing across all your devices  
+- [x] Automatic version control
+
+With this setup no one will be able to hold your notes hostage. If you have ideas to improve this setup, or if something doesn’t work as expected, feel free to reach out.
+
