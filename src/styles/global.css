@@ -263,7 +263,16 @@ nav a {
 }
 
 .blog-post-container h4 {
-  text-decoration: underline;
+  border-bottom: 1px solid transparent; /* Start with a transparent border */
+  background-image: linear-gradient(to right, var(--h4-color) 0%, transparent 100%);
+  background-repeat: no-repeat;
+  background-position: 0 100%; /* Position at the bottom */
+  background-size: 100% 1px; /* Make it a thin line */
+  padding-bottom: 0px; /* Space between text and line */
+  margin-bottom: 0; /* Remove default bottom margin */
+  margin-top: 0; /* Remove default top margin */
+  display: inline-block; /* Ensure it wraps with text */
+  color: var(--h4-color);
 }
 
 
