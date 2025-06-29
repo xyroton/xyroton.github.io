@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import expressiveCode from "astro-expressive-code";
+import remarkHeadingNumbering from "./src/plugins/remark-heading-numbering.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,7 +18,7 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    remarkPlugins: [remarkMath],
+    remarkPlugins: [remarkMath, remarkHeadingNumbering],
     rehypePlugins: [rehypeKatex],
   },
 });
