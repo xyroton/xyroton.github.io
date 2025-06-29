@@ -91,21 +91,17 @@ html {
 	text-align: center;
 }
 
-.section-heading {
-  position: relative;
-  padding-left: 0.75em; /* Adjust as needed */
-  color: var(--text-color); /* Or a specific heading color */
-}
-
-.section-heading::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px; /* Width of the vertical bar */
-  background-color: var(--hamburger-border); /* Color of the vertical bar */
-  border-radius: 2px; /* Rounded corners for the bar */
+.underlined-heading {
+  border-bottom: 1px solid transparent; /* Start with a transparent border */
+  background-image: linear-gradient(to right, var(--h2-color) 0%, transparent 100%);
+  background-repeat: no-repeat;
+  background-position: 0 100%; /* Position at the bottom */
+  background-size: 100% 1px; /* Make it a thin line */
+  padding-bottom: 0px; /* Space between text and line */
+  margin-bottom: 0; /* Remove default bottom margin */
+  margin-top: 0; /* Remove default top margin */
+  display: inline-block; /* Ensure it wraps with text */
+  color: var(--h2-color);
 }
 
 main {
