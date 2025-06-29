@@ -286,6 +286,12 @@ blockquote {
   border-radius: 6px;
 }
 
+.blog-post-container a {
+  text-decoration: none;
+  color: var(--mode-button-bg);
+  font-weight: bold;
+}
+
 .blog-divider {
   border: none;
   height: 1px;
