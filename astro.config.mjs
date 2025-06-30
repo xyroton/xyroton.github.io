@@ -11,17 +11,12 @@ export default defineConfig({
   // base: "/astro-blog",
   integrations: [
     expressiveCode({
-      // for light theme
-      // themes: ["gruvbox-light-hard"],
-      // for dark theme
-      themes: ["kanagawa-wave"],
-      // You can optionally override the plugin's default settings here
+      themes: ["solarized-light", "kanagawa-wave"],
       plugins: [pluginLineNumbers()],
       defaultProps: {
         showLineNumbers: false,
       },
       frames: {
-        // Example: Hide the "Copy to clipboard" button
         showCopyToClipboardButton: true,
       },
     }),

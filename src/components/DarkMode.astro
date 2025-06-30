@@ -33,10 +33,12 @@
 
     if (document.documentElement.getAttribute("theme") === "dark") {
       document.documentElement.setAttribute("theme", "light");
+      document.documentElement.setAttribute("data-theme", "solarized-light");
       modeIcon.innerHTML = moonIcon;
       localStorage.setItem("theme", "light");
     } else {
       document.documentElement.setAttribute("theme", "dark");
+      document.documentElement.setAttribute("data-theme", "kanagawa-wave");
       modeIcon.innerHTML = sunIcon;
       localStorage.setItem("theme", "dark");
     }
