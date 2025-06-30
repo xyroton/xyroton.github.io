@@ -6,11 +6,11 @@ image:
   url: "/blog/notes.png"
   alt: "A girl taking notes."
 pubDate: 2025-06-25
-updatedDate: 2025-06-29
+updatedDate: 2025-06-30
 tags: ["notes", "linux"]
 ---
 
-Here’s how I write and manage my notes and sync them between different devices on Linux without depending on services like Notion
+Here’s how I write and manage my notes and sync them between different devices on Linux without depending on services like Notion.
 
 The setup is simple:
 - I write notes in [**Obsidian**](https://obsidian.md/)
@@ -23,7 +23,7 @@ The setup is simple:
 
 # Obsidian
 
-Obsidian is a Markdown-based note-taking app with a strong community and a big plugin ego system. It’s free (not open source), and all your notes are plain `.md` files stored locally — no forced cloud syncs.
+Obsidian is a Markdown-based note-taking app with a strong community and a big plugin ecosystem. It’s free (not open source), and all your notes are plain `.md` files stored locally — no forced cloud syncs.
 
 ## Install Obsidian (Arch Linux)
 ```bash title="Terminal"
@@ -76,9 +76,8 @@ sudo pacman -S git
 
 ## Create a GitHub Repo
 If you don’t already have a GitHub account, now’s the time. Create a private repo for your notes and clone it locally.
-
-Inside Obsidian, set your Git repo folder as your **vault**.
-
+- Then create a new folder inside the GitHub repo we just cloned.
+- In Obsidian, set that folder (not the root of the repo itself) as your vault.
  
 
 # Automating Git Commits
@@ -134,7 +133,7 @@ echo "$PATH" | grep -q "$HOME/.local/bin" && echo "You're good!" || echo "Need t
 
 # systemd Automation
 
-We’ll create a `systemd` timer that runs your script every couple of hours.
+We’ll create a `systemd` timer that runs the script every 2 hours.
 
 ## Create the Service
 
