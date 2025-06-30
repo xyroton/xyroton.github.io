@@ -49,10 +49,28 @@ const recentPosts = (await getCollection("blog"))
     </p>
     <p class="justified">
       I'm also a strong proponent of Linux and open-source software, as well as
-      developer efficiency and the tools that support it. So don’t be surprised if
-      you come across posts about those or general computer science topics as
+      developer efficiency and the tools that support it. So don’t be surprised
+      if you come across posts about those or general computer science topics as
       well.
     </p>
+
+    <div id="rss-copy-container" class="my-rss">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-rss-icon lucide-rss"
+        ><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"
+        ></path><circle cx="5" cy="19" r="1"></circle></svg
+      >
+      <p>Get RSS Feed</p>
+    </div>
 
     <h2 class="underlined-heading">Latest Blog Posts</h2>
 
@@ -118,5 +136,47 @@ const recentPosts = (await getCollection("blog"))
 
     document.addEventListener("DOMContentLoaded", initTypewriter);
     initTypewriter(); // Also run on initial load
+
+    // RSS copy to clipboard functionality
+    const rssCopyContainer = document.getElementById("rss-copy-container");
+    if (rssCopyContainer) {
+      rssCopyContainer.addEventListener("click", async () => {
+        const rssLink = `${window.location.origin}/rss.xml`;
+        try {
+          await navigator.clipboard.writeText(rssLink);
+          alert("RSS link copied to clipboard!");
+        } catch (err) {
+          console.error("Failed to copy RSS link: ", err);
+          alert("Failed to copy RSS link. Please copy it manually: " + rssLink);
+        }
+      });
+    }
   </script>
 </BaseLayout>
+
+<style>
+  .my-rss {
+    background-color: var(--mode-button-bg);
+    color: var(--background-color);
+    border-radius: 5px;
+    max-width: 400px;
+    margin: 20px auto; /* Center the div horizontally */
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    gap: 10px; /* Space between icon and text */
+    padding: 10px 20px; /* Add some padding */
+    cursor: pointer; /* Indicate it's clickable */
+    transition: transform 0.3s ease; /* Add transition for smooth effect */
+  }
+
+  .my-rss:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+  }
+
+  .my-rss p {
+    margin: 0; /* Remove default paragraph margin */
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: normal;
+  }
+</style>
