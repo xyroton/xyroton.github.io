@@ -86,7 +86,7 @@ const { frontmatter } = Astro.props;
           <div class="info-text">
             <span class="label">Tags</span>
             <div style="display: flex; flex-wrap: wrap; gap: 0.5em;">
-              {frontmatter.tags.map((tag) => <span>#{tag} </span>)}
+              {frontmatter.tags.map((tag: string) => <span>#{tag} </span>)}
             </div>
           </div>
         </div>
@@ -100,9 +100,61 @@ const { frontmatter } = Astro.props;
     <!-- Main content of the post -->
     <slot />
   </div>
+  <div class="commeant-section"></div>
+
+<script>
+  const script = document.createElement('script');
+  script.src = 'https://giscus.app/client.js';
+  script.async = true;
+  script.crossOrigin = 'anonymous';
+  script.setAttribute('data-repo', 'xyroton/xyroton.github.io');
+  script.setAttribute('data-repo-id', 'R_kgDOO0t3rg');
+  script.setAttribute('data-category', 'Blog Comments');
+  script.setAttribute('data-category-id', 'DIC_kwDOO0t3rs4CsPmf');
+  script.setAttribute('data-mapping', 'pathname');
+  script.setAttribute('data-strict', '0');
+  script.setAttribute('data-reactions-enabled', '0');
+  script.setAttribute('data-emit-metadata', '0');
+  script.setAttribute('data-input-position', 'bottom');
+  script.setAttribute('data-lang', 'en');
+  script.setAttribute('data-loading', 'lazy');
+
+  const getTheme = () => {
+    const theme = document.documentElement.getAttribute('theme');
+    return theme === 'light' ? 'light' : 'dark';
+  };
+
+  script.setAttribute('data-theme', getTheme());
+
+  const commentSection = document.querySelector('.commeant-section');
+  if (commentSection) {
+    commentSection.appendChild(script);
+  }
+
+  // Listen for theme changes
+  new MutationObserver((mutations) => {
+    mutations.forEach(mutation => {
+      if (mutation.attributeName === 'theme') {
+        const giscusFrame = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
+        if (giscusFrame && giscusFrame.contentWindow) {
+          giscusFrame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme: getTheme() } } },
+            'https://giscus.app'
+          );
+        }
+      }
+    });
+  }).observe(document.documentElement, { attributes: true });
+</script>
 </BaseLayout>
 
 <style>
+    .commeant-section {
+	padding: 10px;
+	border-radius: 5px;
+	margin-top: 50px; 
+	background-color: var(--comment-box);
+    }
   .post-metadata-bubble {
     background-color: var(--buble);
     border-radius: 10px;

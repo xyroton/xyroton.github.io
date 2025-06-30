@@ -17,6 +17,7 @@
 	--h2-color: #5e857a;
 	--h3-color: #b35b79;
 	--h4-color: #5d57a3;
+	--comment-box: #dcd5ac
 }
 
 /* CSS attribute selector, selecting any element that has the attribute data-theme="dark". */
@@ -38,7 +39,7 @@
 	--h2-color: #87a987;
 	--h3-color: #b6927b;
 	--h4-color: #c4b28a;
-
+	--comment-box: #0d0c0c;
 }
 
 /* Light theme: default Shiki styles (already included by Astro) */
@@ -92,16 +93,23 @@ html {
 }
 
 .underlined-heading {
-  border-bottom: 1px solid transparent; /* Start with a transparent border */
-  background-image: linear-gradient(to right, var(--h2-color) 0%, transparent 100%);
-  background-repeat: no-repeat;
-  background-position: 0 100%; /* Position at the bottom */
-  background-size: 100% 1px; /* Make it a thin line */
-  padding-bottom: 0px; /* Space between text and line */
-  margin-bottom: 0; /* Remove default bottom margin */
-  margin-top: 0; /* Remove default top margin */
-  display: inline-block; /* Ensure it wraps with text */
-  color: var(--h2-color);
+	border-bottom: 1px solid transparent;
+	/* Start with a transparent border */
+	background-image: linear-gradient(to right, var(--h2-color) 0%, transparent 100%);
+	background-repeat: no-repeat;
+	background-position: 0 100%;
+	/* Position at the bottom */
+	background-size: 100% 1px;
+	/* Make it a thin line */
+	padding-bottom: 0px;
+	/* Space between text and line */
+	margin-bottom: 0;
+	/* Remove default bottom margin */
+	margin-top: 0;
+	/* Remove default top margin */
+	display: inline-block;
+	/* Ensure it wraps with text */
+	color: var(--h2-color);
 }
 
 main {
@@ -200,9 +208,17 @@ pre>code {
 }
 
 @keyframes pop {
-	0% { transform: scale(1); }
-	50% { transform: scale(1.1); }
-	100% { transform: scale(1); }
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.1);
+	}
+
+	100% {
+		transform: scale(1);
+	}
 }
 
 
@@ -228,82 +244,89 @@ nav a {
 .blog-post-container h1:not(.post-title),
 .blog-post-container h2,
 .blog-post-container h3 {
-  position: relative;
-  padding-left: 1em;
+	position: relative;
+	padding-left: 1em;
 }
 
 .blog-post-container h1:not(.post-title) {
-  color: var(--h1-color);
+	color: var(--h1-color);
 }
 
 .blog-post-container h2 {
-  color: var(--h2-color);
+	color: var(--h2-color);
 }
 
 .blog-post-container h3 {
-  color: var(--h3-color);
+	color: var(--h3-color);
 }
 
 .blog-post-container h1:not(.post-title)::before,
 .blog-post-container h2::before,
 .blog-post-container h3::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  border-radius: 2px;
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 4px;
+	border-radius: 2px;
 }
 
 .blog-post-container h1:not(.post-title)::before {
-  background-color: var(--h1-color);
+	background-color: var(--h1-color);
 }
 
 .blog-post-container h2::before {
-  background-color: var(--h2-color);
+	background-color: var(--h2-color);
 }
 
 .blog-post-container h3::before {
-  background-color: var(--h3-color);
+	background-color: var(--h3-color);
 }
 
 .blog-post-container h4 {
-  border-bottom: 1px solid transparent; /* Start with a transparent border */
-  background-image: linear-gradient(to right, var(--h4-color) 0%, transparent 100%);
-  background-repeat: no-repeat;
-  background-position: 0 100%; /* Position at the bottom */
-  background-size: 100% 1px; /* Make it a thin line */
-  padding-bottom: 0px; /* Space between text and line */
-  margin-bottom: 0; /* Remove default bottom margin */
-  margin-top: 0; /* Remove default top margin */
-  display: inline-block; /* Ensure it wraps with text */
-  color: var(--h4-color);
+	border-bottom: 1px solid transparent;
+	/* Start with a transparent border */
+	background-image: linear-gradient(to right, var(--h4-color) 0%, transparent 100%);
+	background-repeat: no-repeat;
+	background-position: 0 100%;
+	/* Position at the bottom */
+	background-size: 100% 1px;
+	/* Make it a thin line */
+	padding-bottom: 0px;
+	/* Space between text and line */
+	margin-bottom: 0;
+	/* Remove default bottom margin */
+	margin-top: 0;
+	/* Remove default top margin */
+	display: inline-block;
+	/* Ensure it wraps with text */
+	color: var(--h4-color);
 }
 
 
 
 blockquote {
-  border-left: 4px solid var(--mode-button-bg);
-  padding: 1em;
-  margin: 1em 0;
-  color: var(--text-color);
-  background-color: var(--buble);
-  border-radius: 6px;
+	border-left: 4px solid var(--mode-button-bg);
+	padding: 1em;
+	margin: 1em 0;
+	color: var(--text-color);
+	background-color: var(--buble);
+	border-radius: 6px;
 }
 
 .blog-post-container a {
-  text-decoration: none;
-  color: var(--mode-button-bg);
-  font-weight: bold;
+	text-decoration: none;
+	color: var(--mode-button-bg);
+	font-weight: bold;
 }
 
 .blog-divider {
-  border: none;
-  height: 1px;
-  width: 60%;
-  background: linear-gradient(to right, transparent, var(--mode-button-bg) 20%, var(--mode-button-bg) 80%, transparent);
-  margin: 1em auto;
+	border: none;
+	height: 1px;
+	width: 60%;
+	background: linear-gradient(to right, transparent, var(--mode-button-bg) 20%, var(--mode-button-bg) 80%, transparent);
+	margin: 1em auto;
 }
 
 .dropdown-menu {
@@ -373,8 +396,10 @@ blockquote {
 	opacity: 1;
 	visibility: visible;
 	transform: translateY(0);
-	max-height: 200px; /* Adjust based on content height */
-	display: flex; /* Keep display flex for layout */
+	max-height: 200px;
+	/* Adjust based on content height */
+	display: flex;
+	/* Keep display flex for layout */
 }
 
 .hello {
@@ -521,18 +546,19 @@ body {
 }
 
 @keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 .animate-on-load {
-  animation: slide-up 0.8s ease-out forwards;
+	animation: slide-up 0.8s ease-out forwards;
 }
 
 @media (max-width: 720px) {
