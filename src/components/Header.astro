@@ -7,66 +7,20 @@ import DropDown from "./DropDown.astro";
   <nav>
     <div class="hey">
       <a href="/" class="hey">
-        <img src="/icons/logo_dark.svg" alt="Logo Dark" class="logo-dark" />
-        <img src="/icons/logo_light.svg" alt="Logo Light" class="logo" />
+        <img src="/icons/logo_dark.svg" alt="" class="logo-dark" />
+        <img src="/icons/logo_light.svg" alt="" class="logo" />
       </a>
     </div>
 
     <div class="internal-links">
       <a href="/">Home</a>
       <a href="/blog">Blog</a>
+      <a href="/rss.xml">RSS</a>
       <a href="/contact">Contact</a>
-      <a href="/rss.xml" class="rss-link" aria-label="RSS Feed">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="rss-icon"
-        >
-          <path d="M4 11a9 9 0 0 1 9 9"></path>
-          <path d="M4 4a16 16 0 0 1 16 16"></path>
-          <circle cx="5" cy="19" r="1"></circle>
-        </svg>
-        RSS
-      </a>
     </div>
-
     <div class="hello">
       <DarkMode />
       <DropDown />
     </div>
   </nav>
 </header>
-
-<style>
-  .internal-links a {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: inherit;
-    text-decoration: none;
-    font-size: 1rem;
-    line-height: 1;
-    vertical-align: middle;
-  }
-
-  .internal-links a.rss-link .rss-icon {
-    display: block;
-    height: 0.9em;
-    width: auto;
-    vertical-align: middle;
-    margin-bottom: 1px; /* nudge icon for alignment */
-  }
-
-  .internal-links a:hover,
-  .internal-links a:focus {
-    color: #007acc;
-    outline: none;
-  }
-</style>
