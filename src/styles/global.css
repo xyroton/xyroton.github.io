@@ -366,8 +366,19 @@ blockquote {
 	transition: border-color 0.3s ease;
 }
 
-.icon-container svg path {
-	stroke: var(--hamburger-icon-fg);
+.hamburger-icon, .x-icon {
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hamburger-icon.hidden {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+.x-icon.hidden {
+  opacity: 0;
+  transform: rotate(-90deg);
 }
 
 .dropdown-menu li {

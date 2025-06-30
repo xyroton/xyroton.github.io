@@ -10,13 +10,47 @@
         viewBox="0 0 24 24"
         width="20"
         height="20"
+        class="hamburger-icon"
       >
         <path
-          d="M3 6h18M3 12h18M3 18h18"
+          class="line top-line"
+          d="M3 6h18"
           stroke="currentColor"
           stroke-width="2"
           stroke-linecap="round"
-          stroke-linejoin="round"></path>
+          stroke-linejoin="round"
+        ></path>
+        <path
+          class="line middle-line"
+          d="M3 12h18"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+        <path
+          class="line bottom-line"
+          d="M3 18h18"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="x-icon hidden"
+      >
+        <path d="M18 6 6 18" />
+        <path d="m6 6 12 12" />
       </svg>
     </div>
   </button>
@@ -32,9 +66,13 @@
 <script is:inline>
   const dropdownMenu = document.querySelector(".dropdown-menu");
   const navToggleBtn = document.getElementById("nav-toggle");
+  const hamburgerIcon = document.querySelector(".hamburger-icon");
+  const xIcon = document.querySelector(".x-icon");
 
   function toggleDropdownMenu() {
     dropdownMenu.classList.toggle("active");
+    hamburgerIcon.classList.toggle("hidden");
+    xIcon.classList.toggle("hidden");
   }
 
   navToggleBtn.addEventListener("click", toggleDropdownMenu);
@@ -46,6 +84,8 @@
       !navToggleBtn.contains(e.target)
     ) {
       dropdownMenu.classList.remove("active");
+      hamburgerIcon.classList.remove("hidden");
+      xIcon.classList.add("hidden");
     }
   });
 </script>
