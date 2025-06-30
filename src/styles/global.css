@@ -396,7 +396,7 @@ blockquote {
 	opacity: 1;
 	visibility: visible;
 	transform: translateY(0);
-	max-height: 200px;
+	max-height: 400px;
 	/* Adjust based on content height */
 	display: flex;
 	/* Keep display flex for layout */
