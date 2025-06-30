@@ -159,7 +159,8 @@ const recentPosts = (await getCollection("blog"))
     background-color: var(--mode-button-bg);
     color: var(--background-color);
     border-radius: 5px;
-    max-width: 400px;
+    width: 80%; /* Set width to 80% of parent */
+    max-width: 400px; /* Keep max-width for larger screens */
     margin: 20px auto; /* Center the div horizontally */
     display: flex;
     align-items: center; /* Center vertically */
