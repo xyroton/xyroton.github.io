@@ -26,7 +26,7 @@ The setup is simple:
 Obsidian is a Markdown-based note-taking app with a strong community and a big plugin ego system. It’s free (not open source), and all your notes are plain `.md` files stored locally — no forced cloud syncs.
 
 ## Install Obsidian (Arch Linux)
-```bash
+```bash title="Terminal"
 sudo pacman -S obsidian
 ```
 
@@ -39,12 +39,12 @@ If you're new to Obsidian, the [help docs](https://help.obsidian.md/) are pretty
 To keep notes synced between devices (like your phone and laptop), I use Syncthing. It works over LAN, and you control everything.
 
 ## Install Syncthing
-```bash
+```bash title="Terminal"
 sudo pacman -S syncthing
 ```
 
 ## Enable and Start the Service
-```bash
+```bash title="Terminal"
 sudo systemctl enable --now syncthing@<user>.service
 ```
 
@@ -57,7 +57,7 @@ Install the Syncthing app on Android or iOS to sync your notes to your phone.
 
 ## Firewall (if devices can't connect)
 If you're using [UFW](https://wiki.archlinux.org/title/Uncomplicated_Firewall), run:
-```bash
+```bash title="Terminal"
 sudo ufw allow syncthing
 ```
 
@@ -70,7 +70,7 @@ If you’re not using UFW, a quick Google search will help you figure it out �
 Syncthing handles syncing, but it doesn’t track changes. That’s where Git comes in. With Git, you get **version history** and we will use GitHub to host the git repo to be able to access it from anywhere.
 
 ## Install Git
-```bash
+```bash title="Terminal"
 sudo pacman -S git
 ```
 
@@ -89,7 +89,7 @@ You could manually `git commit` and `git push` your changes every day… but tha
 
 Create this script at `~/.local/bin/git_auto_commit.sh`:
 
-```bash
+```js showLineNumbers
 #!/bin/bash
 
 export HOME=/home/<user>
@@ -107,26 +107,26 @@ Make sure to replace:
 - `<git-repo>` with the folder name of your GitHub repo
 
 Make it executable:
-```bash
+```bash title="Terminal"
 chmod +x ~/.local/bin/git_auto_commit.sh
 ```
 
 ## Add `.local/bin` to PATH (if needed)
 
 Check if it's already in your `$PATH`:
-```bash
+```bash title="Terminal"
 echo "$PATH" | grep -q "$HOME/.local/bin" && echo "You're good!" || echo "Need to add it."
 ```
 
 > If not, add it to your shell config:
 > 
 > ### For Bash:
-> ```bash
+> ```bash title="Terminal"
 > echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 > ```
 > 
 > ### For Zsh:
-> ```bash
+> ```bash title="Terminal"
 > echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
 > ```
 
@@ -143,7 +143,7 @@ Create this file:
 
 e.g. with neovim `sudo nvim /etc/systemd/system/git_auto_commit.service`
 
-```ini
+```ini showLineNumbers
 [Unit]
 Description=Git Auto Commit Service
 
@@ -160,7 +160,7 @@ Create this file:
 
 e.g. with neovim `sudo nvim /etc/systemd/system/git_auto_commit.timer`
 
-```ini
+```ini showLineNumbers
 [Unit]
 Description=Run git_auto_commit.service every 2 hours
 
@@ -176,23 +176,23 @@ WantedBy=timers.target
 
 Reload `systemd` and start the timer:
 
-```bash
+```bash title="Terminal"
 sudo systemctl daemon-reload
 sudo systemctl enable --now git_auto_commit.timer
 ```
 
 You can check the timer’s status with:
-```bash
+```bash title="Terminal"
 systemctl status git_auto_commit.timer
 ```
 
 And see logs with:
-```bash
+```bash title="Terminal"
 journalctl -u git_auto_commit.service
 ```
 
 To test it manually:
-```bash
+```bash title="Terminal"
 sudo systemctl start git_auto_commit.service
 ```
 
