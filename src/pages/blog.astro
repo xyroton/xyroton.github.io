@@ -6,6 +6,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 // get and sort blog posts by pubDate (newest first)
 const allPosts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
   .sort(
     (a, b) =>
       new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
@@ -56,7 +57,8 @@ const allPosts = (await getCollection("blog"))
   <script>
     function initTagFiltering() {
       const tagButtons = document.querySelectorAll<HTMLElement>(".tag-button");
-      const postCards = document.querySelectorAll<HTMLElement>(".post-card-wrapper");
+      const postCards =
+        document.querySelectorAll<HTMLElement>(".post-card-wrapper");
       const urlParams = new URLSearchParams(window.location.search);
       let activeTag = urlParams.get("tag") || "all";
 
