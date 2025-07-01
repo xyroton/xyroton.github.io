@@ -59,22 +59,22 @@ html[theme="dark"] .astro-code span {
 
 
 @font-face {
-	font-family: 'Fira Sans';
-	src: url('/public/fonts/FiraSans-Regular.woff2') format('woff2');
+	font-family: 'Geist';
+	src: url('/public/fonts/Geist-Regular.woff2') format('woff2');
+	font-weight: 4000;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GeistMono';
+	src: url('/public/fonts/GeistMono-Regular.woff2') format('woff2');
 	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'JetBrains Mono';
-	src: url('/public/fonts/JetBrainsMono-Regular.woff2') format('woff2');
-	font-weight: 400;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'JetBrains Mono Italic';
-	src: url('/public/fonts/JetBrainsMono-LightItalic.woff2') format('woff2');
+	font-family: 'GeistMono Italic';
+	src: url('/public/fonts/GeistMono-Italic.woff2') format('woff2');
 	font-weight: 400;
 	font-style: normal;
 }
@@ -476,7 +476,7 @@ body {
 
 	background-color: var(--background-color);
 	color: var(--text-color);
-	font-family: 'Fira Sans', 'Segoe UI Emoji', 'Noto Color Emoji', 'Apple Color Emoji', sans-serif;
+	font-family: 'Geist', 'Segoe UI Emoji', 'Noto Color Emoji', 'Apple Color Emoji', sans-serif;
 	line-height: 1.5;
 }
 
@@ -613,7 +613,7 @@ body {
 }
 
 .typewriter {
-	font-family: 'JetBrains Mono', monospace;
+	font-family: 'GeistMono', monospace;
 	font-size: 1.3rem;
 	line-height: 1.6;
 	/* Increased line height for better spacing */
