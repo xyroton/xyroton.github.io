@@ -588,22 +588,22 @@ body {
 .typewriter {
 	font-family: 'JetBrains Mono', monospace;
 	font-size: 1.2rem;
-	color: #00e600;
-	/* Slightly darker green for text */
-	margin: 0 auto;
+	line-height: 1.6; /* Increased line height for better spacing */
+	color: #00e600; /* Slightly darker green for text */
+	white-space: normal; /* Ensure text wraps */
+	margin: 0; /* Removed auto margin */
+	padding: 0; /* Removed default padding */
 	text-align: center;
-	text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
-	/* Glowing effect */
+	text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00; /* Glowing effect */
 }
 
 .blinking-cursor {
-	color: #00ff00;
-	/* Bright green cursor */
+	color: #00ff00; /* Bright green cursor */
 	font-weight: 600;
-	font-size: 2rem;
+	font-size: 1.2em; /* Set relative to parent font size */
+	vertical-align: baseline; /* Ensure proper vertical alignment */
 	animation: blink 0.7s step-end infinite;
-	text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
-	/* Glowing effect for cursor */
+	text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Glowing effect for cursor */
 }
 
 @keyframes typing {
