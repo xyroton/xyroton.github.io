@@ -6,9 +6,9 @@ const { frontmatter } = Astro.props;
 
 <BaseLayout pageTitle={frontmatter.title}>
   <div class="blog-post-container">
-    <!-- Title should be placed above content -->
     <title>{frontmatter.title}</title>
-        <div class="hero-image">
+
+    <div class="hero-image">
       {
         frontmatter.image.url && (
           <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
@@ -17,21 +17,38 @@ const { frontmatter } = Astro.props;
     </div>
 
     <h1 class="post-title">{frontmatter.title}</h1>
+
     <div class="post-metadata-bubble">
       <div class="text-content">
-        <div class="date">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon lucide lucide-user-pen-icon lucide-user-pen"><path d="M11.5 15H7a4 4 0 0 0-4 4v2"/><path d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/><circle cx="10" cy="7" r="4"/></svg>
-          <div class="info-text">
-            <span class="label">Author</span>
-            <span class="value">Xyroton</span>
-          </div>
-        </div>
         <div class="date">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
-            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon lucide-user-pen"
+          >
+            <path d="M11.5 15H7a4 4 0 0 0-4 4v2"></path>
+            <path
+              d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"
+            ></path>
+            <circle cx="10" cy="7" r="4"></circle>
+          </svg>
+          <div class="info-text">
+            <span class="label">Author</span>
+            <span class="value">Xyroton</span>
+          </div>
+        </div>
+
+        <div class="date">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
             fill="none"
             stroke="currentColor"
             stroke-width="2"
@@ -55,10 +72,25 @@ const { frontmatter } = Astro.props;
             <FormattedDate date={frontmatter.pubDate} />
           </div>
         </div>
+
         {
           frontmatter.updatedDate && (
             <div class="date">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon lucide lucide-file-pen-icon lucide-file-pen"><path d="M12.5 22H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v9.5"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M13.378 15.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon lucide-file-pen"
+              >
+                <path d="M12.5 22H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v9.5" />
+                <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                <path d="M13.378 15.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
+              </svg>
               <div class="info-text">
                 <span class="label">Updated</span>
                 <FormattedDate date={frontmatter.updatedDate} />
@@ -66,99 +98,80 @@ const { frontmatter } = Astro.props;
             </div>
           )
         }
-        <div class="tags-container">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19"></path>
-            <path
-              d="M9.586 5.586A2 2 0 0 0 8.172 5H3a1 1 0 0 0-1 1v5.172a2 2 0 0 0 .586 1.414L8.29 18.29a2.426 2.426 0 0 0 3.42 0l3.58-3.58a2.426 2.426 0 0 0 0-3.42z"
-            ></path>
-            <circle cx="6.5" cy="9.5" r=".5" fill="currentColor"></circle>
-          </svg>
-          <div class="info-text">
-            <span class="label">Tags</span>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5em;">
-              {frontmatter.tags.map((tag: string) => <span>#{tag} </span>)}
-            </div>
-          </div>
-        </div>
-        
       </div>
-      
     </div>
 
     <hr class="blog-divider" />
 
-    <!-- Main content of the post -->
     <slot />
   </div>
+
+  <!-- Tag list -->
+  <div class="tag-wrapper">
+    {frontmatter.tags.map((tag: string) => <span class="tag">#{tag}</span>)}
+  </div>
+
   <div class="commeant-section"></div>
 
-<script>
-  const script = document.createElement('script');
-  script.src = 'https://giscus.app/client.js';
-  script.async = true;
-  script.crossOrigin = 'anonymous';
-  script.setAttribute('data-repo', 'xyroton/xyroton.github.io');
-  script.setAttribute('data-repo-id', 'R_kgDOO0t3rg');
-  script.setAttribute('data-category', 'Blog Comments');
-  script.setAttribute('data-category-id', 'DIC_kwDOO0t3rs4CsPmf');
-  script.setAttribute('data-mapping', 'pathname');
-  script.setAttribute('data-strict', '0');
-  script.setAttribute('data-reactions-enabled', '0');
-  script.setAttribute('data-emit-metadata', '0');
-  script.setAttribute('data-input-position', 'bottom');
-  script.setAttribute('data-lang', 'en');
-  script.setAttribute('data-loading', 'lazy');
+  <script>
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.crossOrigin = "anonymous";
+    script.setAttribute("data-repo", "xyroton/xyroton.github.io");
+    script.setAttribute("data-repo-id", "R_kgDOO0t3rg");
+    script.setAttribute("data-category", "Blog Comments");
+    script.setAttribute("data-category-id", "DIC_kwDOO0t3rs4CsPmf");
+    script.setAttribute("data-mapping", "pathname");
+    script.setAttribute("data-strict", "0");
+    script.setAttribute("data-reactions-enabled", "0");
+    script.setAttribute("data-emit-metadata", "0");
+    script.setAttribute("data-input-position", "bottom");
+    script.setAttribute("data-lang", "en");
+    script.setAttribute("data-loading", "lazy");
 
-  const getTheme = () => {
-    const theme = document.documentElement.getAttribute('theme');
-    return theme === 'light' ? 'light' : 'dark';
-  };
+    const getTheme = () => {
+      const theme = document.documentElement.getAttribute("theme");
+      return theme === "light" ? "light" : "dark";
+    };
 
-  script.setAttribute('data-theme', getTheme());
+    script.setAttribute("data-theme", getTheme());
 
-  const commentSection = document.querySelector('.commeant-section');
-  if (commentSection) {
-    commentSection.appendChild(script);
-  }
+    const commentSection = document.querySelector(".commeant-section");
+    if (commentSection) {
+      commentSection.appendChild(script);
+    }
 
-  // Listen for theme changes
-  new MutationObserver((mutations) => {
-    mutations.forEach(mutation => {
-      if (mutation.attributeName === 'theme') {
-        const giscusFrame = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
-        if (giscusFrame && giscusFrame.contentWindow) {
-          giscusFrame.contentWindow.postMessage(
-            { giscus: { setConfig: { theme: getTheme() } } },
-            'https://giscus.app'
-          );
+    new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === "theme") {
+          const giscusFrame = document.querySelector(
+            "iframe.giscus-frame",
+          ) as HTMLIFrameElement;
+          if (giscusFrame?.contentWindow) {
+            giscusFrame.contentWindow.postMessage(
+              { giscus: { setConfig: { theme: getTheme() } } },
+              "https://giscus.app",
+            );
+          }
         }
-      }
-    });
-  }).observe(document.documentElement, { attributes: true });
-</script>
+      });
+    }).observe(document.documentElement, { attributes: true });
+  </script>
 </BaseLayout>
 
 <style>
-    .commeant-section {
-	padding: 10px;
-	border-radius: 5px;
-	margin-top: 50px; 
-	background-color: var(--comment-box);
-    }
+  .commeant-section {
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 50px;
+    background-color: var(--comment-box);
+  }
+
   .post-metadata-bubble {
     background-color: var(--buble);
     border-radius: 10px;
-    margin-bottom: 1em; /* Decreased margin */
+    margin-bottom: 1em;
     box-shadow: var(--box-shadow);
     display: flex;
     align-items: flex-start;
@@ -177,7 +190,7 @@ const { frontmatter } = Astro.props;
   .icon {
     color: var(--mode-button-bg);
     border-radius: 7px;
-    margin: 8px 8px 8px 0; /* Adjusted margin for symmetry */
+    margin: 8px 8px 8px 0;
     width: 32px;
     height: 32px;
   }
@@ -195,158 +208,68 @@ const { frontmatter } = Astro.props;
     color: var(--text-color);
   }
 
-  .cards {
-    display: flex;
-    flex-direction: column;
-  }
-
   .date {
     display: inline-flex;
     align-items: center;
-  }
-
-  .tags-container {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .tags-container .info-text {
-    display: flex;
-  }
-
-  .tag {
-    display: inline-flex; /* inline-flex for horizontal alignment */
-    align-items: center; /* vertical center icon and text */
-    padding: 1px 3px; /* Adjusted padding */
-    margin-right: 0.15em;
-    font-size: 0.8em; /* Adjusted font size */
-    font-family: "JetBrains Mono";
-    border: none;
-    background-color: var(--mode-button-bg);
-    color: var(--background-color);
-    border-radius: 5px;
-    gap: 0.2em; /* Adjusted gap */
-  }
-  .tag-icon {
-    width: 12px; /* Adjusted icon size */
-    height: 12px; /* Adjusted icon size */
-    flex-shrink: 0;
-  }
-
-
-  .hero-image img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%; /* Ensures the image doesn't exceed the container */
-    height: auto; /* Maintains aspect ratio */
-    border-radius: 50px;
-    box-shadow: var(--box-shadow);
-  }
-
-  .dot {
-    margin: 0 0.5rem; /* Adds space around the dot */
-    color: #777; /* Light grey color */
-    font-size: 1.5rem; /* Adjust the size of the dot */
-  }
-
-  .prose {
-    width: 720px;
-    max-width: calc(100% - 2em);
-    margin: auto;
-    padding: 1em;
-    color: rgb(var(--gray-dark));
-  }
-
-  .title {
-    margin-bottom: 1em;
-    padding: 1em 0;
-    text-align: center;
-    line-height: 1;
-  }
-
-  .title h1 {
-    margin: 0 0 0.5em 0;
-  }
-  .date p {
-    margin: 0; /* Remove default paragraph margin */
-    padding: 0; /* Just in case padding is inherited */
-  }
-
-  
-
-  .date {
-    margin-top: 0em;
-    margin-bottom: 0em;
-    padding: 0;
-    color: var(--gray-tone);
-    align-items: center;
-    /* justify-content: center; */
+    margin: 0;
     font-size: 0.9rem;
     font-family: "JetBrains Mono";
   }
 
-  .last-updated-on {
-    font-style: italic;
-  }
-
-  a {
-    color: #00539f;
+  .hero-image img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 50px;
+    box-shadow: var(--box-shadow);
   }
 
   .post-title {
-    font-size: 2.5rem; /* Large title */
+    font-size: 2.5rem;
     font-weight: bold;
     text-align: center;
     margin-bottom: 1rem;
     font-family: "JetBrains Mono";
   }
 
-  .tags {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  .tag-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-top: 1em;
   }
 
   .tag {
-    display: inline-flex; /* inline-flex for horizontal alignment */
-    align-items: center; /* vertical center icon and text */
-    padding: 1px 3px; /* Adjusted padding */
-    margin-right: 0.15em;
-    font-size: 0.8em; /* Adjusted font size */
+    display: inline-flex;
+    align-items: center;
+    padding: 1px 6px;
+    font-size: 1.3em;
     font-family: "JetBrains Mono";
-    border: none;
     background-color: var(--mode-button-bg);
     color: var(--background-color);
     border-radius: 5px;
-    gap: 0.2em; /* Adjusted gap */
-  }
-  .tag-icon {
-    width: 12px; /* Adjusted icon size */
-    height: 12px; /* Adjusted icon size */
-    flex-shrink: 0;
+    gap: 0.2em;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
-  /* --- Responsive tweaks --- */
   @media (max-width: 600px) {
     .post-metadata-bubble {
       flex-direction: column;
-      align-items: flex-start; /* Align content to the left on mobile */
-      text-align: left;
+      align-items: flex-start;
     }
 
     .hero-image {
-      width: 100%; /* Make image full width */
-      max-width: none; /* Remove max-width constraint */
-      height: auto;
-      aspect-ratio: auto;
+      width: 100%;
       border-radius: 6px;
       padding: 0;
-      order: -1; /* Move image to the top */
+      order: -1;
     }
 
     .text-content {
-      align-items: flex-start; /* Align text content to the left */
+      align-items: flex-start;
       padding: 1em;
     }
   }
