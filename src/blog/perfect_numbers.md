@@ -1,6 +1,7 @@
 ---
 title: Perfect Numbers with Python
 author: Astro Learner
+draft: true
 description: "Find Perfect Numbers in a Split Second"
 image:
   url: "/blog/perfect_nums.png"
