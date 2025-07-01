@@ -18,6 +18,7 @@
 	--h3-color: #b35b79;
 	--h4-color: #5d57a3;
 	--comment-box: #FDF6E3;
+	--time: rgba(253, 246, 227, 0.6);
 }
 
 /* CSS attribute selector, selecting any element that has the attribute data-theme="dark". */
@@ -40,6 +41,7 @@
 	--h3-color: #b6927b;
 	--h4-color: #c4b28a;
 	--comment-box: #0d0c0c;
+	--time: rgba(13, 12, 12, 0.6);
 }
 
 /* Light theme: default Shiki styles (already included by Astro) */
@@ -516,20 +518,27 @@ body {
 }
 
 .post-container {
-  display: grid;
-  grid-template-columns: 1fr; /* Default to single column for mobile */
-  gap: 20px; /* Space between cards */
+	display: grid;
+	grid-template-columns: 1fr;
+	/* Default to single column for mobile */
+	gap: 20px;
+	/* Space between cards */
 }
 
-@media (min-width: 600px) { /* Adjusted breakpoint for two columns */
-  .post-container {
-    grid-template-columns: 1fr 1fr; /* Two columns for desktop */
-    align-items: stretch; /* Ensure items stretch to fill the row height */
-  }
+@media (min-width: 600px) {
 
-  .post-card-wrapper {
-    height: 100%; /* Make wrapper fill the grid cell height */
-  }
+	/* Adjusted breakpoint for two columns */
+	.post-container {
+		grid-template-columns: 1fr 1fr;
+		/* Two columns for desktop */
+		align-items: stretch;
+		/* Ensure items stretch to fill the row height */
+	}
+
+	.post-card-wrapper {
+		height: 100%;
+		/* Make wrapper fill the grid cell height */
+	}
 }
 
 /* .page-header, */
