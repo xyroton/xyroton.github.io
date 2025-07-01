@@ -157,6 +157,7 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
     margin-top: 9px;
     text-decoration: none;
     color: inherit;
+    height: 100%; /* Make card fill the wrapper height */
   }
 
   .card:hover {
@@ -195,40 +196,37 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
     margin: 0;
   }
 
-  /* --- Responsive tweaks --- */
-  @media (max-width: 600px) {
-    .card-content {
-      flex-direction: column;
-      align-items: flex-start; /* Align content to the left on mobile */
-      text-align: left;
-    }
+  .card-content {
+    flex-direction: column; /* Always stacked */
+    align-items: flex-start; /* Align content to the left */
+    text-align: left;
+  }
 
-    .thumbnail {
-      width: 100%; /* Make image full width */
-      max-width: none; /* Remove max-width constraint */
-      height: auto;
-      aspect-ratio: auto;
-      border-radius: 6px;
-      padding: 0;
-      order: -1; /* Move image to the top */
-    }
+  .thumbnail {
+    width: 100%; /* Always full width */
+    max-width: none; /* Remove max-width constraint */
+    height: auto;
+    aspect-ratio: auto;
+    border-radius: 6px; /* Use mobile border-radius */
+    padding: 0;
+    order: -1; /* Always move image to the top */
+  }
 
-    .text-content {
-      align-items: flex-start; /* Align text content to the left */
-      padding: 1em;
-    }
+  .text-content {
+    align-items: flex-start; /* Always align text content to the left */
+    padding: 1em;
+  }
 
-    .title-with-bar {
-      justify-content: flex-start; /* Align title to the left */
-    }
+  .title-with-bar {
+    justify-content: flex-start; /* Always align title to the left */
+  }
 
-    #title {
-      font-size: 1.2em;
-    }
+  #title {
+    font-size: 1.2em; /* Use mobile font size for title */
+  }
 
-    .cards {
-      width: 100%; /* Ensure date/tags take full width */
-      justify-content: flex-start; /* Align date/tags to the left */
-    }
+  .cards {
+    width: 100%; /* Always ensure date/tags take full width */
+    justify-content: flex-start; /* Always align date/tags to the left */
   }
 </style>

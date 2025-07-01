@@ -515,6 +515,23 @@ body {
 	color: var(--text-color);
 }
 
+.post-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Default to single column for mobile */
+  gap: 20px; /* Space between cards */
+}
+
+@media (min-width: 600px) { /* Adjusted breakpoint for two columns */
+  .post-container {
+    grid-template-columns: 1fr 1fr; /* Two columns for desktop */
+    align-items: stretch; /* Ensure items stretch to fill the row height */
+  }
+
+  .post-card-wrapper {
+    height: 100%; /* Make wrapper fill the grid cell height */
+  }
+}
+
 /* .page-header, */
 .page-footer {
 	padding: 20px;

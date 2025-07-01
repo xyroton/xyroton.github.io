@@ -78,19 +78,22 @@ const recentPosts = (await getCollection("blog"))
 
     <h2 class="underlined-heading">Latest Blog Posts</h2>
 
-    <!-- Render top 3 recent posts -->
-    {
-      recentPosts.map((post) => (
-        <PostCard
-          url={`/posts/${post.id}/`}
-          title={post.data.title}
-          image={post.data.image}
-          pubDate={post.formattedDate}
-          description={post.data.description}
-          tags={post.data.tags}
-        />
-      ))
-    }
+    <div class="post-container">
+      {
+        recentPosts.map((post) => (
+          <div class="post-card-wrapper">
+            <PostCard
+              url={`/posts/${post.id}/`}
+              title={post.data.title}
+              image={post.data.image}
+              pubDate={post.formattedDate}
+              description={post.data.description}
+              tags={post.data.tags}
+            />
+          </div>
+        ))
+      }
+    </div>
   </div>
 
   <!-- typewriter -->

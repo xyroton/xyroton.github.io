@@ -1,6 +1,5 @@
 ---
 title: Let's Learn Astro
-draft: true
 author: Xyroton
 description: "The ABC of Astro"
 image:
