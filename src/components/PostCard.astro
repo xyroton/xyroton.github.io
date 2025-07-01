@@ -11,7 +11,6 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
       <div class="title-with-bar">
         <div class="vertical-bar"></div>
         <p id="title">{title}</p>
-        
       </div>
       <div class="cards">
         <!-- date -->
@@ -43,36 +42,35 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
           </div>
         </div>
         <!-- tags -->
-        <div class:list={["date", "extra"]}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19"></path>
-            <path
-              d="M9.586 5.586A2 2 0 0 0 8.172 5H3a1 1 0 0 0-1 1v5.172a2 2 0 0 0 .586 1.414L8.29 18.29a2.426 2.426 0 0 0 3.42 0l3.58-3.58a2.426 2.426 0 0 0 0-3.42z"
-            ></path>
-            <circle cx="6.5" cy="9.5" r=".5" fill="currentColor"></circle>
-          </svg>
-          <!-- <div class:list={["tags", "info-text"]}> -->
-          <!--   {tags.map((tag) => <p>#{tag}</p>)} -->
-          <!-- </div> -->
-          <p class="info-text">{tags[0]}</p>
-        </div>
       </div>
       <p>{description}</p>
+      <div class="taggy">
+        {
+          tags
+            .slice(0, 3)
+            .map((tag) => <p class="tag-item info-text">#{tag}</p>)
+        }
+      </div>
     </div>
     <img src={image.url} alt={image.alt} class="thumbnail" />
   </div>
 </a>
 
 <style>
+  .taggy {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+  }
+
+  .taggy .tag-item {
+    border: 1px solid var(--hamburger-border);
+    border-radius: 5px;
+    padding: 2px 5px;
+    white-space: nowrap;
+    font-size: 0.9rem;
+  }
   /* TODO: inconify the tag, date */
   .icon {
     background-color: var(--mode-button-bg);
@@ -102,7 +100,7 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
   .info-text {
     color: var(--nav-fg);
     font-size: 1.1rem;
-    font-family: 'JetBrains Mono';
+    font-family: "JetBrains Mono";
   }
 
   .tags-container {
@@ -184,11 +182,7 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
     filter: brightness(0.7); /* Darkens the image slightly */
   }
 
-
-
-
-    
- .text-content {
+  .text-content {
     flex: 1;
     padding: 1em;
     display: flex;
