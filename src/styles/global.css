@@ -208,12 +208,31 @@ pre>code {
 }
 
 @keyframes wobble {
-	0%, 100% { transform: translateX(0) rotate(0deg); }
-	15% { transform: translateX(-5px) rotate(-5deg); }
-	30% { transform: translateX(5px) rotate(5deg); }
-	45% { transform: translateX(-5px) rotate(-3deg); }
-	60% { transform: translateX(5px) rotate(3deg); }
-	75% { transform: translateX(-2px) rotate(-1deg); }
+
+	0%,
+	100% {
+		transform: translateX(0) rotate(0deg);
+	}
+
+	15% {
+		transform: translateX(-5px) rotate(-5deg);
+	}
+
+	30% {
+		transform: translateX(5px) rotate(5deg);
+	}
+
+	45% {
+		transform: translateX(-5px) rotate(-3deg);
+	}
+
+	60% {
+		transform: translateX(5px) rotate(3deg);
+	}
+
+	75% {
+		transform: translateX(-2px) rotate(-1deg);
+	}
 }
 
 
@@ -366,19 +385,20 @@ blockquote {
 	transition: border-color 0.3s ease;
 }
 
-.hamburger-icon, .x-icon {
-  position: absolute;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+.hamburger-icon,
+.x-icon {
+	position: absolute;
+	transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .hamburger-icon.hidden {
-  opacity: 0;
-  transform: rotate(90deg);
+	opacity: 0;
+	transform: rotate(90deg);
 }
 
 .x-icon.hidden {
-  opacity: 0;
-  transform: rotate(-90deg);
+	opacity: 0;
+	transform: rotate(-90deg);
 }
 
 .dropdown-menu li {
@@ -414,7 +434,8 @@ blockquote {
 	/*padding between icons */
 	gap: 2px;
 	position: relative;
-	perspective: 1000px; /* Add perspective for 3D effect */
+	perspective: 1000px;
+	/* Add perspective for 3D effect */
 }
 
 /* footer */
@@ -540,55 +561,70 @@ body {
 	background-color: #1a1a1a;
 	border-radius: 8px;
 	padding: 20px;
-	min-height: 150px; /* Re-added min-height for initial space */
+	min-height: 200px;
 	display: flex;
-	/* Removed align-items: center; */
-	/* Removed justify-content: center; */
 	border: 1px solid #000;
 	position: relative;
 	z-index: 1;
 	box-shadow: inset 0 0 20px rgba(0, 255, 0, 0.3);
-	transform: perspective(500px) rotateX(-2deg) scale(1.02);
+	/* create better bothom case */
+	/* transform: perspective(500px) rotateX(-2deg) scale(1.02); */
 }
 
 .terminal-screen::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 50% 0, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-    border-radius: 8px;
-    pointer-events: none;
-    z-index: 2;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: radial-gradient(circle at 50% 0, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+	border-radius: 8px;
+	pointer-events: none;
+	z-index: 2;
 }
 
 .typewriter {
 	font-family: 'JetBrains Mono', monospace;
 	font-size: 1.5rem;
-	color: #00e600; /* Slightly darker green for text */
+	color: #00e600;
+	/* Slightly darker green for text */
 	margin: 0 auto;
 	text-align: center;
-	text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00; /* Glowing effect */
+	text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+	/* Glowing effect */
 }
 
 .blinking-cursor {
-	color: #00ff00; /* Bright green cursor */
+	color: #00ff00;
+	/* Bright green cursor */
 	font-weight: 600;
 	font-size: 2rem;
 	animation: blink 0.7s step-end infinite;
-	text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Glowing effect for cursor */
+	text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+	/* Glowing effect for cursor */
 }
 
 @keyframes typing {
-	from { width: 0 }
-	to { width: 100% }
+	from {
+		width: 0
+	}
+
+	to {
+		width: 100%
+	}
 }
 
 @keyframes blink-caret {
-	from, to { border-color: transparent }
-	50% { border-color: #00ff00; }
+
+	from,
+	to {
+		border-color: transparent
+	}
+
+	50% {
+		border-color: #00ff00;
+	}
 }
 
 @keyframes blink {
