@@ -549,7 +549,7 @@ body {
 	border-radius: 15px;
 	padding: 20px;
 	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 0, 0, 0.3) inset;
-	max-width: 600px;
+	max-width: min(70vw, 500px);
 	margin: 40px auto;
 	position: relative;
 	border: 3px solid #555;
@@ -561,7 +561,7 @@ body {
 	background-color: #1a1a1a;
 	border-radius: 8px;
 	padding: 20px;
-	min-height: 200px;
+	min-height: 160px;
 	display: flex;
 	border: 1px solid #000;
 	position: relative;
@@ -586,7 +586,7 @@ body {
 
 .typewriter {
 	font-family: 'JetBrains Mono', monospace;
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	color: #00e600;
 	/* Slightly darker green for text */
 	margin: 0 auto;
