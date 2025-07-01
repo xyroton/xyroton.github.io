@@ -608,8 +608,8 @@ body {
 	font-size: 1.3rem;
 	line-height: 1.6;
 	/* Increased line height for better spacing */
-	color: #00e600;
-	/* Slightly darker green for text */
+	color: #00ff00;
+	/* Bright green for text */
 	white-space: normal;
 	/* Ensure text wraps */
 	margin: 0;
@@ -617,7 +617,7 @@ body {
 	padding: 0;
 	/* Removed default padding */
 	text-align: center;
-	text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+	text-shadow: 0 0 3px #00ff00, 0 0 8px #00ff00, 0 0 12px #00ff00;
 	/* Glowing effect */
 }
 
