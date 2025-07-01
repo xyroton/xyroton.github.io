@@ -12,37 +12,6 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
         <div class="vertical-bar"></div>
         <p id="title">{title}</p>
       </div>
-      <div class="cards">
-        <!-- date -->
-        <div class="date">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="icon"
-            ><path d="M8 2v4"></path><path d="M16 2v4"></path><rect
-              width="18"
-              height="18"
-              x="3"
-              y="4"
-              rx="2"></rect><path d="M3 10h18"></path><path d="M8 14h.01"
-            ></path><path d="M12 14h.01"></path><path d="M16 14h.01"
-            ></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path><path
-              d="M16 18h.01"></path></svg
-          >
-
-          <div class="info-text">
-            <FormattedDate date={new Date(pubDate)} />
-          </div>
-        </div>
-        <!-- tags -->
-      </div>
       <p>{description}</p>
       <div class="taggy">
         {
@@ -52,7 +21,14 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
         }
       </div>
     </div>
-    <img src={image.url} alt={image.alt} class="thumbnail" />
+    <div class="image-container">
+      <img src={image.url} alt={image.alt} class="thumbnail" />
+      <div class="date-overlay">
+        <div class="info-text">
+          <FormattedDate date={new Date(pubDate)} />
+        </div>
+      </div>
+    </div>
   </div>
 </a>
 
@@ -181,6 +157,29 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
 
   .thumbnail:hover {
     filter: brightness(0.7); /* Darkens the image slightly */
+  }
+
+  .image-container {
+    position: relative;
+    width: 100%; /* Ensure it takes full width */
+    order: -1; /* Keep image at the top */
+  }
+
+  .date-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    z-index: 10; /* Ensure it's above the image */
+    width: fit-content;
+  }
+
+  .date-overlay .info-text {
+    color: white; /* Override info-text color for visibility */
   }
 
   .text-content {
