@@ -42,7 +42,7 @@ const readingStats = readingTime(content);
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
-    margin-top: 5px;
+    margin-top: auto;
   }
 
   .taggy .tag-item {
@@ -125,20 +125,19 @@ const readingStats = readingTime(content);
     margin: 0;
   }
 
-  .cards {
-  }
-
   /* --- Card Styles --- */
   .card {
     background-color: var(--buble);
     border-radius: 10px;
     overflow: hidden;
-    display: block;
     transition: transform 0.2s ease;
     margin-top: 9px;
     text-decoration: none;
     color: inherit;
     height: 100%; /* Make card fill the wrapper height */
+    display: flex;
+    flex-direction: column; /* stack content vertically */
+    height: 100%; /* ensure card fills the parent container */
   }
 
   .card:hover {
@@ -146,19 +145,21 @@ const readingStats = readingTime(content);
   }
 
   .card-content {
-    display: flex;
     align-items: center;
     gap: 0;
+    display: flex;
+    flex-direction: column; /* stack children vertically */
+    flex-grow: 1; /* take all remaining space */
   }
 
-  .thumbnail {
-    width: 40%;
-    padding: 10px;
-    border-radius: 20px;
-    aspect-ratio: 16 / 9;
-    flex-shrink: 0;
-    max-width: 300px;
-  }
+  /* .thumbnail { */
+  /*   width: 40%; */
+  /*   padding: 10px; */
+  /*   border-radius: 20px; */
+  /*   aspect-ratio: 16 / 9; */
+  /*   flex-shrink: 0; */
+  /*   max-width: 300px; */
+  /* } */
 
   .thumbnail:hover {
     filter: brightness(0.7); /* Darkens the image slightly */
@@ -198,6 +199,8 @@ const readingStats = readingTime(content);
     flex-direction: column;
     color: var(--text-color);
     justify-content: center;
+    justify-content: space-between; /* pushes taggy to bottom */
+    height: 100%; /* make it fill vertical space */
   }
 
   p {
@@ -220,9 +223,16 @@ const readingStats = readingTime(content);
     order: -1; /* Always move image to the top */
   }
 
+  /* .text-content { */
+  /*   align-items: flex-start; /* Always align text content to the left */
+  */
+  /*   padding: 1em; */
+  /* } */
   .text-content {
-    align-items: flex-start; /* Always align text content to the left */
-    padding: 1em;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .title-with-bar {
