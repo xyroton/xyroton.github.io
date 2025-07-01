@@ -129,7 +129,7 @@ main {
 .logo,
 .logo-dark {
 	width: auto;
-	height: auto;
+	height: 40px;
 	margin: 0px;
 	padding: 0px;
 	padding-top: 10px;
