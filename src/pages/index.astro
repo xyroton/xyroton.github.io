@@ -23,7 +23,11 @@ const recentPosts = (await getCollection("blog"))
 <BaseLayout>
   <div class="animate-on-load">
     <!-- Typewriter heading -->
-    <h1 id="typedtext" class="typewriter"></h1>
+    <div class="monitor-frame">
+      <div class="terminal-screen">
+        <h1 id="typedtext" class="typewriter"></h1>
+      </div>
+    </div>
 
     <div class="bubble">
       <p>
