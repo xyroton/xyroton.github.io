@@ -1,7 +1,10 @@
 ---
 import "../styles/global.css";
 import FormattedDate from "./FormattedDate.astro";
-const { title, url, pubDate, description, tags, image } = Astro.props;
+const { content, title, url, pubDate, description, tags, image } = Astro.props;
+import readingTime from "reading-time";
+
+const readingStats = readingTime(content);
 ---
 
 <!-- put layer over the image -->
@@ -13,6 +16,7 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
         <p id="title">{title}</p>
       </div>
       <p>{description}</p>
+      <p></p>
       <div class="taggy">
         {
           tags
@@ -23,10 +27,11 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
     </div>
     <div class="image-container">
       <img src={image.url} alt={image.alt} class="thumbnail" />
-      <div class="date-overlay">
-        <div class="info-text">
-          <FormattedDate date={new Date(pubDate)} />
-        </div>
+      <div class="overl date-overlay">
+        <FormattedDate date={new Date(pubDate)} />
+      </div>
+      <div class="overl read-overlay">
+        {readingStats.words} Words | {Math.round(readingStats.minutes)} Minutes
       </div>
     </div>
   </div>
@@ -166,21 +171,22 @@ const { title, url, pubDate, description, tags, image } = Astro.props;
   }
 
   .date-overlay {
+    left: 10px;
+  }
+
+  .overl {
     position: absolute;
     bottom: 10px;
-    left: 10px;
     background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
-    font-size: 0.9em;
+    font-size: 0.8em;
     z-index: 10; /* Ensure it's above the image */
     width: fit-content;
   }
-
-  .date-overlay .info-text {
-    color: white; /* Override info-text color for visibility */
-    font-size: 0.8em;
+  .read-overlay {
+    right: 10px;
   }
 
   .text-content {

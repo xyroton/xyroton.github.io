@@ -89,6 +89,7 @@ const recentPosts = (await getCollection("blog"))
               pubDate={post.formattedDate}
               description={post.data.description}
               tags={post.data.tags}
+              content={post.body}
             />
           </div>
         ))
