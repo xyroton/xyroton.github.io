@@ -1,7 +1,15 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
-const { frontmatter } = Astro.props;
+import TOC from "../components/TOC.astro";
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+  frontmatter: Record<string, any>;
+  headings?: MarkdownHeading[];
+}
+
+const { frontmatter, headings } = Astro.props;
 ---
 
 <BaseLayout title={frontmatter.title}>
@@ -102,6 +110,7 @@ const { frontmatter } = Astro.props;
     </div>
 
     <hr class="blog-divider" />
+    <TOC headings={headings || []} />
 
     <slot />
   </div>
@@ -159,26 +168,25 @@ const { frontmatter } = Astro.props;
     }).observe(document.documentElement, { attributes: true });
   </script>
 
-      <!-- might not work with table of content -->
+  <!-- might not work with table of content -->
   <script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    const blogPostContainer = document.querySelector(".blog-post-container");
-    if (!blogPostContainer) return;
+    document.addEventListener("DOMContentLoaded", () => {
+      const blogPostContainer = document.querySelector(".blog-post-container");
+      if (!blogPostContainer) return;
 
-    blogPostContainer.querySelectorAll("a").forEach((link) => {
-      if (
-        !link.hasAttribute("target") &&
-        link.href &&
-        !link.href.startsWith("#") &&
-        !link.href.startsWith(window.location.origin)
-      ) {
-        link.setAttribute("target", "_blank");
-        link.setAttribute("rel", "noopener noreferrer");
-      }
+      blogPostContainer.querySelectorAll("a").forEach((link) => {
+        if (
+          !link.hasAttribute("target") &&
+          link.href &&
+          !link.href.startsWith("#") &&
+          !link.href.startsWith(window.location.origin)
+        ) {
+          link.setAttribute("target", "_blank");
+          link.setAttribute("rel", "noopener noreferrer");
+        }
+      });
     });
-  });
-</script>
-
+  </script>
 </BaseLayout>
 
 <style>

@@ -5,6 +5,8 @@ import expressiveCode from "astro-expressive-code";
 import remarkHeadingNumbering from "./src/plugins/remark-heading-numbering.mjs";
 import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,6 +26,17 @@ export default defineConfig({
   ],
   markdown: {
     remarkPlugins: [remarkMath, remarkHeadingNumbering, remarkReadingTime],
-    rehypePlugins: [rehypeKatex],
+    rehypePlugins: [
+      rehypeKatex,
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          properties: {
+            className: "anchor",
+          },
+        },
+      ],
+    ],
   },
 });
