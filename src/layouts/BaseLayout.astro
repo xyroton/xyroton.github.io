@@ -9,7 +9,7 @@ import { ViewTransitions } from "astro:transitions";
   <head>
     <meta charset="utf-8" />
     <title>{Astro.props.title}</title>
-    <link rel="icon" type="image/svg+xml" href="/icons/logo_dark.svg" />
+    <link rel="icon" type="image/svg+xml" href="/icons/fav.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="color-scheme" content="light dark" />
@@ -42,18 +42,5 @@ import { ViewTransitions } from "astro:transitions";
       </main>
       <Footer />
     </div>
-    <!-- make links open in a new tab -->
-    <script is:inline>
-      document.querySelectorAll("a").forEach((link) => {
-        if (
-          !link.hasAttribute("target") &&
-          link.href &&
-          !link.href.startsWith("#")
-        ) {
-          link.setAttribute("target", "_blank");
-          link.setAttribute("rel", "noopener noreferrer");
-        }
-      });
-    </script>
   </body>
 </html>

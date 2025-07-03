@@ -158,6 +158,27 @@ const { frontmatter } = Astro.props;
       });
     }).observe(document.documentElement, { attributes: true });
   </script>
+
+      <!-- might not work with table of content -->
+  <script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const blogPostContainer = document.querySelector(".blog-post-container");
+    if (!blogPostContainer) return;
+
+    blogPostContainer.querySelectorAll("a").forEach((link) => {
+      if (
+        !link.hasAttribute("target") &&
+        link.href &&
+        !link.href.startsWith("#") &&
+        !link.href.startsWith(window.location.origin)
+      ) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
+      }
+    });
+  });
+</script>
+
 </BaseLayout>
 
 <style>
