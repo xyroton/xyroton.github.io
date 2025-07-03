@@ -1,6 +1,7 @@
 :root {
 	--background-color: #f2ecbc;
 	--text-color: #545464;
+	--text-secondary: #8a8980;
 	--nav-fg: #545464;
 	--header-bg: #e5ddb0;
 	--header-bg: rgb(229, 221, 176, 0.4);
@@ -25,6 +26,7 @@
 [theme="dark"] {
 	--background-color: #181616;
 	--text-color: #dcd7ba;
+	--text-secondary: #8a8980;
 	--nav-fg: #c8c093;
 	--header-bg: rgb(24, 22, 22, 0.5);
 	--mode-button-bg: #dca561;
