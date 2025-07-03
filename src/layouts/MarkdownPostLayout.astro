@@ -13,107 +13,111 @@ const { frontmatter, headings } = Astro.props;
 ---
 
 <BaseLayout title={frontmatter.title}>
-  <div class="blog-post-container">
-    <title>{frontmatter.title}</title>
+  <main class="blog-post-container-wrapper">
+    <div class="blog-post-container">
+      <title>{frontmatter.title}</title>
 
-    <div class="hero-image">
-      {
-        frontmatter.image.url && (
-          <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
-        )
-      }
-    </div>
-
-    <h1 class="post-title">{frontmatter.title}</h1>
-
-    <div class="post-metadata-bubble">
-      <div class="text-content">
-        <div class="date">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="icon lucide-user-pen"
-          >
-            <path d="M11.5 15H7a4 4 0 0 0-4 4v2"></path>
-            <path
-              d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"
-            ></path>
-            <circle cx="10" cy="7" r="4"></circle>
-          </svg>
-          <div class="info-text">
-            <span class="label">Author</span>
-            <span class="value">Xyroton</span>
-          </div>
-        </div>
-
-        <div class="date">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="icon"
-          >
-            <path d="M8 2v4"></path>
-            <path d="M16 2v4"></path>
-            <rect width="18" height="18" x="3" y="4" rx="2"></rect>
-            <path d="M3 10h18"></path>
-            <path d="M8 14h.01"></path>
-            <path d="M12 14h.01"></path>
-            <path d="M16 14h.01"></path>
-            <path d="M8 18h.01"></path>
-            <path d="M12 18h.01"></path>
-            <path d="M16 18h.01"></path>
-          </svg>
-          <div class="info-text">
-            <span class="label">Published</span>
-            <FormattedDate date={frontmatter.pubDate} />
-          </div>
-        </div>
-
+      <div class="hero-image">
         {
-          frontmatter.updatedDate && (
-            <div class="date">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="icon lucide-file-pen"
-              >
-                <path d="M12.5 22H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v9.5" />
-                <path d="M14 2v4a2 2 0 0 0 2 2h4" />
-                <path d="M13.378 15.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
-              </svg>
-              <div class="info-text">
-                <span class="label">Updated</span>
-                <FormattedDate date={frontmatter.updatedDate} />
-              </div>
-            </div>
+          frontmatter.image.url && (
+            <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
           )
         }
       </div>
+
+      <h1 class="post-title">{frontmatter.title}</h1>
+
+      <div class="post-metadata-bubble">
+        <div class="text-content">
+          <div class="date">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon lucide-user-pen"
+            >
+              <path d="M11.5 15H7a4 4 0 0 0-4 4v2"></path>
+              <path
+                d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"
+              ></path>
+              <circle cx="10" cy="7" r="4"></circle>
+            </svg>
+            <div class="info-text">
+              <span class="label">Author</span>
+              <span class="value">Xyroton</span>
+            </div>
+          </div>
+
+          <div class="date">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon"
+            >
+              <path d="M8 2v4"></path>
+              <path d="M16 2v4"></path>
+              <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+              <path d="M3 10h18"></path>
+              <path d="M8 14h.01"></path>
+              <path d="M12 14h.01"></path>
+              <path d="M16 14h.01"></path>
+              <path d="M8 18h.01"></path>
+              <path d="M12 18h.01"></path>
+              <path d="M16 18h.01"></path>
+            </svg>
+            <div class="info-text">
+              <span class="label">Published</span>
+              <FormattedDate date={frontmatter.pubDate} />
+            </div>
+          </div>
+
+          {
+            frontmatter.updatedDate && (
+              <div class="date">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="icon lucide-file-pen"
+                >
+                  <path d="M12.5 22H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v9.5" />
+                  <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                  <path d="M13.378 15.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
+                </svg>
+                <div class="info-text">
+                  <span class="label">Updated</span>
+                  <FormattedDate date={frontmatter.updatedDate} />
+                </div>
+              </div>
+            )
+          }
+        </div>
+      </div>
+
+      <hr class="blog-divider" />
+
+      <slot />
     </div>
-
-    <hr class="blog-divider" />
-    <TOC headings={headings || []} />
-
-    <slot />
-  </div>
+    <aside class="syde">
+      <TOC headings={headings || []} />
+    </aside>
+  </main>
 
   <!-- Tag list -->
   <div class="tag-wrapper">
@@ -190,6 +194,26 @@ const { frontmatter, headings } = Astro.props;
 </BaseLayout>
 
 <style>
+  .blog-post-container-wrapper {
+    max-width: 1000px; /* or your current width */
+    display: flex;
+    gap: 2rem; /* adjust as you like */
+  }
+  /* Blog content keeps fixed max width */
+  .blog-post-container {
+    max-width: 700px;
+  }
+
+  .syde {
+    width: 300px;
+    position: sticky;
+    top: 100px;
+    align-self: flex-start;
+    float: none;
+   /* makes it take the with  */
+    flex-shrink: 0;
+  }
+
   .commeant-section {
     padding: 10px;
     border-radius: 5px;
