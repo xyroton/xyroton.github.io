@@ -40,5 +40,18 @@ import { ViewTransitions } from "astro:transitions";
       </main>
       <Footer />
     </div>
+    <!-- make links open in a new tab -->
+    <script is:inline>
+      document.querySelectorAll("a").forEach((link) => {
+        if (
+          !link.hasAttribute("target") &&
+          link.href &&
+          !link.href.startsWith("#")
+        ) {
+          link.setAttribute("target", "_blank");
+          link.setAttribute("rel", "noopener noreferrer");
+        }
+      });
+    </script>
   </body>
 </html>
