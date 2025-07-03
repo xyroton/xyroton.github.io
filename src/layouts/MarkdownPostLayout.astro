@@ -210,7 +210,7 @@ const { frontmatter, headings } = Astro.props;
     top: 100px;
     align-self: flex-start;
     float: none;
-   /* makes it take the with  */
+    /* makes it take the with  */
     flex-shrink: 0;
   }
 
@@ -306,6 +306,17 @@ const { frontmatter, headings } = Astro.props;
     gap: 0.2em;
     margin-top: 10px;
     margin-bottom: 10px;
+  }
+
+  @media (max-width: 900px) {
+    /* hide sidebar	 */
+    .syde {
+      display: none;
+    }
+    .blog-post-container-wrapper {
+      flex-direction: column;
+      max-width: 100%;
+    }
   }
 
   @media (max-width: 600px) {
