@@ -187,7 +187,7 @@ const { headings } = Astro.props;
 
   .mobile-toc-dropdown .toc a {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--text);
     display: block;
     padding: 0.5rem; /* Match nav link padding */
     transition: none; /* Remove TOC's hover transition */
@@ -196,7 +196,7 @@ const { headings } = Astro.props;
   .mobile-toc-dropdown .toc a:hover {
     background: var(--drop-menu-highlight);
     border-radius: 4px;
-    color: var(--text-color); /* Ensure text color doesn't change on hover */
+    color: var(--text); /* Ensure text color doesn't change on hover */
   }
 
   /* Show on screens smaller than 900px (matching MarkdownPostLayout's media query) */
