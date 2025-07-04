@@ -157,7 +157,8 @@ const { headings } = Astro.props;
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-    max-height: calc(100vh - 150px); /* Expand to max height, leaving space at top and bottom */
+    max-height: calc(100vh - 180px); /* Expand to max height, leaving more space at top and bottom */
+    overflow-y: auto; /* Enable scrolling within the dropdown if content overflows */
     display: flex; /* Keep display flex for layout */
   }
 
