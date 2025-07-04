@@ -14,7 +14,7 @@ const { frontmatter, headings } = Astro.props;
 ---
 
 <BaseLayout title={frontmatter.title}>
-  <main class="blog-post-container-wrapper">
+  <div class="blog-post-container-wrapper">
     <div class="blog-post-container">
       <title>{frontmatter.title}</title>
 
@@ -118,7 +118,7 @@ const { frontmatter, headings } = Astro.props;
     <aside class="syde">
       <TOC headings={headings || []} />
     </aside>
-  </main>
+  </div>
 
   <!-- Mobile TOC Button and Dropdown -->
   <MobileTOC headings={headings || []} />

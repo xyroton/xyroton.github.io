@@ -24,91 +24,94 @@ const allPosts = (await getCollection("blog"))
 <BaseLayout title="Blog">
   <!-- Render blog posts -->
 
-  <div class="tag-container">
-    <button class="tag-button active" data-tag="all">All</button>
-    {
-      [...new Set(allPosts.flatMap((post) => post.data.tags))].map((tag) => (
-        <button class="tag-button" data-tag={tag}>
-          {tag}
-        </button>
-      ))
-    }
-  </div>
+  <div class="rlayout animate-on-load">
+    <div class="tag-container">
+      <button class="tag-button active" data-tag="all">All</button>
+      {
+        [...new Set(allPosts.flatMap((post) => post.data.tags))].map((tag) => (
+          <button class="tag-button" data-tag={tag}>
+            {tag}
+          </button>
+        ))
+      }
+    </div>
 
-  <hr class="blog-divider" />
+    <hr class="blog-divider" />
 
-  <div class="post-container">
-    {
-      allPosts.map((post) => (
-        <div class="post-card-wrapper" data-tags={post.data.tags.join(" ")}>
-          <PostCard
-            url={`/posts/${post.id}/`}
-            title={post.data.title}
-            image={post.data.image}
-            pubDate={post.formattedDate}
-            description={post.data.description}
-            tags={post.data.tags}
-            content={post.body}
-          />
-        </div>
-      ))
-    }
-  </div>
+    <div class="post-container">
+      {
+        allPosts.map((post) => (
+          <div class="post-card-wrapper" data-tags={post.data.tags.join(" ")}>
+            <PostCard
+              url={`/posts/${post.id}/`}
+              title={post.data.title}
+              image={post.data.image}
+              pubDate={post.formattedDate}
+              description={post.data.description}
+              tags={post.data.tags}
+              content={post.body}
+            />
+          </div>
+        ))
+      }
+    </div>
 
-  <script>
-    function initTagFiltering() {
-      const tagButtons = document.querySelectorAll<HTMLElement>(".tag-button");
-      const postCards =
-        document.querySelectorAll<HTMLElement>(".post-card-wrapper");
-      const urlParams = new URLSearchParams(window.location.search);
-      let activeTag = urlParams.get("tag") || "all";
+    <script>
+      function initTagFiltering() {
+        const tagButtons =
+          document.querySelectorAll<HTMLElement>(".tag-button");
+        const postCards =
+          document.querySelectorAll<HTMLElement>(".post-card-wrapper");
+        const urlParams = new URLSearchParams(window.location.search);
+        let activeTag = urlParams.get("tag") || "all";
 
-      function filterPosts() {
-        postCards.forEach((card) => {
-          const postTags = card.dataset.tags?.split(" ") ?? [];
-          if (activeTag === "all" || postTags.includes(activeTag)) {
-            card.style.display = "block";
-          } else {
-            card.style.display = "none";
-          }
-        });
+        function filterPosts() {
+          postCards.forEach((card) => {
+            const postTags = card.dataset.tags?.split(" ") ?? [];
+            if (activeTag === "all" || postTags.includes(activeTag)) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+
+          tagButtons.forEach((button) => {
+            if (button.dataset.tag === activeTag) {
+              button.classList.add("active");
+            } else {
+              button.classList.remove("active");
+            }
+          });
+        }
 
         tagButtons.forEach((button) => {
-          if (button.dataset.tag === activeTag) {
-            button.classList.add("active");
-          } else {
-            button.classList.remove("active");
-          }
+          // Remove existing event listeners to prevent duplicates
+          button.removeEventListener("click", handleTagButtonClick);
+          button.addEventListener("click", handleTagButtonClick);
         });
-      }
 
-      tagButtons.forEach((button) => {
-        // Remove existing event listeners to prevent duplicates
-        button.removeEventListener("click", handleTagButtonClick);
-        button.addEventListener("click", handleTagButtonClick);
-      });
+        function handleTagButtonClick(event) {
+          activeTag = (event.currentTarget as HTMLElement).dataset.tag ?? "all";
+          const url = new URL(window.location);
+          url.searchParams.set("tag", activeTag);
+          window.history.pushState({}, "", url);
+          filterPosts();
+        }
 
-      function handleTagButtonClick(event) {
-        activeTag = (event.currentTarget as HTMLElement).dataset.tag ?? "all";
-        const url = new URL(window.location);
-        url.searchParams.set("tag", activeTag);
-        window.history.pushState({}, "", url);
+        window.removeEventListener("popstate", handlePopstate);
+        window.addEventListener("popstate", handlePopstate);
+
+        function handlePopstate() {
+          const urlParams = new URLSearchParams(window.location.search);
+          activeTag = urlParams.get("tag") || "all";
+          filterPosts();
+        }
+
         filterPosts();
       }
 
-      window.removeEventListener("popstate", handlePopstate);
-      window.addEventListener("popstate", handlePopstate);
-
-      function handlePopstate() {
-        const urlParams = new URLSearchParams(window.location.search);
-        activeTag = urlParams.get("tag") || "all";
-        filterPosts();
-      }
-
-      filterPosts();
-    }
-
-    document.addEventListener("DOMContentLoaded", initTagFiltering);
-    document.addEventListener("astro:page-load", initTagFiltering);
-  </script>
+      document.addEventListener("DOMContentLoaded", initTagFiltering);
+      document.addEventListener("astro:page-load", initTagFiltering);
+    </script>
+  </div>
 </BaseLayout>
