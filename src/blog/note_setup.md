@@ -22,6 +22,31 @@ The setup is simple:
  
 
 # Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
+# Obsidian
 
 Obsidian is a Markdown-based note-taking app with a strong community and a big plugin ecosystem. It’s free (not open source), and all your notes are plain `.md` files stored locally — no forced cloud syncs.
 

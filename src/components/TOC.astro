@@ -33,6 +33,26 @@ const { headings = [] } = Astro.props;
     border: 1px solid var(--border-color);
     border-radius: 20px;
     background-color: var(--time);
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .toc::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .toc::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+
+  .toc::-webkit-scrollbar-thumb {
+    background-color: var(--mode-button-bg);
+    border-radius: 4px;
+  }
+
+  .toc::-webkit-scrollbar-thumb:hover {
+    background-color: var(--h1-color);
   }
 
   .toc .depth-1 a {
