@@ -79,6 +79,7 @@ const { headings } = Astro.props;
     bottom: 20px;
     right: 20px;
     z-index: 9999; /* Increased z-index to ensure it's on top */
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; /* Add transform transition */
   }
 
   .mobile-toc-container button {
@@ -173,7 +174,9 @@ const { headings } = Astro.props;
 
   /* Show on screens smaller than 900px (matching MarkdownPostLayout's media query) */
   .hidden-by-scroll {
-    display: none !important; /* Use !important to ensure it overrides other display properties */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateX(100%) !important; /* Slide out to the right */
   }
 
   @media (max-width: 1400px) {

@@ -204,7 +204,7 @@ const { frontmatter, headings } = Astro.props;
   /* Blog content keeps fixed max width */
   .blog-post-container {
     max-width: 700px;
-      margin-left: 90px; /* shifts it 20px to the left */
+    margin-left: 90px; /* shifts it 20px to the left */
   }
 
   .syde {
@@ -318,11 +318,12 @@ const { frontmatter, headings } = Astro.props;
     }
     .blog-post-container-wrapper {
       flex-direction: column;
-      max-width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
     }
 
     .blog-post-container {
-	margin-left: 0;
+      margin-left: 0;
     }
   }
 
@@ -345,4 +346,3 @@ const { frontmatter, headings } = Astro.props;
     }
   }
 </style>
-
