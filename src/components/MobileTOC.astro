@@ -182,6 +182,17 @@ const { headings } = Astro.props;
   @media (max-width: 1400px) {
     .mobile-toc-container {
       display: block;
+      /* Position 20px from the right edge of the main content area */
+      right: max(20px, calc(50vw - 380px));
+      left: auto; /* Ensure left is not set */
+    }
+  }
+
+  @media (max-width: 600px) {
+    .mobile-toc-container {
+      /* Reset to default for smaller screens */
+      right: 20px;
+      left: auto;
     }
   }
 </style>
