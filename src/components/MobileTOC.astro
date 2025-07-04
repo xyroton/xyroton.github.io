@@ -38,6 +38,38 @@ const { headings } = Astro.props;
       }
     });
   }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const mobileTocContainer = document.querySelector(".mobile-toc-container");
+    const tagWrapper = document.querySelector(".tag-wrapper");
+
+    if (mobileTocContainer && tagWrapper) {
+      const mobileTocHeight = mobileTocContainer.offsetHeight;
+      const initialBottomOffset = 20; // From CSS: bottom: 20px;
+
+      function adjustMobileTocPosition() {
+        const viewportHeight = window.innerHeight;
+        const tagWrapperTopInDocument = tagWrapper.getBoundingClientRect().top + window.scrollY; // Get absolute top position
+
+        // Calculate the scroll position where the bottom of the fixed TOC
+        // would align with the top of the tagWrapper.
+        // When fixed, the bottom of the TOC is at (viewportHeight - initialBottomOffset) from the top of the viewport.
+        // We want this to be equal to tagWrapperTopInDocument.
+        // So, window.scrollY + (viewportHeight - initialBottomOffset) = tagWrapperTopInDocument
+        // window.scrollY = tagWrapperTopInDocument - (viewportHeight - initialBottomOffset)
+        const stopScrollY = tagWrapperTopInDocument - (viewportHeight - initialBottomOffset);
+
+        if (window.scrollY >= stopScrollY) {
+          mobileTocContainer.classList.add("hidden-by-scroll");
+        } else {
+          mobileTocContainer.classList.remove("hidden-by-scroll");
+        }
+      }
+
+      window.addEventListener("scroll", adjustMobileTocPosition);
+      adjustMobileTocPosition(); // Call on load to set initial position
+    }
+  });
 </script>
 
 <style>
@@ -140,6 +172,10 @@ const { headings } = Astro.props;
   }
 
   /* Show on screens smaller than 900px (matching MarkdownPostLayout's media query) */
+  .hidden-by-scroll {
+    display: none !important; /* Use !important to ensure it overrides other display properties */
+  }
+
   @media (max-width: 1400px) {
     .mobile-toc-container {
       display: block;
