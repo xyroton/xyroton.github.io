@@ -51,6 +51,13 @@ const { headings } = Astro.props;
         mobileTocDropdown.classList.remove("active");
       }
     });
+
+    // Close dropdown when a link inside it is clicked
+    mobileTocDropdown.addEventListener("click", (event) => {
+      if (event.target.tagName === "A") {
+        mobileTocDropdown.classList.remove("active");
+      }
+    });
   }
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -150,7 +157,7 @@ const { headings } = Astro.props;
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-    max-height: 70vh; /* Expand to max height */
+    max-height: calc(100vh - 150px); /* Expand to max height, leaving space at top and bottom */
     display: flex; /* Keep display flex for layout */
   }
 
