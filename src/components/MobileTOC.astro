@@ -1,0 +1,110 @@
+---
+import TOC from "./TOC.astro";
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+---
+
+<div class="mobile-toc-container">
+  <button id="mobile-toc-toggle" aria-label="Toggle Table of Contents">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="icon"
+    >
+      <path d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
+
+  <div class="mobile-toc-dropdown">
+    <TOC headings={headings} />
+  </div>
+</div>
+
+<script is:inline>
+  const mobileTocToggle = document.getElementById("mobile-toc-toggle");
+  const mobileTocDropdown = document.querySelector(".mobile-toc-dropdown");
+
+  if (mobileTocToggle && mobileTocDropdown) {
+    mobileTocToggle.addEventListener("click", () => {
+      mobileTocDropdown.classList.toggle("active");
+    });
+
+    document.addEventListener("click", (event) => {
+      if (
+        !mobileTocDropdown.contains(event.target) &&
+        !mobileTocToggle.contains(event.target) &&
+        mobileTocDropdown.classList.contains("active")
+      ) {
+        mobileTocDropdown.classList.remove("active");
+      }
+    });
+  }
+</script>
+
+<style>
+  .mobile-toc-container {
+    display: none; /* Hidden by default, shown on mobile */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999; /* Increased z-index to ensure it's on top */
+  }
+
+  .mobile-toc-container button {
+    background-color: var(--mode-button-bg);
+    color: var(--background-color);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+  }
+
+  .mobile-toc-container button .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .mobile-toc-dropdown {
+    display: none;
+    position: absolute;
+    bottom: 60px; /* Above the button */
+    right: 0;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    padding: 10px;
+    max-height: 70vh;
+    overflow-y: auto;
+    width: 250px; /* Adjust as needed */
+    max-width: calc(100vw - 40px); /* Ensure it doesn't overflow viewport */
+  }
+
+  .mobile-toc-dropdown.active {
+    display: block;
+  }
+
+  /* Show on screens smaller than 900px (matching MarkdownPostLayout's media query) */
+  @media (max-width: 1400px) {
+    .mobile-toc-container {
+      display: block;
+    }
+  }
+</style>

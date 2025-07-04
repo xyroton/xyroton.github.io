@@ -2,6 +2,7 @@
 import BaseLayout from "./BaseLayout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import TOC from "../components/TOC.astro";
+import MobileTOC from "../components/MobileTOC.astro"; // Import the new component
 import type { MarkdownHeading } from "astro";
 
 interface Props {
@@ -118,6 +119,9 @@ const { frontmatter, headings } = Astro.props;
       <TOC headings={headings || []} />
     </aside>
   </main>
+
+  <!-- Mobile TOC Button and Dropdown -->
+  <MobileTOC headings={headings || []} />
 
   <!-- Tag list -->
   <div class="tag-wrapper">
@@ -309,7 +313,7 @@ const { frontmatter, headings } = Astro.props;
     margin-bottom: 10px;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1400px) {
     /* hide sidebar	 */
     .syde {
       display: none;
@@ -317,6 +321,10 @@ const { frontmatter, headings } = Astro.props;
     .blog-post-container-wrapper {
       flex-direction: column;
       max-width: 100%;
+    }
+
+    .blog-post-container {
+	margin-left: 0;
     }
   }
 
