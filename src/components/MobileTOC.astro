@@ -11,7 +11,21 @@ const { headings } = Astro.props;
 
 <div class="mobile-toc-container">
   <button id="mobile-toc-toggle" aria-label="Toggle Table of Contents">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-table-of-contents-icon lucide-table-of-contents"><path d="M16 12H3"/><path d="M16 18H3"/><path d="M16 6H3"/><path d="M21 12h.01"/><path d="M21 18h.01"/><path d="M21 6h.01"/></svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-table-of-contents-icon lucide-table-of-contents"
+      ><path d="M16 12H3"></path><path d="M16 18H3"></path><path d="M16 6H3"
+      ></path><path d="M21 12h.01"></path><path d="M21 18h.01"></path><path
+        d="M21 6h.01"></path></svg
+    >
   </button>
 
   <div class="mobile-toc-dropdown">
@@ -49,7 +63,8 @@ const { headings } = Astro.props;
 
       function adjustMobileTocPosition() {
         const viewportHeight = window.innerHeight;
-        const tagWrapperTopInDocument = tagWrapper.getBoundingClientRect().top + window.scrollY; // Get absolute top position
+        const tagWrapperTopInDocument =
+          tagWrapper.getBoundingClientRect().top + window.scrollY; // Get absolute top position
 
         // Calculate the scroll position where the bottom of the fixed TOC
         // would align with the top of the tagWrapper.
@@ -57,7 +72,8 @@ const { headings } = Astro.props;
         // We want this to be equal to tagWrapperTopInDocument.
         // So, window.scrollY + (viewportHeight - initialBottomOffset) = tagWrapperTopInDocument
         // window.scrollY = tagWrapperTopInDocument - (viewportHeight - initialBottomOffset)
-        const stopScrollY = tagWrapperTopInDocument - (viewportHeight - initialBottomOffset);
+        const stopScrollY =
+          tagWrapperTopInDocument - (viewportHeight - initialBottomOffset);
 
         if (window.scrollY >= stopScrollY) {
           mobileTocContainer.classList.add("hidden-by-scroll");
@@ -79,7 +95,10 @@ const { headings } = Astro.props;
     bottom: 20px;
     right: 20px;
     z-index: 9999; /* Increased z-index to ensure it's on top */
-    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; /* Add transform transition */
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease,
+      visibility 0.3s ease; /* Add transform transition */
   }
 
   .mobile-toc-container button {
@@ -182,8 +201,7 @@ const { headings } = Astro.props;
   @media (max-width: 1400px) {
     .mobile-toc-container {
       display: block;
-      /* Position 20px from the right edge of the main content area */
-      right: max(20px, calc(50vw - 380px));
+      right: max(40px, calc(50vw - 400px)); /* Adjusted for more clearance */
       left: auto; /* Ensure left is not set */
     }
   }
