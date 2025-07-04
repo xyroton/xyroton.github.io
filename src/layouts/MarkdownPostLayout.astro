@@ -16,8 +16,6 @@ const { frontmatter, headings } = Astro.props;
 <BaseLayout title={frontmatter.title}>
   <div class="blog-post-container-wrapper">
     <div class="blog-post-container">
-      <h1>{frontmatter.title}</h1>
-
       <div class="hero-image">
         {
           frontmatter.image.url && (
