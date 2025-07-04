@@ -3,8 +3,8 @@
 	--text: #545464;
 	--text-muted: #8a8980;
 	--nav-fg: #545464;
-	--header-bg: #e5ddb0;
-	--header-bg: rgb(229, 221, 176, 0.4);
+	--bg-dark-transparent: #e5ddb0;
+	--bg-dark-transparent: rgb(229, 221, 176, 0.4);
 	--mode-button-bg: #9fb5c9;
 	--drop-menu-bg: #e5ddb0;
 	--drop-menu-highlight: #c9cbd1;
@@ -29,11 +29,11 @@
 	--bg-dark: hsl(249, 11%, 12%);
 	--bg: hsl(249, 11%, 12%);
 	--bg-light: hsl(249, 11%, 12%);
+	--bg-dark-transparent: hsl(249, 11%, 12%, 0.5);
 	/* fg */
 	--text: hsl(60, 5%, 89%);
 	--text-muted: hsl(51, 9%, 69%);
-	--nav-fg: #c8c093;
-	--header-bg: rgb(24, 22, 22, 0.5);
+	/* --nav-fg: #c8c093; */
 	--mode-button-bg: #EFA98A;
 	--drop-menu-bg: #282727;
 	--drop-menu-highlight: #223249;
@@ -221,7 +221,7 @@ nav {
 
 
 nav a {
-	color: var(--nav-fg);
+	color: var(--text);
 	text-decoration: none;
 	padding: 1em;
 }
@@ -531,7 +531,7 @@ body {
 }
 
 .header {
-	background: var(--header-bg);
+	background: var(--bg-dark-transparent);
 	position: sticky;
 	top: 0;
 	backdrop-filter: blur(10px);
