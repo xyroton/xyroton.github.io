@@ -16,7 +16,7 @@ const { frontmatter, headings } = Astro.props;
 <BaseLayout title={frontmatter.title}>
   <div class="blog-post-container-wrapper">
     <div class="blog-post-container">
-      <title>{frontmatter.title}</title>
+      <h1>{frontmatter.title}</h1>
 
       <div class="hero-image">
         {
@@ -206,7 +206,7 @@ const { frontmatter, headings } = Astro.props;
   /* Blog content keeps fixed max width */
   .blog-post-container {
     max-width: 700px;
-      margin-left: -30px; /* shifts it 20px to the left */
+      margin-left: 90px; /* shifts it 20px to the left */
   }
 
   .syde {
