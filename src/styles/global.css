@@ -120,9 +120,14 @@ html {
 
 main {
 	width: 100%;
-	max-width: 720px;
+	max-width: 1000px;
 	margin: auto;
 	padding: 3em 1em;
+}
+
+.rlayout {
+	max-width: 720px;
+	margin: 0 auto;
 }
 
 #title {
