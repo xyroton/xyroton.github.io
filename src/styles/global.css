@@ -20,6 +20,7 @@
 	--h4-color: #5d57a3;
 	--comment-box: #FDF6E3;
 	--time: rgba(253, 246, 227, 0.6);
+	--tocy: #FDF6E3;
 }
 
 /* CSS attribute selector, selecting any element that has the attribute data-theme="dark". */
@@ -44,6 +45,7 @@
 	--h4-color: #c4b28a;
 	--comment-box: #0d0c0c;
 	--time: rgba(13, 12, 12, 0.6);
+	--tocy: #0d0c0c;
 }
 
 /* Light theme: default Shiki styles (already included by Astro) */

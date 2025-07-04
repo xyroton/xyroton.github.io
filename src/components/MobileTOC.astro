@@ -82,23 +82,72 @@ const { headings } = Astro.props;
   }
 
   .mobile-toc-dropdown {
-    display: none;
     position: absolute;
     bottom: 60px; /* Above the button */
     right: 0;
-    background-color: var(--background-color);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    box-shadow: var(--box-shadow);
-    padding: 10px;
-    max-height: 70vh;
-    overflow-y: auto;
+    background-color: var(--tocy);
     width: 250px; /* Adjust as needed */
     max-width: calc(100vw - 40px); /* Ensure it doesn't overflow viewport */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s ease,
+      max-height 0.3s ease;
+    flex-direction: column;
+    /* Removed padding from here */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-height: 0; /* Start collapsed */
+    overflow: hidden;
+    border: 1px solid var(--hamburger-border);
   }
 
   .mobile-toc-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    max-height: 70vh; /* Expand to max height */
+    display: flex; /* Keep display flex for layout */
+  }
+
+  /* Adjust TOC styling within the mobile dropdown */
+  .mobile-toc-dropdown .toc {
+    padding: 0; /* Remove padding from TOC component */
+    border: none; /* Remove border from TOC component */
+    background-color: var(--tocy); /* Make TOC background match dropdown */
+    box-shadow: none; /* Remove shadow from TOC component */
+    max-height: none; /* Allow TOC to take full height of dropdown */
+    overflow-y: visible; /* Allow dropdown to handle scrolling */
+    border-radius: 8px; /* Match dropdown's border-radius */
+  }
+
+  .mobile-toc-dropdown .toc ul {
+    list-style: none;
+    padding: 0.5rem 0; /* Added padding here */
+    margin: 0;
+  }
+
+  .mobile-toc-dropdown .toc li {
+    list-style: none;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0; /* Remove margin from TOC li */
+  }
+
+  .mobile-toc-dropdown .toc a {
+    text-decoration: none;
+    color: var(--text-color);
     display: block;
+    padding: 0.5rem; /* Match nav link padding */
+    transition: none; /* Remove TOC's hover transition */
+  }
+
+  .mobile-toc-dropdown .toc a:hover {
+    background: var(--drop-menu-highlight);
+    border-radius: 4px;
+    color: var(--text-color); /* Ensure text color doesn't change on hover */
   }
 
   /* Show on screens smaller than 900px (matching MarkdownPostLayout's media query) */

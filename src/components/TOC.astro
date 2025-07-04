@@ -32,7 +32,7 @@ const { headings = [] } = Astro.props;
     padding: 1rem;
     border: 1px solid var(--border-color);
     border-radius: 20px;
-    background-color: var(--time);
+    background-color: var(--tocy);
     max-height: 80vh;
     overflow-y: auto;
   }
@@ -43,7 +43,7 @@ const { headings = [] } = Astro.props;
 
   .toc::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
+    /* Removed border-radius to remove rounded corners */
     margin-top: 20px;
     margin-bottom: 20px;
   }
