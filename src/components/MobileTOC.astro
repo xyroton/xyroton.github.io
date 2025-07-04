@@ -11,20 +11,7 @@ const { headings } = Astro.props;
 
 <div class="mobile-toc-container">
   <button id="mobile-toc-toggle" aria-label="Toggle Table of Contents">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="icon"
-    >
-      <path d="M4 6h16M4 12h16M4 18h16"></path>
-    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-table-of-contents-icon lucide-table-of-contents"><path d="M16 12H3"/><path d="M16 18H3"/><path d="M16 6H3"/><path d="M21 12h.01"/><path d="M21 18h.01"/><path d="M21 6h.01"/></svg>
   </button>
 
   <div class="mobile-toc-dropdown">
@@ -63,9 +50,9 @@ const { headings } = Astro.props;
   }
 
   .mobile-toc-container button {
-    background-color: var(--mode-button-bg);
-    color: var(--background-color);
-    border: none;
+    background-color: transparent; /* Make background transparent */
+    color: var(--mode-button-bg); /* Use mode-button-bg for icon color */
+    border: 1px solid var(--hamburger-border); /* Add border from header dropdown */
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -74,6 +61,8 @@ const { headings } = Astro.props;
     align-items: center;
     cursor: pointer;
     box-shadow: var(--box-shadow);
+    backdrop-filter: blur(10px); /* Add blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
   }
 
   .mobile-toc-container button .icon {
