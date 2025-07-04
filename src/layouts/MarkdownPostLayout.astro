@@ -143,7 +143,7 @@ const { frontmatter, headings } = Astro.props;
     script.setAttribute("data-emit-metadata", "0");
     script.setAttribute("data-input-position", "bottom");
     script.setAttribute("data-lang", "en");
-    script.setAttribute("data-loading", "lazy");
+    // script.setAttribute("data-loading", "lazy");
 
     const getTheme = () => {
       const theme = document.documentElement.getAttribute("theme");
@@ -218,8 +218,8 @@ const { frontmatter, headings } = Astro.props;
   }
 
   .commeant-section {
-      max-width: 720px;
-      margin: 0 auto;
+    max-width: 720px;
+    margin: 0 auto;
     padding: 10px;
     border-radius: 5px;
     margin-top: 50px;
