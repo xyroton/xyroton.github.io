@@ -362,7 +362,7 @@ blockquote {
 	height: 40px;
 	background-color: none;
 	border: 1px solid var(--hamburger-border);
-	border-radius: 8px;
+	border-radius: 7px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
