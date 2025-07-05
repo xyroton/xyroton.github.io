@@ -5,11 +5,11 @@
 	--bg-transparent: hsl(34, 38%, 89%, 0.4);
 	/* fg */
 	--text: hsl(34, 15%, 20%);
-	--text-muted: hsl(34, 10%, 45%);
+	--text-muted: hsl(34, 10%, 55%);
 
 
 	/* extras */
-	--mode-button-bg: hsl(20, 44%, 38%);
+	--mode-button-bg: hsl(180, 60%, 40%);
 	--border-muted: hsl(34, 15%, 80%);
 
 	--drop-menu-bg: #e5ddb0;
