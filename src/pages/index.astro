@@ -30,70 +30,72 @@ const recentPosts = (await getCollection("blog"))
       </div>
     </div>
 
-    <div class="bubble">
-      <p>
-        My blog is written with <a
-          href="https://astro.build/"
-          target="_blank"
-          rel="noopener noreferrer">Astro</a
-        >
-        and styled using the objectively best Neovim color theme,
-        <a
-          href="https://github.com/rebelot/kanagawa.nvim"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="default-link">Kanagawa</a
-        >, in the Dragon flavor.
+    <div class="intro-text">
+      <div class="bubble">
+        <p>
+          My blog is written with <a
+            href="https://astro.build/"
+            target="_blank"
+            rel="noopener noreferrer">Astro</a
+          >
+          and styled using the objectively best Neovim color theme,
+          <a
+            href="https://github.com/rebelot/kanagawa.nvim"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="default-link">Kanagawa</a
+          >, in the Dragon flavor.
+        </p>
+      </div>
+
+      <h1 class="indexh">Xyroton</h1>
+      <p class="justified">
+        I mostly write about AI and related technologies like Machine Learning,
+        Natural Language Processing, and Deep Learning — you get the idea.
       </p>
-    </div>
+      <p class="justified">
+        I'm also a strong proponent of Linux and open-source software, as well
+        as developer efficiency and the tools that support it. If any of those
+        things interest you, feel free to drop by whenever you like.
+      </p>
 
-    <h2 class="underlined-heading">Xyroton</h2>
-    <p class="justified">
-      I mostly write about AI and related technologies like Machine Learning,
-      Natural Language Processing, and Deep Learning — you get the idea.
-    </p>
-    <p class="justified">
-      I'm also a strong proponent of Linux and open-source software, as well as
-      developer efficiency and the tools that support it. If any of those things
-      interest you, feel free to drop by whenever you like.
-    </p>
+      <div id="rss-copy-container" class="my-rss">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-rss-icon lucide-rss"
+          ><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"
+          ></path><circle cx="5" cy="19" r="1"></circle></svg
+        >
+        <p>Get RSS Feed</p>
+      </div>
 
-    <div id="rss-copy-container" class="my-rss">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="lucide lucide-rss-icon lucide-rss"
-        ><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"
-        ></path><circle cx="5" cy="19" r="1"></circle></svg
-      >
-      <p>Get RSS Feed</p>
-    </div>
+      <h1 class="indexh">Latest Blog Posts</h1>
 
-    <h2 class="underlined-heading">Latest Blog Posts</h2>
-
-    <div class="post-container">
-      {
-        recentPosts.map((post) => (
-          <div class="post-card-wrapper">
-            <PostCard
-              url={`/posts/${post.id}/`}
-              title={post.data.title}
-              image={post.data.image}
-              pubDate={post.formattedDate}
-              description={post.data.description}
-              tags={post.data.tags}
-              content={post.body}
-            />
-          </div>
-        ))
-      }
+      <div class="post-container">
+        {
+          recentPosts.map((post) => (
+            <div class="post-card-wrapper">
+              <PostCard
+                url={`/posts/${post.id}/`}
+                title={post.data.title}
+                image={post.data.image}
+                pubDate={post.formattedDate}
+                description={post.data.description}
+                tags={post.data.tags}
+                content={post.body}
+              />
+            </div>
+          ))
+        }
+      </div>
     </div>
   </div>
 
@@ -163,6 +165,27 @@ const recentPosts = (await getCollection("blog"))
 </BaseLayout>
 
 <style>
+  .intro-text {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .indexh {
+    position: relative;
+    padding-left: 1rem; /* Creates space for the line */
+    font-size: 1.4rem;
+    margin-bottom: 0.3em;
+  }
+
+  .indexh::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+    bottom: 0.2em;
+    width: 4px;
+    background-color: var(--mode-button-bg); /* or any color you want */
+    border-radius: 3px;
+  }
   .my-rss {
     background-color: var(--mode-button-bg);
     color: var(--bg);
