@@ -1,11 +1,17 @@
 :root {
-	--bg-dark: #f2ecbc;
-	--text: #545464;
-	--text-muted: #8a8980;
-	--nav-fg: #545464;
-	--bg-dark-transparent: #e5ddb0;
-	--bg-dark-transparent: rgb(229, 221, 176, 0.4);
+	/* --bg-dark: hsl(69, 11%, 88%); */
+	--bg-dark: hsl(34, 38%, 89%);
+
+	/* --bg-dark: hsl(34, 41%, 90%); */
+	--bg: hsl(69, 11%, 88%);
+	--bg-light: hsl(69, 11%, 88%);
+	--bg-dark-transparent: hsl(69, 11%, 88%, 0.5);
+	/* fg */
+	--text: hsl(240, 5%, 11%);
+	--text-muted: hsl(231, 9%, 31%);
+
 	--mode-button-bg: #9fb5c9;
+	--mode-button-bg: hsl(20, 44%, 38%);
 	--drop-menu-bg: #e5ddb0;
 	--drop-menu-highlight: #c9cbd1;
 	/* --header-border: #e4e4e5; */
@@ -34,7 +40,8 @@
 	--text: hsl(60, 5%, 89%);
 	--text-muted: hsl(51, 9%, 69%);
 	/* --nav-fg: #c8c093; */
-	--mode-button-bg: #EFA98A;
+	--mode-button-bg: hsl(20, 77%, 73%);
+
 	--drop-menu-bg: #282727;
 	--drop-menu-highlight: #223249;
 	/* --header-border: #363638; */
