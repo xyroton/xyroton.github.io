@@ -111,10 +111,10 @@ const { headings } = Astro.props;
   .mobile-toc-container button {
     background-color: transparent; /* Make background transparent */
     color: var(--mode-button-bg); /* Use mode-button-bg for icon color */
-    border: 1px solid var(--hamburger-border); /* Add border from header dropdown */
+    border: 1px solid var(--border-muted); /* Add border from header dropdown */
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -133,7 +133,7 @@ const { headings } = Astro.props;
     position: absolute;
     bottom: 60px; /* Above the button */
     right: 0;
-    background-color: var(--tocy);
+    background-color: var(--bg-extra-light);
     width: 250px; /* Adjust as needed */
     max-width: calc(100vw - 40px); /* Ensure it doesn't overflow viewport */
     opacity: 0;
@@ -150,7 +150,7 @@ const { headings } = Astro.props;
     border-radius: 8px;
     max-height: 0; /* Start collapsed */
     overflow: hidden;
-    border: 1px solid var(--hamburger-border);
+    border: 1px solid var(--border-muted);
   }
 
   .mobile-toc-dropdown.active {

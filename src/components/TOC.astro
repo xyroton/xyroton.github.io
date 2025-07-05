@@ -30,9 +30,8 @@ const { headings = [] } = Astro.props;
   .toc {
     display: block;
     padding: 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    background-color: var(--tocy);
+    border-left: 1px solid var(--border-muted);
+    background-color: transparent;
     max-height: 80vh;
     overflow-y: auto;
   }
@@ -42,14 +41,14 @@ const { headings = [] } = Astro.props;
   }
 
   .toc::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1);
+    background: transparent;
     /* Removed border-radius to remove rounded corners */
     margin-top: 20px;
     margin-bottom: 20px;
   }
 
   .toc::-webkit-scrollbar-thumb {
-    background-color: var(--mode-button-bg);
+    background-color: var(--border-muted);
     border-radius: 4px;
   }
 
@@ -59,7 +58,7 @@ const { headings = [] } = Astro.props;
 
   .toc .depth-1 a {
     font-weight: bold;
-    color: var(--h1-color);
+    color: var(--text-muted);
   }
 
   .toc .depth-2 a {

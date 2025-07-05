@@ -7,7 +7,7 @@
 	/* fg */
 	--text: hsl(240, 5%, 11%);
 	--text-muted: hsl(240, 5%, 50%);
-	/* highlight */
+	/* extras */
 	--mode-button-bg: hsl(20, 44%, 38%);
 	--border-muted: hsl(34, 15%, 80%);
 
@@ -38,7 +38,8 @@
 	--bg-transparent: hsl(249, 11%, 12%, 0.5);
 	/* fg */
 	--text: hsl(60, 5%, 89%);
-	--text-muted: hsl(60, 5%, 50%);
+	--text-muted: hsl(60, 5%, 45%);
+	/* extras */
 	--mode-button-bg: hsl(20, 77%, 73%);
 	--border-muted: hsl(249, 10%, 28%);
 
