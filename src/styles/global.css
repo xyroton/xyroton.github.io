@@ -6,9 +6,11 @@
 	--bg-transparent: hsl(34, 38%, 89%, 0.4);
 	/* fg */
 	--text: hsl(240, 5%, 11%);
-	--text-muted: hsl(231, 9%, 31%);
+	--text-muted: hsl(240, 5%, 50%);
 	/* highlight */
 	--mode-button-bg: hsl(20, 44%, 38%);
+	--border-muted: hsl(34, 15%, 80%);
+
 	--drop-menu-bg: #e5ddb0;
 	--drop-menu-highlight: #c9cbd1;
 	/* --header-border: #e4e4e5; */
@@ -36,9 +38,10 @@
 	--bg-transparent: hsl(249, 11%, 12%, 0.5);
 	/* fg */
 	--text: hsl(60, 5%, 89%);
-	--text-muted: hsl(51, 9%, 69%);
-	/* --nav-fg: #c8c093; */
+	--text-muted: hsl(60, 5%, 50%);
 	--mode-button-bg: hsl(20, 77%, 73%);
+	--border-muted: hsl(249, 10%, 28%);
+
 
 	--drop-menu-bg: #282727;
 	--drop-menu-highlight: #223249;
@@ -341,7 +344,7 @@ blockquote {
 	border-radius: 8px;
 	max-height: 0;
 	overflow: hidden;
-	border: 1px solid var(--hamburger-border);
+	border: 1px solid var(--border-muted);
 }
 
 #nav-toggle {
@@ -359,7 +362,7 @@ blockquote {
 	width: 40px;
 	height: 40px;
 	background-color: none;
-	border: 1px solid var(--hamburger-border);
+	border: 1px solid var(--border-muted);
 	border-radius: 7px;
 	display: flex;
 	justify-content: center;
