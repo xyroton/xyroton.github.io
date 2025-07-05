@@ -1,4 +1,5 @@
 :root {
+	--bg-dark: hsl(69, 11%, 84%);
 	--bg: hsl(69, 11%, 89%);
 	--bg-light: hsl(69, 11%, 94%);
 	--bg-extra-light: hsl(69, 11%, 97%);
