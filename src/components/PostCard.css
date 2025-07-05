@@ -99,7 +99,7 @@
 
   /* --- Card Styles --- */
   .card {
-  	background-color: var(--buble);
+  	background-color: var(--bg-light);
   	border-radius: 10px;
   	overflow: hidden;
   	transition: transform 0.2s ease;

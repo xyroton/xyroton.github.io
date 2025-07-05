@@ -1,16 +1,13 @@
 :root {
-	/* --bg-dark: hsl(69, 11%, 88%); */
-	--bg-dark: hsl(34, 38%, 89%);
-
-	/* --bg-dark: hsl(34, 41%, 90%); */
-	--bg: hsl(69, 11%, 88%);
-	--bg-light: hsl(69, 11%, 88%);
-	--bg-dark-transparent: hsl(69, 11%, 88%, 0.5);
+	--bg-dark: hsl(34, 38%, 84%);
+	--bg: hsl(69, 11%, 89%);
+	--bg-light: hsl(69, 11%, 94%);
+	--bg-extra-light: hsl(69, 11%, 97%);
+	--bg-transparent: hsl(34, 38%, 89%, 0.4);
 	/* fg */
 	--text: hsl(240, 5%, 11%);
 	--text-muted: hsl(231, 9%, 31%);
-
-	--mode-button-bg: #9fb5c9;
+	/* highlight */
 	--mode-button-bg: hsl(20, 44%, 38%);
 	--drop-menu-bg: #e5ddb0;
 	--drop-menu-highlight: #c9cbd1;
@@ -32,10 +29,11 @@
 /* CSS attribute selector, selecting any element that has the attribute data-theme="dark". */
 [theme="dark"] {
 	/* bg */
-	--bg-dark: hsl(249, 11%, 12%);
+	--bg-dark: hsl(249, 11%, 7%);
 	--bg: hsl(249, 11%, 12%);
-	--bg-light: hsl(249, 11%, 12%);
-	--bg-dark-transparent: hsl(249, 11%, 12%, 0.5);
+	--bg-light: hsl(249, 11%, 17%);
+	--bg-extra-light: hsl(249, 11%, 20%);
+	--bg-transparent: hsl(249, 11%, 12%, 0.5);
 	/* fg */
 	--text: hsl(60, 5%, 89%);
 	--text-muted: hsl(51, 9%, 69%);
@@ -197,7 +195,7 @@ pre>code {
 
 
 .bubble {
-	background-color: var(--buble);
+	background-color: var(--bg-light);
 	border-radius: 6px;
 	padding: 2% 2%;
 	justify-content: center;
@@ -309,7 +307,7 @@ blockquote {
 	padding: 1em;
 	margin: 1em 0;
 	color: var(--text);
-	background-color: var(--buble);
+	background-color: var(--bg-light);
 	border-radius: 6px;
 }
 
@@ -331,7 +329,7 @@ blockquote {
 	position: absolute;
 	right: 6%;
 	top: 125%;
-	background-color: var(--drop-menu-bg);
+	background-color: var(--bg-extra-light);
 	width: 200px;
 	opacity: 0;
 	visibility: hidden;
@@ -456,7 +454,7 @@ body {
 
 body {
 
-	background-color: var(--bg-dark);
+	background-color: var(--bg);
 	color: var(--text);
 	font-family: 'Geist', 'Segoe UI Emoji', 'Noto Color Emoji', 'Apple Color Emoji', sans-serif;
 	line-height: 1.5;
@@ -485,7 +483,7 @@ body {
 	border-radius: 5px;
 	padding: 8px 12px;
 	cursor: pointer;
-	color: var(--bg-dark);
+	color: var(--bg);
 	font-weight: bold;
 	transition: background-color 0.3s ease, transform 0.3s ease;
 }
@@ -538,7 +536,7 @@ body {
 }
 
 .header {
-	background: var(--bg-dark-transparent);
+	background: var(--bg-transparent);
 	position: sticky;
 	top: 0;
 	backdrop-filter: blur(10px);
