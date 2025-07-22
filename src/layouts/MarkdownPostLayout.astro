@@ -189,11 +189,6 @@ const { frontmatter, headings } = Astro.props;
 </BaseLayout>
 
 <style>
-  .blog-post-container-wrapper {
-    max-width: 1000px; /* or your current width */
-    display: flex;
-    /* gap: 2rem; /* adjust as you like */ */
-  }
   /* Blog content keeps fixed max width */
   .blog-post-container {
     margin: auto;
@@ -307,38 +302,4 @@ const { frontmatter, headings } = Astro.props;
     margin-bottom: 10px;
   }
 
-  @media (max-width: 1400px) {
-    /* hide sidebar	 */
-    .syde {
-      display: none;
-    }
-    .blog-post-container-wrapper {
-      flex-direction: column;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .blog-post-container {
-      margin-left: 0;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .post-metadata-bubble {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .hero-image {
-      width: 100%;
-      border-radius: 6px;
-      padding: 0;
-      order: -1;
-    }
-
-    .text-content {
-      align-items: flex-start;
-      padding: 1em;
-    }
-  }
 </style>
