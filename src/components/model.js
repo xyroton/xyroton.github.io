@@ -6,15 +6,20 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 export function initThreeViewer(canvas) {
   const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0xff0000);
   const camera = new THREE.PerspectiveCamera(
     75,
     canvas.clientWidth / canvas.clientHeight,
     0.1,
-    1000
+    1000,
   );
   camera.position.set(0, 1, 3);
 
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: true,
+    alpha: true,
+  });
   renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 
   // Controls
@@ -34,10 +39,13 @@ export function initThreeViewer(canvas) {
     "/model.glb",
     (gltf) => {
       model = gltf.scene;
+      model.scale.set(0.3, 0.3, 0.3); // 50% size
+      model.position.y = -1; // move it down by 1 unit
+
       scene.add(model);
     },
     undefined,
-    (err) => console.error("GLTF load error", err)
+    (err) => console.error("GLTF load error", err),
   );
 
   // Animation loop
@@ -57,4 +65,3 @@ export function initThreeViewer(canvas) {
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
   });
 }
-
