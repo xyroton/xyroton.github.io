@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import PostCard from "../components/PostCard.astro";
+import ThreeViewer from "../components/ThreeViewer.astro";
 
 // Fetch, sort, and format pubDate
 const recentPosts = (await getCollection("blog"))
@@ -24,11 +25,12 @@ const recentPosts = (await getCollection("blog"))
 <BaseLayout title="Xyroton">
   <div class="rlayout animate-on-load">
     <!-- Typewriter heading -->
-    <div class="monitor-frame">
-      <div class="terminal-screen">
-        <h1 id="typedtext" class="typewriter"></h1>
-      </div>
-    </div>
+    <!-- <div class="monitor-frame"> -->
+    <!--   <div class="terminal-screen"> -->
+    <!--     <h1 id="typedtext" class="typewriter"></h1> -->
+    <!--   </div> -->
+    <!-- </div> -->
+    <ThreeViewer />
 
     <div class="intro-text">
       <div class="bubble">
