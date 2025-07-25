@@ -33,10 +33,10 @@
 [theme="dark"] {
 	/* bg */
 	--bg-dark: hsl(249, 11%, 7%);
-	--bg: hsl(249, 11%, 12%);
-	--bg-light: hsl(249, 11%, 17%);
+	--bg: hsl(240, 6%, 10%);
+	--bg-light: hsl(240, 4%, 16%);
 	--bg-extra-light: hsl(249, 11%, 20%);
-	--bg-transparent: hsl(249, 11%, 12%, 0.5);
+	--bg-transparent: hsl(240, 6%, 10%, 0.5);
 	/* fg */
 	--text: hsl(60, 5%, 89%);
 	--text-muted: hsl(60, 5%, 50%);
