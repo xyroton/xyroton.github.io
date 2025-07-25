@@ -1,14 +1,16 @@
-// src/scripts/three-viewer.js
-
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 export function initThreeViewer(canvas) {
+  // Use the parent element for sizing
+  const container = canvas.parentElement;
+
   const scene = new THREE.Scene();
+
   const camera = new THREE.PerspectiveCamera(
     75,
-    canvas.clientWidth / canvas.clientHeight,
+    container.clientWidth / container.clientHeight,
     0.1,
     1000,
   );
@@ -19,14 +21,17 @@ export function initThreeViewer(canvas) {
     antialias: true,
     alpha: true,
   });
-  renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 
-  // Controls
+  // to not make it look blury
+  renderer.setPixelRatio(window.devicePixelRatio); // Handle high-DPI
+  renderer.setSize(container.clientWidth, container.clientHeight);
+
+  // Orbit Controls
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
   controls.dampingFactor = 0.05;
 
-  // Light
+  // Lighting
   const light = new THREE.HemisphereLight(0xffffff, 0x444444);
   light.position.set(0, 1, 0);
   scene.add(light);
@@ -38,16 +43,15 @@ export function initThreeViewer(canvas) {
     "/model.glb",
     (gltf) => {
       model = gltf.scene;
-      model.scale.set(0.3, 0.3, 0.3); // 50% size
-      model.position.y = -1; // move it down by 1 unit
-
+      model.scale.set(0.3, 0.3, 0.3);
+      model.position.y = -1;
       scene.add(model);
     },
     undefined,
     (err) => console.error("GLTF load error", err),
   );
 
-  // Animation loop
+  // Animate
   function animate() {
     if (model) {
       model.rotation.y += 0.01;
@@ -55,12 +59,19 @@ export function initThreeViewer(canvas) {
     controls.update();
     renderer.render(scene, camera);
   }
+
   renderer.setAnimationLoop(animate);
 
-  // Resize
-  window.addEventListener("resize", () => {
-    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+  // Resize handling
+  function onWindowResize() {
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    camera.aspect = width / height;
     camera.updateProjectionMatrix();
-    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-  });
+
+    renderer.setSize(width, height);
+  }
+
+  window.addEventListener("resize", onWindowResize);
 }
