@@ -74,6 +74,13 @@ html[theme="dark"] .astro-code span {
 }
 
 @font-face {
+	font-family: "Mynerve-Regular";
+	src: url("/fonts/mynerve/Mynerve-Regular.woff2") format("woff2");
+	font-weight: 4000;
+	font-style: normal;
+}
+
+@font-face {
 	font-family: "Geist";
 	src: url("/public/fonts/Geist-Regular.woff2") format("woff2");
 	font-weight: 4000;

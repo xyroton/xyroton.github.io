@@ -29,27 +29,29 @@ const recentPosts = (await getCollection("blog"))
       <ThreeViewer class="three-background" />
 
       <div class="intro-text">
-        <div class="bubble">
-          <p>
-            My blog is written with <a
-              href="https://astro.build/"
-              target="_blank"
-              rel="noopener noreferrer">Astro</a
-            >
-            and styled using the objectively best Neovim color theme,
-            <a
-              href="https://github.com/rebelot/kanagawa.nvim"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="default-link">Kanagawa</a
-            >, in the Dragon flavor.
-          </p>
-        </div>
+        <!-- <div class="bubble"> -->
+        <!--   <p> -->
+        <!--     My blog is written with <a -->
+        <!--       href="https://astro.build/" -->
+        <!--       target="_blank" -->
+        <!--       rel="noopener noreferrer">Astro</a -->
+        <!--     > -->
+        <!--     and styled using the objectively best Neovim color theme, -->
+        <!--     <a -->
+        <!--       href="https://github.com/rebelot/kanagawa.nvim" -->
+        <!--       target="_blank" -->
+        <!--       rel="noopener noreferrer" -->
+        <!--       class="default-link">Kanagawa</a -->
+        <!--     >, in the Dragon flavor. -->
+        <!--   </p> -->
+        <!-- </div> -->
 
-        <h1 class="indexh">Xyroton</h1>
+        <h1 class="hi">Hi, I&apos;m Xyroton</h1>
+	
         <p class="justified">
-          I mostly write about AI and related technologies like Machine Learning,
-          Natural Language Processing, and Deep Learning — you get the idea.
+          I mostly write about AI and related technologies like Machine
+          Learning, Natural Language Processing, and Deep Learning — you get the
+          idea.
         </p>
         <p class="justified">
           I'm also a strong proponent of Linux and open-source software, as well
@@ -57,23 +59,24 @@ const recentPosts = (await getCollection("blog"))
           things interest you, feel free to drop by whenever you like.
         </p>
 
-        <div id="rss-copy-container" class="my-rss">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-rss-icon lucide-rss"
-            ><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"
-            ></path><circle cx="5" cy="19" r="1"></circle></svg
-          >
-          <p>Get RSS Feed</p>
-        </div>
+        <!-- <div id="rss-copy-container" class="my-rss"> -->
+        <!--   <svg -->
+        <!--     xmlns="http://www.w3.org/2000/svg" -->
+        <!--     width="24" -->
+        <!--     height="24" -->
+        <!--     viewBox="0 0 24 24" -->
+        <!--     fill="none" -->
+        <!--     stroke="currentColor" -->
+        <!--     stroke-width="2" -->
+        <!--     stroke-linecap="round" -->
+        <!--     stroke-linejoin="round" -->
+        <!--     class="lucide lucide-rss-icon lucide-rss" -->
+        <!--     ><path d="M4 11a9 9 0 0 1 9 9"></path><path -->
+        <!--       d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1" -->
+        <!--     ></circle></svg -->
+        <!--   > -->
+        <!--   <p>Get RSS Feed</p> -->
+        <!-- </div> -->
 
         <h1 class="indexh">Latest Blog Posts</h1>
 
@@ -100,69 +103,70 @@ const recentPosts = (await getCollection("blog"))
 
   <!-- typewriter -->
   <script>
-    const aText = [
-      "Hi, welcome to Xyroton!",
-      "嗨，欢迎来到 Xyroton！",
-      "Hallo, willkommen bei Xyroton!",
-      "Xyrotonへようこそ！",
-      "¡Hola, bienvenido a Xyroton!",
-      "Bonjour, bienvenue à Xyroton!",
-      "Ciao, benvenuto a Xyroton!",
-    ];
-    const iSpeed = 80;
-    const delayBetween = 3000;
-
-    let i = 0;
-    let char = 0;
-    let typewriterTimeout;
-
-    function typewriter() {
-      const element = document.getElementById("typedtext");
-      if (!element) return;
-
-      element.innerHTML =
-        aText[i].slice(0, char++) + '<span class="blinking-cursor">_</span>';
-
-      if (char <= aText[i].length) {
-        typewriterTimeout = setTimeout(typewriter, iSpeed);
-      } else {
-        typewriterTimeout = setTimeout(() => {
-          char = 0;
-          i++;
-          if (i >= aText.length) i = 0;
-          element.innerHTML = "";
-          typewriter();
-        }, delayBetween);
-      }
-    }
-
-    function initTypewriter() {
-      clearTimeout(typewriterTimeout);
-      i = 0;
-      char = 0;
-      typewriter();
-    }
-
-    document.addEventListener("DOMContentLoaded", initTypewriter);
-    initTypewriter();
-
-    const rssCopyContainer = document.getElementById("rss-copy-container");
-    if (rssCopyContainer) {
-      rssCopyContainer.addEventListener("click", async () => {
-        const rssLink = `${window.location.origin}/rss.xml`;
-        try {
-          await navigator.clipboard.writeText(rssLink);
-          alert("RSS link copied to clipboard!");
-        } catch (err) {
-          console.error("Failed to copy RSS link: ", err);
-          alert("Failed to copy RSS link. Please copy it manually: " + rssLink);
-        }
-      });
-    }
+    // const aText = [
+    //   "Hi, welcome to Xyroton!",
+    //   "嗨，欢迎来到 Xyroton！",
+    //   "Hallo, willkommen bei Xyroton!",
+    //   "Xyrotonへようこそ！",
+    //   "¡Hola, bienvenido a Xyroton!",
+    //   "Bonjour, bienvenue à Xyroton!",
+    //   "Ciao, benvenuto a Xyroton!",
+    // ];
+    // const iSpeed = 80;
+    // const delayBetween = 3000;
+    //
+    // let i = 0;
+    // let char = 0;
+    // let typewriterTimeout;
+    //
+    // function typewriter() {
+    //   const element = document.getElementById("typedtext");
+    //   if (!element) return;
+    //
+    //   element.innerHTML =
+    //     aText[i].slice(0, char++) + '<span class="blinking-cursor">_</span>';
+    //
+    //   if (char <= aText[i].length) {
+    //     typewriterTimeout = setTimeout(typewriter, iSpeed);
+    //   } else {
+    //     typewriterTimeout = setTimeout(() => {
+    //       char = 0;
+    //       i++;
+    //       if (i >= aText.length) i = 0;
+    //       element.innerHTML = "";
+    //       typewriter();
+    //     }, delayBetween);
+    //   }
+    // }
+    //
+    // function initTypewriter() {
+    //   clearTimeout(typewriterTimeout);
+    //   i = 0;
+    //   char = 0;
+    //   typewriter();
+    // }
+    //
+    // document.addEventListener("DOMContentLoaded", initTypewriter);
+    // initTypewriter();
+    //
+    // const rssCopyContainer = document.getElementById("rss-copy-container");
+    // if (rssCopyContainer) {
+    //   rssCopyContainer.addEventListener("click", async () => {
+    //     const rssLink = `${window.location.origin}/rss.xml`;
+    //     try {
+    //       await navigator.clipboard.writeText(rssLink);
+    //       alert("RSS link copied to clipboard!");
+    //     } catch (err) {
+    //       console.error("Failed to copy RSS link: ", err);
+    //       alert("Failed to copy RSS link. Please copy it manually: " + rssLink);
+    //     }
+    //   });
+    // }
   </script>
 </BaseLayout>
 
 <style>
+
   .intro-text-wrapper {
     position: relative;
     max-width: 600px;
@@ -192,6 +196,9 @@ const recentPosts = (await getCollection("blog"))
   }
 
   .intro-text {
+    background: var(--bg-transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     position: relative;
     z-index: 1;
   }
@@ -208,6 +215,13 @@ const recentPosts = (await getCollection("blog"))
   }
 
   /* Your existing styles */
+
+  .hi {
+    font-family: "Mynerve-Regular";
+    position: relative;
+    font-size: 2.5rem;
+    margin-bottom: 0.3em;
+  }
 
   .indexh {
     position: relative;
@@ -253,4 +267,3 @@ const recentPosts = (await getCollection("blog"))
     font-weight: normal;
   }
 </style>
-
