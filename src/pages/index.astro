@@ -24,79 +24,76 @@ const recentPosts = (await getCollection("blog"))
 
 <BaseLayout title="Xyroton">
   <div class="rlayout animate-on-load">
-    <!-- Typewriter heading -->
-    <!-- <div class="monitor-frame"> -->
-    <!--   <div class="terminal-screen"> -->
-    <!--     <h1 id="typedtext" class="typewriter"></h1> -->
-    <!--   </div> -->
-    <!-- </div> -->
+    <div class="intro-text-wrapper">
+      <!-- 3D model as subtle background -->
+      <ThreeViewer class="three-background" />
 
-    <div class="intro-text">
-      <ThreeViewer />
-      <div class="bubble">
-        <p>
-          My blog is written with <a
-            href="https://astro.build/"
-            target="_blank"
-            rel="noopener noreferrer">Astro</a
-          >
-          and styled using the objectively best Neovim color theme,
-          <a
-            href="https://github.com/rebelot/kanagawa.nvim"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="default-link">Kanagawa</a
-          >, in the Dragon flavor.
+      <div class="intro-text">
+        <div class="bubble">
+          <p>
+            My blog is written with <a
+              href="https://astro.build/"
+              target="_blank"
+              rel="noopener noreferrer">Astro</a
+            >
+            and styled using the objectively best Neovim color theme,
+            <a
+              href="https://github.com/rebelot/kanagawa.nvim"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="default-link">Kanagawa</a
+            >, in the Dragon flavor.
+          </p>
+        </div>
+
+        <h1 class="indexh">Xyroton</h1>
+        <p class="justified">
+          I mostly write about AI and related technologies like Machine Learning,
+          Natural Language Processing, and Deep Learning — you get the idea.
         </p>
-      </div>
+        <p class="justified">
+          I'm also a strong proponent of Linux and open-source software, as well
+          as developer efficiency and the tools that support it. If any of those
+          things interest you, feel free to drop by whenever you like.
+        </p>
 
-      <h1 class="indexh">Xyroton</h1>
-      <p class="justified">
-        I mostly write about AI and related technologies like Machine Learning,
-        Natural Language Processing, and Deep Learning — you get the idea.
-      </p>
-      <p class="justified">
-        I'm also a strong proponent of Linux and open-source software, as well
-        as developer efficiency and the tools that support it. If any of those
-        things interest you, feel free to drop by whenever you like.
-      </p>
+        <div id="rss-copy-container" class="my-rss">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-rss-icon lucide-rss"
+            ><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"
+            ></path><circle cx="5" cy="19" r="1"></circle></svg
+          >
+          <p>Get RSS Feed</p>
+        </div>
 
-      <div id="rss-copy-container" class="my-rss">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-rss-icon lucide-rss"
-          ><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"
-          ></path><circle cx="5" cy="19" r="1"></circle></svg
-        >
-        <p>Get RSS Feed</p>
-      </div>
+        <h1 class="indexh">Latest Blog Posts</h1>
 
-      <h1 class="indexh">Latest Blog Posts</h1>
-
-      <div class="post-container">
-        {
-          recentPosts.map((post) => (
-            <div class="post-card-wrapper">
-              <PostCard
-                url={`/posts/${post.id}/`}
-                title={post.data.title}
-                image={post.data.image}
-                pubDate={post.formattedDate}
-                description={post.data.description}
-                tags={post.data.tags}
-                content={post.body}
-              />
-            </div>
-          ))
-        }
+        <div class="post-container">
+          {
+            recentPosts.map((post) => (
+              <div class="post-card-wrapper">
+                <PostCard
+                  url={`/posts/${post.id}/`}
+                  title={post.data.title}
+                  image={post.data.image}
+                  pubDate={post.formattedDate}
+                  description={post.data.description}
+                  tags={post.data.tags}
+                  content={post.body}
+                />
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
   </div>
@@ -107,10 +104,10 @@ const recentPosts = (await getCollection("blog"))
       "Hi, welcome to Xyroton!",
       "嗨，欢迎来到 Xyroton！",
       "Hallo, willkommen bei Xyroton!",
-      "Xyrotonへようこそ！", // Japanese
-      "¡Hola, bienvenido a Xyroton!", // spanish
-      "Bonjour, bienvenue à Xyroton!", // french
-      "Ciao, benvenuto a Xyroton!", // italian
+      "Xyrotonへようこそ！",
+      "¡Hola, bienvenido a Xyroton!",
+      "Bonjour, bienvenue à Xyroton!",
+      "Ciao, benvenuto a Xyroton!",
     ];
     const iSpeed = 80;
     const delayBetween = 3000;
@@ -147,9 +144,8 @@ const recentPosts = (await getCollection("blog"))
     }
 
     document.addEventListener("DOMContentLoaded", initTypewriter);
-    initTypewriter(); // Also run on initial load
+    initTypewriter();
 
-    // RSS copy to clipboard functionality
     const rssCopyContainer = document.getElementById("rss-copy-container");
     if (rssCopyContainer) {
       rssCopyContainer.addEventListener("click", async () => {
@@ -167,13 +163,55 @@ const recentPosts = (await getCollection("blog"))
 </BaseLayout>
 
 <style>
-  .intro-text {
+  .intro-text-wrapper {
+    position: relative;
     max-width: 600px;
     margin: 0 auto;
   }
+
+  /* Style the 3D viewer canvas wrapper */
+  .three-background {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    height: 280px;
+    z-index: 0;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+
+  @media (min-width: 640px) {
+    .three-background {
+      width: 480px;
+      height: 480px;
+      margin-top: -50px;
+      margin-bottom: -135px;
+    }
+  }
+
+  .intro-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  .bubble {
+    position: relative;
+    z-index: 2;
+    background-color: var(--bg-light);
+    border-radius: 6px;
+    padding: 2% 2%;
+    justify-content: center;
+    display: flex;
+    margin: 5% 0;
+  }
+
+  /* Your existing styles */
+
   .indexh {
     position: relative;
-    padding-left: 1rem; /* Creates space for the line */
+    padding-left: 1rem;
     font-size: 1.4rem;
     margin-bottom: 0.3em;
   }
@@ -185,32 +223,34 @@ const recentPosts = (await getCollection("blog"))
     top: 0.2em;
     bottom: 0.2em;
     width: 4px;
-    background-color: var(--mode-button-bg); /* or any color you want */
+    background-color: var(--mode-button-bg);
     border-radius: 3px;
   }
+
   .my-rss {
     background-color: var(--mode-button-bg);
     color: var(--bg);
     border-radius: 5px;
-    width: 80%; /* Set width to 80% of parent */
-    max-width: 400px; /* Keep max-width for larger screens */
-    margin: 20px auto; /* Center the div horizontally */
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
     display: flex;
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    gap: 10px; /* Space between icon and text */
-    padding: 10px 20px; /* Add some padding */
-    cursor: pointer; /* Indicate it's clickable */
-    transition: transform 0.3s ease; /* Add transition for smooth effect */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
   }
 
   .my-rss:hover {
-    transform: scale(1.05); /* Zoom effect on hover */
+    transform: scale(1.05);
   }
 
   .my-rss p {
-    margin: 0; /* Remove default paragraph margin */
+    margin: 0;
     font-family: "GeistMono", monospace;
     font-weight: normal;
   }
 </style>
+
