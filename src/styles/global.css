@@ -8,7 +8,6 @@
 	--text: hsl(34, 15%, 20%);
 	--text-muted: hsl(34, 10%, 50%);
 
-
 	/* extras */
 	--mode-button-bg: hsl(180, 60%, 40%);
 	--border-muted: hsl(34, 15%, 80%);
@@ -25,7 +24,7 @@
 	--h2-color: #5e857a;
 	--h3-color: #b35b79;
 	--h4-color: #5d57a3;
-	--comment-box: #FDF6E3;
+	--comment-box: #fdf6e3;
 	--time: rgba(253, 246, 227, 0.6);
 	--tocy: var(--drop-menu-bg);
 }
@@ -44,7 +43,6 @@
 	/* extras */
 	--mode-button-bg: hsl(20, 77%, 73%);
 	--border-muted: hsl(249, 10%, 28%);
-
 
 	--drop-menu-bg: #282727;
 	--drop-menu-highlight: #223249;
@@ -75,32 +73,29 @@ html[theme="dark"] .astro-code span {
 	text-decoration: var(--shiki-dark-text-decoration) !important;
 }
 
-
-
 @font-face {
-	font-family: 'Geist';
-	src: url('/public/fonts/Geist-Regular.woff2') format('woff2');
+	font-family: "Geist";
+	src: url("/public/fonts/Geist-Regular.woff2") format("woff2");
 	font-weight: 4000;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'GeistMono';
-	src: url('/public/fonts/GeistMono-Regular.woff2') format('woff2');
+	font-family: "GeistMono";
+	src: url("/public/fonts/GeistMono-Regular.woff2") format("woff2");
 	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'GeistMono Italic';
-	src: url('/public/fonts/GeistMono-Italic.woff2') format('woff2');
+	font-family: "GeistMono Italic";
+	src: url("/public/fonts/GeistMono-Italic.woff2") format("woff2");
 	font-weight: 400;
 	font-style: normal;
 }
 
 html {
 	color-scheme: light dark;
-
 }
 
 /* make footer stick */
@@ -113,10 +108,16 @@ html {
 	text-align: center;
 }
 
+.canvas {
+	width: 600px;
+}
+
 .underlined-heading {
 	border-bottom: 1px solid transparent;
 	/* Start with a transparent border */
-	background-image: linear-gradient(to right, var(--h2-color) 0%, transparent 100%);
+	background-image: linear-gradient(to right,
+			var(--h2-color) 0%,
+			transparent 100%);
 	background-repeat: no-repeat;
 	background-position: 0 100%;
 	/* Position at the bottom */
@@ -199,7 +200,6 @@ pre>code {
 	all: unset;
 }
 
-
 .bubble {
 	background-color: var(--bg-light);
 	border-radius: 6px;
@@ -215,9 +215,6 @@ pre>code {
 	text-decoration: underline;
 }
 
-
-
-
 nav {
 	width: 100%;
 	/* change this */
@@ -229,7 +226,6 @@ nav {
 	justify-content: space-between;
 	padding: 0.3em 0.1em 0.3em 0.5em;
 }
-
 
 nav a {
 	color: var(--text);
@@ -284,7 +280,9 @@ nav a {
 	scroll-margin-top: 80px;
 	border-bottom: 1px solid transparent;
 	/* Start with a transparent border */
-	background-image: linear-gradient(to right, var(--h4-color) 0%, transparent 100%);
+	background-image: linear-gradient(to right,
+			var(--h4-color) 0%,
+			transparent 100%);
 	background-repeat: no-repeat;
 	background-position: 0 100%;
 	/* Position at the bottom */
@@ -306,8 +304,6 @@ h2 {
 	scroll-margin-top: 80px;
 }
 
-
-
 blockquote {
 	border-left: 4px solid var(--mode-button-bg);
 	padding: 1em;
@@ -327,7 +323,11 @@ blockquote {
 	border: none;
 	height: 1px;
 	width: 60%;
-	background: linear-gradient(to right, transparent, var(--mode-button-bg) 20%, var(--mode-button-bg) 80%, transparent);
+	background: linear-gradient(to right,
+			transparent,
+			var(--mode-button-bg) 20%,
+			var(--mode-button-bg) 80%,
+			transparent);
 	margin: 1em auto;
 }
 
@@ -340,7 +340,11 @@ blockquote {
 	opacity: 0;
 	visibility: hidden;
 	transform: translateY(-10px);
-	transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, max-height 0.3s ease;
+	transition:
+		opacity 0.3s ease,
+		transform 0.3s ease,
+		visibility 0.3s ease,
+		max-height 0.3s ease;
 	flex-direction: column;
 	padding: 0.5rem 0;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -376,7 +380,9 @@ blockquote {
 .hamburger-icon,
 .x-icon {
 	position: absolute;
-	transition: opacity 0.3s ease, transform 0.3s ease;
+	transition:
+		opacity 0.3s ease,
+		transform 0.3s ease;
 }
 
 .hamburger-icon.hidden {
@@ -455,14 +461,17 @@ body {
 	height: 100%;
 	padding: 0;
 	margin: 0;
-	transition: background-color 0.3s ease, color 0.3s ease;
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease;
 }
 
 body {
-
 	background-color: var(--bg);
 	color: var(--text);
-	font-family: 'Geist', 'Segoe UI Emoji', 'Noto Color Emoji', 'Apple Color Emoji', sans-serif;
+	font-family:
+		"Geist", "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji",
+		sans-serif;
 	line-height: 1.5;
 }
 
@@ -491,7 +500,9 @@ body {
 	cursor: pointer;
 	color: var(--bg);
 	font-weight: bold;
-	transition: background-color 0.3s ease, transform 0.3s ease;
+	transition:
+		background-color 0.3s ease,
+		transform 0.3s ease;
 }
 
 .tag-button:hover {
@@ -560,7 +571,9 @@ body {
 	background-color: #333;
 	border-radius: 15px;
 	padding: 20px;
-	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 0, 0, 0.3) inset;
+	box-shadow:
+		0 15px 30px rgba(0, 0, 0, 0.6),
+		0 0 10px rgba(0, 0, 0, 0.3) inset;
 	max-width: min(80vw, 500px);
 	margin: 40px auto;
 	position: relative;
@@ -586,20 +599,22 @@ body {
 }
 
 .terminal-screen::before {
-	content: '';
+	content: "";
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: radial-gradient(circle at 50% 0, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+	background: radial-gradient(circle at 50% 0,
+			rgba(255, 255, 255, 0.1) 0%,
+			rgba(255, 255, 255, 0) 70%);
 	border-radius: 8px;
 	pointer-events: none;
 	z-index: 2;
 }
 
 .typewriter {
-	font-family: 'GeistMono', monospace;
+	font-family: "GeistMono", monospace;
 	font-size: 1.3rem;
 	line-height: 1.6;
 	/* Increased line height for better spacing */
@@ -612,7 +627,10 @@ body {
 	padding: 0;
 	/* Removed default padding */
 	text-align: center;
-	text-shadow: 0 0 3px #00ff00, 0 0 8px #00ff00, 0 0 12px #00ff00;
+	text-shadow:
+		0 0 3px #00ff00,
+		0 0 8px #00ff00,
+		0 0 12px #00ff00;
 	/* Glowing effect */
 }
 
@@ -625,17 +643,19 @@ body {
 	vertical-align: baseline;
 	/* Ensure proper vertical alignment */
 	animation: blink 0.7s step-end infinite;
-	text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+	text-shadow:
+		0 0 5px #00ff00,
+		0 0 10px #00ff00;
 	/* Glowing effect for cursor */
 }
 
 @keyframes typing {
 	from {
-		width: 0
+		width: 0;
 	}
 
 	to {
-		width: 100%
+		width: 100%;
 	}
 }
 
@@ -643,7 +663,7 @@ body {
 
 	from,
 	to {
-		border-color: transparent
+		border-color: transparent;
 	}
 
 	50% {
@@ -690,15 +710,12 @@ body {
 
 	.typewriter {
 		/* reserve space for welcome */
-
 	}
-
 }
 
 @media (max-width: 415px) {
 	.typewriter {
 		/* reserve space for welcome */
-
 	}
 }
 
