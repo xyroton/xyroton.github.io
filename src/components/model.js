@@ -43,6 +43,7 @@ export function initThreeViewer(canvas) {
     "/model.glb",
     (gltf) => {
       model = gltf.scene;
+      // adjust model in blender instead of here
       model.scale.set(0.3, 0.3, 0.3);
       model.position.y = -1;
       scene.add(model);
@@ -51,15 +52,22 @@ export function initThreeViewer(canvas) {
     (err) => console.error("GLTF load error", err),
   );
 
+  // time and not frame based
+  let previousTime = performance.now();
+
   // Animate
   function animate() {
+    const currentTime = performance.now();
+    const deltaTime = (currentTime - previousTime) / 1000; // in seconds
+    previousTime = currentTime;
+
     if (model) {
-      model.rotation.y += 0.01;
+      model.rotation.y += deltaTime * 0.5; // rotate at 0.5 radians/sec
     }
+
     controls.update();
     renderer.render(scene, camera);
   }
-
   renderer.setAnimationLoop(animate);
 
   // Resize handling
