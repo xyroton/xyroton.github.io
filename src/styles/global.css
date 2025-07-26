@@ -36,6 +36,7 @@
 	--text-muted: hsl(240, 5%, 64%);
 	/* extras */
 	--primary: hsl(31, 100%, 71%);
+	--secondary: hsl(257, 100%, 76%);
 	--drop-menu-highlight: #223249;
 	/* same as bg-exli.  */
 
@@ -310,7 +311,7 @@ blockquote {
 
 .blog-post-container a {
 	text-decoration: none;
-	color: var(--primary);
+	color: var(--secondary);
 	font-weight: bold;
 }
 
