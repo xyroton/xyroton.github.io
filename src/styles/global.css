@@ -32,17 +32,18 @@
 /* CSS attribute selector, selecting any element that has the attribute data-theme="dark". */
 [theme="dark"] {
 	/* bg */
-	--bg-dark: hsl(249, 11%, 7%);
+	--bg-dark: hsl(240, 10%, 4%);
 	--bg: hsl(240, 6%, 10%);
 	--bg-light: hsl(240, 4%, 16%);
-	--bg-extra-light: hsl(249, 11%, 20%);
+	--bg-extra-light: hsl(240, 5%, 26%);
 	--bg-transparent: hsl(240, 6%, 10%, 0.5);
 	/* fg */
-	--text: hsl(60, 5%, 89%);
-	--text-muted: hsl(60, 5%, 50%);
+	--text: hsl(240, 5%, 84%);
+	--text-muted: hsl(240, 5%, 64%);
 	/* extras */
-	--mode-button-bg: hsl(20, 77%, 73%);
-	--border-muted: hsl(249, 10%, 28%);
+	--mode-button-bg: hsl(31, 100%, 71%);
+	/* same as bg-exli.  */
+	--border-muted: hsl(240, 5%, 26%);
 
 	--drop-menu-bg: #282727;
 	--drop-menu-highlight: #223249;
