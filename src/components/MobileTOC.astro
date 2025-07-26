@@ -110,8 +110,8 @@ const { headings } = Astro.props;
 
   .mobile-toc-container button {
     background-color: transparent; /* Make background transparent */
-    color: var(--mode-button-bg); /* Use mode-button-bg for icon color */
-    border: 1px solid var(--border-muted); /* Add border from header dropdown */
+    color: var(--primary); /* Use mode-button-bg for icon color */
+    border: 1px solid var(--bg-extra-light); /* Add border from header dropdown */
     border-radius: 50%;
     width: 45px;
     height: 45px;
@@ -150,7 +150,7 @@ const { headings } = Astro.props;
     border-radius: 8px;
     max-height: 0; /* Start collapsed */
     overflow: hidden;
-    border: 1px solid var(--border-muted);
+    border: 1px solid var(--bg-extra-light);
   }
 
   .mobile-toc-dropdown.active {
@@ -166,7 +166,7 @@ const { headings } = Astro.props;
   .mobile-toc-dropdown .toc {
     padding: 0; /* Remove padding from TOC component */
     border: none; /* Remove border from TOC component */
-    background-color: var(--tocy); /* Make TOC background match dropdown */
+    background-color: var(--bg-light); /* Make TOC background match dropdown */
     box-shadow: none; /* Remove shadow from TOC component */
     max-height: none; /* Allow TOC to take full height of dropdown */
     overflow-y: visible; /* Allow dropdown to handle scrolling */

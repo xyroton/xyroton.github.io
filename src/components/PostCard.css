@@ -6,7 +6,7 @@
   }
 
   .taggy .tag-item {
-  	border: 1px solid var(--hamburger-border);
+  	border: 1px solid var(--bg-extra-light);
   	border-radius: 5px;
   	padding: 2px 5px;
   	white-space: nowrap;
@@ -15,7 +15,7 @@
 
   /* TODO: inconify the tag, date */
   .icon {
-  	background-color: var(--mode-button-bg);
+  	background-color: var(--primary);
   	color: var(--bg-dark);
   	border-radius: 7px;
   	margin: 10px 10px 10px 0;
@@ -33,7 +33,7 @@
   	height: 30px;
   	stroke-width: 2.2;
   	/* optional: slightly thicker lines */
-  	stroke: var(--mode-button-bg);
+  	stroke: var(--primary);
   }
 
   .date {
@@ -43,7 +43,7 @@
   }
 
   .info-text {
-  	color: var(--nav-fg);
+  	color: var(--text-muted);
   	font-size: 1rem;
   	font-family: "GeistMono";
   }
@@ -73,7 +73,7 @@
   /* --- Vertical bar next to title --- */
   .vertical-bar {
   	width: 3px;
-  	background-color: var(--mode-button-bg);
+  	background-color: var(--primary);
   	/* Make this visible */
   	border-radius: 2px;
   	margin-right: 0.1rem;

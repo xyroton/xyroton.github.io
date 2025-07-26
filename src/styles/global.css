@@ -9,16 +9,11 @@
 	--text-muted: hsl(34, 10%, 50%);
 
 	/* extras */
-	--mode-button-bg: hsl(180, 60%, 40%);
-	--border-muted: hsl(34, 15%, 80%);
-
-	--drop-menu-bg: #e5ddb0;
+	--primary: hsl(180, 60%, 40%);
 	--drop-menu-highlight: #c9cbd1;
+
 	/* --header-border: #e4e4e5; */
 	--logo-fg: #1d1d1f;
-	--gray-tone: #8a8980;
-	--hamburger-icon-fg: #5a7785;
-	--hamburger-border: #d5cea3;
 	--buble: #e5ddb0;
 	--h1-color: #6693bf;
 	--h2-color: #5e857a;
@@ -26,7 +21,6 @@
 	--h4-color: #5d57a3;
 	--comment-box: #fdf6e3;
 	--time: rgba(253, 246, 227, 0.6);
-	--tocy: var(--drop-menu-bg);
 }
 
 /* CSS attribute selector, selecting any element that has the attribute data-theme="dark". */
@@ -41,25 +35,18 @@
 	--text: hsl(240, 5%, 84%);
 	--text-muted: hsl(240, 5%, 64%);
 	/* extras */
-	--mode-button-bg: hsl(31, 100%, 71%);
-	/* same as bg-exli.  */
-	--border-muted: hsl(240, 5%, 26%);
-
-	--drop-menu-bg: #282727;
+	--primary: hsl(31, 100%, 71%);
 	--drop-menu-highlight: #223249;
+	/* same as bg-exli.  */
+
 	/* --header-border: #363638; */
 	--logo-fg: #f5f5f7;
-	--gray-tone: #737c73;
-	--hamburger-icon-fg: #c8c093;
-	--hamburger-border: #54546d;
-	--buble: #282727;
 	--h1-color: #8ba4b0;
 	--h2-color: #87a987;
 	--h3-color: #b6927b;
 	--h4-color: #c4b28a;
 	--comment-box: #0d0c0c;
 	--time: rgba(13, 12, 12, 0.6);
-	--tocy: var(--drop-menu-bg);
 }
 
 /* Light theme: default Shiki styles (already included by Astro) */
@@ -195,7 +182,7 @@ html[theme="dark"] .logo-dark {
 /* singe ticks */
 code {
 	padding: 2px 5px;
-	background-color: var(--buble);
+	background-color: var(--bg-light);
 	border-radius: 2px;
 }
 
@@ -219,7 +206,7 @@ pre>code {
 }
 
 .bubble a {
-	color: var(--mode-button-bg);
+	color: var(--primary);
 	text-decoration: underline;
 }
 
@@ -313,7 +300,7 @@ h2 {
 }
 
 blockquote {
-	border-left: 4px solid var(--mode-button-bg);
+	border-left: 4px solid var(--primary);
 	padding: 1em;
 	margin: 1em 0;
 	color: var(--text);
@@ -323,7 +310,7 @@ blockquote {
 
 .blog-post-container a {
 	text-decoration: none;
-	color: var(--mode-button-bg);
+	color: var(--primary);
 	font-weight: bold;
 }
 
@@ -333,8 +320,8 @@ blockquote {
 	width: 60%;
 	background: linear-gradient(to right,
 			transparent,
-			var(--mode-button-bg) 20%,
-			var(--mode-button-bg) 80%,
+			var(--primary) 20%,
+			var(--primary) 80%,
 			transparent);
 	margin: 1em auto;
 }
@@ -343,7 +330,7 @@ blockquote {
 	position: absolute;
 	right: 6%;
 	top: 125%;
-	background-color: var(--bg-extra-light);
+	background-color: var(--bg-light);
 	width: 200px;
 	opacity: 0;
 	visibility: hidden;
@@ -359,7 +346,7 @@ blockquote {
 	border-radius: 8px;
 	max-height: 0;
 	overflow: hidden;
-	border: 1px solid var(--border-muted);
+	border: 1px solid var(--bg-extra-light);
 }
 
 #nav-toggle {
@@ -377,7 +364,7 @@ blockquote {
 	width: 40px;
 	height: 40px;
 	background-color: none;
-	border: 1px solid var(--border-muted);
+	border: 1px solid var(--bg-extra-light);
 	border-radius: 7px;
 	display: flex;
 	justify-content: center;
@@ -501,7 +488,7 @@ body {
 }
 
 .tag-button {
-	background-color: var(--mode-button-bg);
+	background-color: var(--primary);
 	border: none;
 	border-radius: 5px;
 	padding: 8px 12px;
@@ -518,7 +505,7 @@ body {
 }
 
 .tag-button.active {
-	background-color: var(--buble);
+	background-color: var(--bg-light);
 	color: var(--text);
 }
 

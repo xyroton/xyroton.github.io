@@ -5,7 +5,7 @@ hr.rounded {
 	border: none;
 	margin-bottom: 2rem;
 	margin-top: 1.5rem;
-	background: var(--border-muted);
+	background: var(--bg-extra-light);
 }
 
 #find {
@@ -15,7 +15,7 @@ hr.rounded {
 
 #find a {
 	text-decoration: none;
-	color: var(--mode-button-bg);
+	color: var(--primary);
 }
 
 
@@ -26,7 +26,7 @@ hr.rounded {
 	padding: 8px;
 	border-radius: 50px;
 	border: 1px solid;
-	border-color: var(--border-muted);
+	border-color: var(--bg-extra-light);
 
 	display: flex;
 	justify-content: center;

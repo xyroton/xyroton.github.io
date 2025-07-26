@@ -4,7 +4,7 @@
 	align-items: center;
 	width: 40px;
 	height: 40px;
-	background-color: var(--mode-button-bg);
+	background-color: var(--primary);
 	border-radius: 7px;
 	border: none;
 	cursor: pointer;

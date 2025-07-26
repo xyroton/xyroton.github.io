@@ -66,9 +66,9 @@ const { headings = [] } = Astro.props;
 
 <style>
   .toc li.active > a {
-    color: var(--mode-button-bg); /* or your preferred highlight color */
+    color: var(--primary); /* or your preferred highlight color */
     font-weight: bold;
-    border-left: 2px solid var(--mode-button-bg);
+    border-left: 2px solid var(--primary);
     padding-left: 6px;
   }
 </style>
@@ -81,7 +81,7 @@ const { headings = [] } = Astro.props;
   .toc {
     display: block;
     padding: 1rem;
-    border-left: 1px solid var(--border-muted);
+    border-left: 1px solid var(--bg-extra-light);
     background-color: transparent;
     max-height: 80vh;
     overflow-y: auto;
@@ -99,7 +99,7 @@ const { headings = [] } = Astro.props;
   }
 
   .toc::-webkit-scrollbar-thumb {
-    background-color: var(--border-muted);
+    background-color: var(--bg-extra-light);
     border-radius: 4px;
   }
 
@@ -134,7 +134,7 @@ const { headings = [] } = Astro.props;
   }
 
   .toc a:hover {
-    color: var(--mode-button-bg);
+    color: var(--primary);
   }
 
   .toc .depth-2 {
