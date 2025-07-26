@@ -1,15 +1,16 @@
 :root {
 	--bg-dark: hsl(69, 11%, 84%);
-	--bg: hsl(69, 11%, 89%);
-	--bg-light: hsl(69, 11%, 94%);
-	--bg-extra-light: hsl(69, 11%, 97%);
-	--bg-transparent: hsl(34, 38%, 89%, 0.4);
+	--bg: hsl(33, 100%, 96%);
+	--bg-light: hsl(34, 44%, 90%);
+	--bg-extra-light: hsl(35, 22%, 80%);
+	--bg-transparent: hsl(33, 100%, 96%, 0.4);
 	/* fg */
-	--text: hsl(34, 15%, 20%);
-	--text-muted: hsl(34, 10%, 50%);
+	--text: hsl(240, 6%, 10%);
+	--text-muted: hsl(27, 6%, 60%);
 
 	/* extras */
-	--primary: hsl(180, 60%, 40%);
+	--primary: #79716B;
+	--secondary: hsl(257, 100%, 76%);
 	--drop-menu-highlight: #c9cbd1;
 
 	/* --header-border: #e4e4e5; */
