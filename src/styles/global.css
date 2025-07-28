@@ -5,7 +5,7 @@
 	--bg-extra-light: hsl(35, 22%, 80%);
 	--bg-transparent: hsl(33, 100%, 96%, 0.4);
 	/* fg */
-	--text: hsl(240, 6%, 10%);
+	--text: hsl(240, 4%, 20%);
 	--text-muted: hsl(27, 6%, 60%);
 
 	/* extras */
@@ -66,30 +66,24 @@ html[theme="dark"] .astro-code span {
 @font-face {
 	font-family: "Mynerve-Regular";
 	src: url("/fonts/mynerve/Mynerve-Regular.woff2") format("woff2");
-	font-weight: 4000;
+	font-weight: 300;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: "Geist";
-	src: url("/public/fonts/Geist-Regular.woff2") format("woff2");
-	font-weight: 4000;
+	font-family: "Inter-Regular";
+	src: url("/public/fonts/inter/Inter-Regular.woff2") format("woff2");
+	font-weight: 300;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "GeistMono";
-	src: url("/public/fonts/GeistMono-Regular.woff2") format("woff2");
+	src: url("/public/fonts/gheist/GeistMono-Regular.woff2") format("woff2");
 	font-weight: 400;
 	font-style: normal;
 }
 
-@font-face {
-	font-family: "GeistMono Italic";
-	src: url("/public/fonts/GeistMono-Italic.woff2") format("woff2");
-	font-weight: 400;
-	font-style: normal;
-}
 
 html {
 	color-scheme: light dark;
@@ -467,7 +461,7 @@ body {
 	background-color: var(--bg);
 	color: var(--text);
 	font-family:
-		"Geist", "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji",
+		"Inter-Regular", "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji",
 		sans-serif;
 	line-height: 1.5;
 }
