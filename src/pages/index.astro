@@ -46,37 +46,16 @@ const recentPosts = (await getCollection("blog"))
         <!--   </p> -->
         <!-- </div> -->
 
-        <h1 class="hi">Hi, I&apos;m Xyroton</h1>
-	
-        <p class="justified">
-          I mostly write about AI and related technologies like Machine
-          Learning, Natural Language Processing, and Deep Learning — you get the
-          idea.
-        </p>
-        <p class="justified">
-          I'm also a strong proponent of Linux and open-source software, as well
-          as developer efficiency and the tools that support it. If any of those
-          things interest you, feel free to drop by whenever you like.
-        </p>
+        <h1 class="hi">Hi, I'm Xyroton</h1>
 
-        <!-- <div id="rss-copy-container" class="my-rss"> -->
-        <!--   <svg -->
-        <!--     xmlns="http://www.w3.org/2000/svg" -->
-        <!--     width="24" -->
-        <!--     height="24" -->
-        <!--     viewBox="0 0 24 24" -->
-        <!--     fill="none" -->
-        <!--     stroke="currentColor" -->
-        <!--     stroke-width="2" -->
-        <!--     stroke-linecap="round" -->
-        <!--     stroke-linejoin="round" -->
-        <!--     class="lucide lucide-rss-icon lucide-rss" -->
-        <!--     ><path d="M4 11a9 9 0 0 1 9 9"></path><path -->
-        <!--       d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1" -->
-        <!--     ></circle></svg -->
-        <!--   > -->
-        <!--   <p>Get RSS Feed</p> -->
-        <!-- </div> -->
+        <p class="space">
+          LINUX, VIM, and the Terminal are home. With a background in Data
+          Science, my work involves exploring various AI technologies. While
+          that’s my main focus, curiosity extends into many other areas of
+          computer science. This space is a place to share those interests in
+          written form with others. You can checkout my <a href="blog">Blog</a> section
+          for more.
+        </p>
 
         <h1 class="indexh">Latest Blog Posts</h1>
 
@@ -166,7 +145,10 @@ const recentPosts = (await getCollection("blog"))
 </BaseLayout>
 
 <style>
-
+  .space {
+    text-indent: 0.5em;
+    text-align: justify;
+  }
   .intro-text-wrapper {
     position: relative;
     max-width: 600px;
@@ -204,6 +186,7 @@ const recentPosts = (await getCollection("blog"))
   }
 
   .bubble {
+    /* font-family: "SpaceMono-Regular"; */
     position: relative;
     z-index: 2;
     background-color: var(--bg-light);
