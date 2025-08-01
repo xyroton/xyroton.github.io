@@ -2,7 +2,6 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
-// Easing function for smooth motion
 function easeOutCirc(x) {
   return Math.sqrt(1 - Math.pow(x - 1, 4));
 }
@@ -12,6 +11,9 @@ export function initThreeViewer(canvas) {
 
   const scene = new THREE.Scene();
 
+  // Initial camera position to animate from (high above)
+  const startCameraPos = new THREE.Vector3(0, 5, 3);
+  // Target camera position after animation
   const initialCameraPosition = new THREE.Vector3(0, 1, 3);
   const target = new THREE.Vector3(0, 0, 0);
 
@@ -21,7 +23,7 @@ export function initThreeViewer(canvas) {
     0.1,
     1000,
   );
-  camera.position.set(0, 5, 3); // Start above
+  camera.position.copy(startCameraPos);
   camera.lookAt(target);
 
   const renderer = new THREE.WebGLRenderer({
@@ -36,7 +38,8 @@ export function initThreeViewer(canvas) {
   controls.enableDamping = true;
   controls.dampingFactor = 0.05;
   controls.autoRotate = false;
-  controls.autoRotateSpeed = 0.5; // slow spin after initial animation
+  controls.autoRotateSpeed = 0.5;
+  controls.enabled = false; // disabled during camera animation
 
   const light = new THREE.HemisphereLight(0xffffff, 0x444444);
   light.position.set(0, 1, 0);
@@ -66,39 +69,41 @@ export function initThreeViewer(canvas) {
     const deltaTime = (currentTime - previousTime) / 1000;
     previousTime = currentTime;
 
-    const t = Math.min(frame / maxFrames, 1); // normalized 0 to 1
+    const t = Math.min(frame / maxFrames, 1);
     const easedT = easeOutCirc(t);
 
     if (t < 1) {
       frame++;
-      // Animate camera "falling" down into position
+      // Smooth camera drop-in animation
       camera.position.y = THREE.MathUtils.lerp(
-        5,
+        startCameraPos.y,
         initialCameraPosition.y,
         easedT,
       );
       camera.position.x = THREE.MathUtils.lerp(
-        0,
+        startCameraPos.x,
         initialCameraPosition.x,
         easedT,
       );
       camera.position.z = THREE.MathUtils.lerp(
-        3,
+        startCameraPos.z,
         initialCameraPosition.z,
         easedT,
       );
       camera.lookAt(target);
     } else {
-      if (frame === Math.ceil(maxFrames)) {
+      // Enable controls after animation finishes
+      if (!controls.enabled) {
         controls.target.copy(target);
         controls.update();
+        controls.enabled = true;
         controls.autoRotate = true;
       }
       controls.update();
     }
 
     if (model) {
-      model.rotation.y += deltaTime * 0.5; // continuous slow spin
+      model.rotation.y += deltaTime * 0.5; // slow continuous spin
     }
 
     renderer.render(scene, camera);
