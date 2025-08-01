@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
+// Easing function for smooth motion
 function easeOutCirc(x) {
   return Math.sqrt(1 - Math.pow(x - 1, 4));
 }
@@ -20,7 +21,7 @@ export function initThreeViewer(canvas) {
     0.1,
     1000,
   );
-  camera.position.copy(initialCameraPosition);
+  camera.position.set(0, 5, 3); // Start above
   camera.lookAt(target);
 
   const renderer = new THREE.WebGLRenderer({
@@ -35,7 +36,7 @@ export function initThreeViewer(canvas) {
   controls.enableDamping = true;
   controls.dampingFactor = 0.05;
   controls.autoRotate = false;
-  controls.autoRotateSpeed = 0.5; // slow rotation speed after initial spin
+  controls.autoRotateSpeed = 0.5; // slow spin after initial animation
 
   const light = new THREE.HemisphereLight(0xffffff, 0x444444);
   light.position.set(0, 1, 0);
@@ -57,26 +58,38 @@ export function initThreeViewer(canvas) {
 
   let previousTime = performance.now();
   let frame = 0;
+  const animationDuration = 2; // seconds
+  const maxFrames = animationDuration * 60; // assuming 60 FPS
 
   function animate() {
     const currentTime = performance.now();
     const deltaTime = (currentTime - previousTime) / 1000;
     previousTime = currentTime;
 
-    if (frame <= 100) {
-      frame++;
-      const rotSpeed = -easeOutCirc(frame / 120) * Math.PI * 2;
+    const t = Math.min(frame / maxFrames, 1); // normalized 0 to 1
+    const easedT = easeOutCirc(t);
 
-      camera.position.x =
-        initialCameraPosition.x * Math.cos(rotSpeed) +
-        initialCameraPosition.z * Math.sin(rotSpeed);
-      camera.position.z =
-        initialCameraPosition.z * Math.cos(rotSpeed) -
-        initialCameraPosition.x * Math.sin(rotSpeed);
+    if (t < 1) {
+      frame++;
+      // Animate camera "falling" down into position
+      camera.position.y = THREE.MathUtils.lerp(
+        5,
+        initialCameraPosition.y,
+        easedT,
+      );
+      camera.position.x = THREE.MathUtils.lerp(
+        0,
+        initialCameraPosition.x,
+        easedT,
+      );
+      camera.position.z = THREE.MathUtils.lerp(
+        3,
+        initialCameraPosition.z,
+        easedT,
+      );
       camera.lookAt(target);
     } else {
-      if (frame === 101) {
-        // Sync controls target and camera position before enabling autoRotate
+      if (frame === Math.ceil(maxFrames)) {
         controls.target.copy(target);
         controls.update();
         controls.autoRotate = true;
@@ -85,7 +98,7 @@ export function initThreeViewer(canvas) {
     }
 
     if (model) {
-      model.rotation.y += deltaTime * 0.5;
+      model.rotation.y += deltaTime * 0.5; // continuous slow spin
     }
 
     renderer.render(scene, camera);
