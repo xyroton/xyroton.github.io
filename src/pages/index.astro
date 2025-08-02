@@ -79,74 +79,10 @@ const recentPosts = (await getCollection("blog"))
       </div>
     </div>
   </div>
-
-  <!-- typewriter -->
-  <script>
-    // const aText = [
-    //   "Hi, welcome to Xyroton!",
-    //   "嗨，欢迎来到 Xyroton！",
-    //   "Hallo, willkommen bei Xyroton!",
-    //   "Xyrotonへようこそ！",
-    //   "¡Hola, bienvenido a Xyroton!",
-    //   "Bonjour, bienvenue à Xyroton!",
-    //   "Ciao, benvenuto a Xyroton!",
-    // ];
-    // const iSpeed = 80;
-    // const delayBetween = 3000;
-    //
-    // let i = 0;
-    // let char = 0;
-    // let typewriterTimeout;
-    //
-    // function typewriter() {
-    //   const element = document.getElementById("typedtext");
-    //   if (!element) return;
-    //
-    //   element.innerHTML =
-    //     aText[i].slice(0, char++) + '<span class="blinking-cursor">_</span>';
-    //
-    //   if (char <= aText[i].length) {
-    //     typewriterTimeout = setTimeout(typewriter, iSpeed);
-    //   } else {
-    //     typewriterTimeout = setTimeout(() => {
-    //       char = 0;
-    //       i++;
-    //       if (i >= aText.length) i = 0;
-    //       element.innerHTML = "";
-    //       typewriter();
-    //     }, delayBetween);
-    //   }
-    // }
-    //
-    // function initTypewriter() {
-    //   clearTimeout(typewriterTimeout);
-    //   i = 0;
-    //   char = 0;
-    //   typewriter();
-    // }
-    //
-    // document.addEventListener("DOMContentLoaded", initTypewriter);
-    // initTypewriter();
-    //
-    // const rssCopyContainer = document.getElementById("rss-copy-container");
-    // if (rssCopyContainer) {
-    //   rssCopyContainer.addEventListener("click", async () => {
-    //     const rssLink = `${window.location.origin}/rss.xml`;
-    //     try {
-    //       await navigator.clipboard.writeText(rssLink);
-    //       alert("RSS link copied to clipboard!");
-    //     } catch (err) {
-    //       console.error("Failed to copy RSS link: ", err);
-    //       alert("Failed to copy RSS link. Please copy it manually: " + rssLink);
-    //     }
-    //   });
-    // }
-  </script>
 </BaseLayout>
 
 <style>
   .space {
-    text-indent: 0.5em;
     text-align: justify;
   }
   .intro-text-wrapper {
@@ -223,31 +159,5 @@ const recentPosts = (await getCollection("blog"))
     width: 4px;
     background-color: var(--tertiary);
     border-radius: 3px;
-  }
-
-  .my-rss {
-    background-color: var(--primary);
-    color: var(--bg);
-    border-radius: 5px;
-    width: 80%;
-    max-width: 400px;
-    margin: 20px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-
-  .my-rss:hover {
-    transform: scale(1.05);
-  }
-
-  .my-rss p {
-    margin: 0;
-    font-family: "GeistMono", monospace;
-    font-weight: normal;
   }
 </style>
