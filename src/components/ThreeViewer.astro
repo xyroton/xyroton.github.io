@@ -3,47 +3,49 @@
 ---
 
 <div class="dog-container">
-  <div id="test"></div>
-  <canvas id="three-canvas" style="display: none;"></canvas>
+  <!-- <div id="test"></div> -->
+  <!-- <canvas id="three-canvas" style="display: none;"></canvas> -->
+  <canvas id="three-canvas"></canvas>
 </div>
 
 <script>
   import { initThreeViewer } from "./model.js";
   const canvas = document.getElementById("three-canvas");
-  const spinner = document.getElementById("test");
+  initThreeViewer(canvas);
+  // const spinner = document.getElementById("test");
 
-  setTimeout(() => {
-    spinner.style.display = "none";
-    canvas.style.display = "block";
-    initThreeViewer(canvas);
-  }, 700);
+  // setTimeout(() => {
+  //   spinner.style.display = "none";
+  //   canvas.style.display = "block";
+  //   initThreeViewer(canvas);
+  // }, 700);
 </script>
 
 <style>
-  #test {
-    width: 48px;
-    height: 48px;
-    border: 5px solid var(--text-muted);
-    border-bottom-color: transparent;
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-  }
-
-  @keyframes rotation {
-    0% {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    100% {
-      transform: translate(-50%, -50%) rotate(360deg);
-    }
-  }
+  /* #test { */
+  /*   width: 48px; */
+  /*   height: 48px; */
+  /*   border: 5px solid var(--text-muted); */
+  /*   border-bottom-color: transparent; */
+  /*   border-radius: 50%; */
+  /*   display: inline-block; */
+  /*   box-sizing: border-box; */
+  /*   animation: rotation 1s linear infinite; */
+  /*   position: absolute; */
+  /*   left: 50%; */
+  /*   top: 50%; */
+  /*   transform: translate(-50%, -50%); */
+  /*   z-index: 2; */
+  /* } */
+  /**/
+  /* @keyframes rotation { */
+  /*   0% { */
+  /*     transform: translate(-50%, -50%) rotate(0deg); */
+  /*   } */
+  /*   100% { */
+  /*     transform: translate(-50%, -50%) rotate(360deg); */
+  /*   } */
+  /* } */
 
   .dog-container {
     background-color: transparent;
