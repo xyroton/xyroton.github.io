@@ -1,4 +1,5 @@
 ---
+// Import required components and types
 import BaseLayout from "./BaseLayout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import type { MarkdownHeading } from "astro";
@@ -14,6 +15,19 @@ const { frontmatter, headings } = Astro.props;
 <BaseLayout title={frontmatter.title}>
   <div class="blog-post-container-wrapper">
     <div class="blog-post-container">
+      <h1 class="post-title">{frontmatter.title}</h1>
+
+      <div class="intro">
+        <div class="me">
+          <img src="/icons/logo_dark.svg" alt="" class="me-dark" />
+          <img src="/icons/logo_light.svg" alt="" class="me-light" />
+        </div>
+        <div class="me-info">
+          <p class="me-name">Xyroton</p>
+          <p class="me-date">2025-02-19</p>
+        </div>
+      </div>
+
       <div class="hero-image">
         {
           frontmatter.image.url && (
@@ -21,60 +35,59 @@ const { frontmatter, headings } = Astro.props;
           )
         }
       </div>
-
-      <h1 class="post-title">{frontmatter.title}</h1>
-
       <div class="post-metadata-bubble">
         <div class="text-content">
           <div class="date">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="icon lucide-user-pen"
-            >
-              <path d="M11.5 15H7a4 4 0 0 0-4 4v2"></path>
-              <path
-                d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"
-              ></path>
-              <circle cx="10" cy="7" r="4"></circle>
-            </svg>
+            <div class="icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide-user-pen"
+              >
+                <path d="M11.5 15H7a4 4 0 0 0-4 4v2"></path>
+                <path
+                  d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"
+                ></path>
+                <circle cx="10" cy="7" r="4"></circle>
+              </svg>
+            </div>
             <div class="info-text">
-              <span class="label">Author</span>
               <span class="value">Xyroton</span>
             </div>
           </div>
 
           <div class="date">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="icon"
-            >
-              <path d="M8 2v4"></path>
-              <path d="M16 2v4"></path>
-              <rect width="18" height="18" x="3" y="4" rx="2"></rect>
-              <path d="M3 10h18"></path>
-              <path d="M8 14h.01"></path>
-              <path d="M12 14h.01"></path>
-              <path d="M16 14h.01"></path>
-              <path d="M8 18h.01"></path>
-              <path d="M12 18h.01"></path>
-              <path d="M16 18h.01"></path>
-            </svg>
+            <div class="icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide-calendar"
+              >
+                <path d="M8 2v4"></path>
+                <path d="M16 2v4"></path>
+                <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                <path d="M3 10h18"></path>
+                <path d="M8 14h.01"></path>
+                <path d="M12 14h.01"></path>
+                <path d="M16 14h.01"></path>
+                <path d="M8 18h.01"></path>
+                <path d="M12 18h.01"></path>
+                <path d="M16 18h.01"></path>
+              </svg>
+            </div>
             <div class="info-text">
-              <span class="label">Published</span>
               <FormattedDate date={frontmatter.pubDate} />
             </div>
           </div>
@@ -82,23 +95,24 @@ const { frontmatter, headings } = Astro.props;
           {
             frontmatter.updatedDate && (
               <div class="date">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="icon lucide-file-pen"
-                >
-                  <path d="M12.5 22H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v9.5" />
-                  <path d="M14 2v4a2 2 0 0 0 2 2h4" />
-                  <path d="M13.378 15.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
-                </svg>
+                <div class="icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide-file-pen"
+                  >
+                    <path d="M12.5 22H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v9.5" />
+                    <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                    <path d="M13.378 15.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
+                  </svg>
+                </div>
                 <div class="info-text">
-                  <span class="label">Updated</span>
                   <FormattedDate date={frontmatter.updatedDate} />
                 </div>
               </div>
@@ -108,11 +122,9 @@ const { frontmatter, headings } = Astro.props;
       </div>
 
       <hr class="blog-divider" />
-
       <slot />
     </div>
   </div>
-
 
   <!-- Tag list -->
   <div class="tag-wrapper">
@@ -136,7 +148,6 @@ const { frontmatter, headings } = Astro.props;
     script.setAttribute("data-emit-metadata", "0");
     script.setAttribute("data-input-position", "bottom");
     script.setAttribute("data-lang", "en");
-    // script.setAttribute("data-loading", "lazy");
 
     const getTheme = () => {
       const theme = document.documentElement.getAttribute("theme");
@@ -153,9 +164,7 @@ const { frontmatter, headings } = Astro.props;
     new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.attributeName === "theme") {
-          const giscusFrame = document.querySelector(
-            "iframe.giscus-frame",
-          ) as HTMLIFrameElement;
+          const giscusFrame = document.querySelector("iframe.giscus-frame");
           if (giscusFrame?.contentWindow) {
             giscusFrame.contentWindow.postMessage(
               { giscus: { setConfig: { theme: getTheme() } } },
@@ -167,7 +176,6 @@ const { frontmatter, headings } = Astro.props;
     }).observe(document.documentElement, { attributes: true });
   </script>
 
-  <!-- might not work with table of content -->
   <script is:inline>
     document.addEventListener("DOMContentLoaded", () => {
       const blogPostContainer = document.querySelector(".blog-post-container");
@@ -189,11 +197,64 @@ const { frontmatter, headings } = Astro.props;
 </BaseLayout>
 
 <style>
-  /* Blog content keeps fixed max width */
+  .intro {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .me-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.3;
+    padding-bottom: 0.4rem;
+  }
+
+  .me-name {
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .me-date {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .me-light,
+  .me-dark {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: none;
+  }
+
+  html[theme="light"] .me-light {
+    display: block;
+  }
+
+  html[theme="dark"] .me-dark {
+    display: block;
+  }
+
+  .me {
+    background-color: var(--bg-light);
+    width: 45px;
+    height: 45px;
+    padding: 4px;
+    border-radius: 50px;
+    border: 1px solid;
+    border-color: var(--bg-extra-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
   .blog-post-container {
     margin: auto;
     max-width: 700px;
-    /* margin-left: 90px; /* shifts it 20px to the left */ */
   }
 
   .syde {
@@ -202,7 +263,6 @@ const { frontmatter, headings } = Astro.props;
     top: 100px;
     align-self: flex-start;
     float: none;
-    /* makes it take the with  */
     flex-shrink: 0;
   }
 
@@ -216,7 +276,7 @@ const { frontmatter, headings } = Astro.props;
   }
 
   .post-metadata-bubble {
-    background-color: var(--bg-light);
+    background-color: transparent;
     border-radius: 10px;
     margin-bottom: 1em;
     box-shadow: var(--box-shadow);
@@ -234,18 +294,30 @@ const { frontmatter, headings } = Astro.props;
     color: var(--text);
   }
 
+  .date {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: "SpaceMono-Regular";
+    font-size: 0.9rem;
+    margin-bottom: 0.5em; /* Add spacing between wrapped rows */
+  }
+
   .icon {
-    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-light);
+    color: var(--text-muted);
     border-radius: 7px;
-    margin: 8px 8px 8px 0;
     width: 32px;
     height: 32px;
+    flex-shrink: 0;
   }
 
   .info-text {
-    color: var(--nav-fg);
+    color: var(--text);
     font-size: 0.9rem;
-    font-family: "GeistMono";
     display: flex;
     flex-direction: column;
   }
@@ -255,27 +327,18 @@ const { frontmatter, headings } = Astro.props;
     color: var(--text);
   }
 
-  .date {
-    display: inline-flex;
-    align-items: center;
-    margin: 0;
-    font-size: 0.9rem;
-    font-family: "GeistMono";
-  }
-
   .hero-image img {
     display: block;
     margin: 0 auto;
     max-width: 100%;
     height: auto;
-    border-radius: 50px;
+    border-radius: 10px;
     box-shadow: var(--box-shadow);
   }
 
   .post-title {
     font-size: 2.5rem;
     font-weight: bold;
-    text-align: center;
     margin-bottom: 1rem;
     font-family: "SpaceMono-Regular";
   }
@@ -301,5 +364,4 @@ const { frontmatter, headings } = Astro.props;
     margin-top: 10px;
     margin-bottom: 10px;
   }
-
 </style>
