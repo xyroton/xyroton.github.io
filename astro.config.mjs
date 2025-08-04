@@ -21,11 +21,19 @@ export default defineConfig({
       },
       frames: {
         showCopyToClipboardButton: true,
+        removeCommentsWhenCopyingTerminalFrames: true,
+      },
+      styleOverrides: {
+        borderWidth: "1px", // Change this to any desired value
+        frames: {
+          shadowColor: "transparent",
+        },
       },
     }),
   ],
   markdown: {
-    remarkPlugins: [remarkMath, remarkHeadingNumbering, remarkReadingTime],
+    // remarkPlugins: [remarkMath, remarkHeadingNumbering, remarkReadingTime],
+    remarkPlugins: [remarkMath, remarkReadingTime],
     rehypePlugins: [
       rehypeKatex,
       rehypeSlug,
