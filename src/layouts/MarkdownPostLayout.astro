@@ -67,7 +67,7 @@ const { frontmatter, headings } = Astro.props;
     </div>
   </div>
 
-  <div class="commeant-section"></div>
+  <div class="comment-section"></div>
 
   <script>
     const script = document.createElement("script");
@@ -80,7 +80,7 @@ const { frontmatter, headings } = Astro.props;
     script.setAttribute("data-category-id", "DIC_kwDOO0t3rs4CsPmf");
     script.setAttribute("data-mapping", "pathname");
     script.setAttribute("data-strict", "0");
-    script.setAttribute("data-reactions-enabled", "0");
+    script.setAttribute("data-reactions-enabled", "1");
     script.setAttribute("data-emit-metadata", "0");
     script.setAttribute("data-input-position", "bottom");
     script.setAttribute("data-lang", "en");
@@ -92,7 +92,7 @@ const { frontmatter, headings } = Astro.props;
 
     script.setAttribute("data-theme", getTheme());
 
-    const commentSection = document.querySelector(".commeant-section");
+    const commentSection = document.querySelector(".comment-section");
     if (commentSection) {
       commentSection.appendChild(script);
     }
@@ -205,13 +205,13 @@ const { frontmatter, headings } = Astro.props;
     flex-shrink: 0;
   }
 
-  .commeant-section {
+  .comment-section {
     max-width: 720px;
     margin: 0 auto;
     padding: 10px;
     border-radius: 5px;
     margin-top: 50px;
-    background-color: var(--comment-box);
+    background-color: var(--bg);
   }
 
   .post-metadata-bubble {
