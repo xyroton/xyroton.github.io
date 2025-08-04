@@ -14,7 +14,7 @@ export default defineConfig({
   // base: "/astro-blog",
   integrations: [
     expressiveCode({
-      themes: ["solarized-light", "kanagawa-wave"],
+      themes: ["github-light", "github-dark-dimmed"],
       plugins: [pluginLineNumbers()],
       defaultProps: {
         showLineNumbers: false,
@@ -24,7 +24,7 @@ export default defineConfig({
         removeCommentsWhenCopyingTerminalFrames: true,
       },
       styleOverrides: {
-        borderWidth: "1px", // Change this to any desired value
+        borderWidth: "1.5px", // Change this to any desired value
         frames: {
           shadowColor: "transparent",
         },

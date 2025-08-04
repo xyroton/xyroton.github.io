@@ -21,12 +21,12 @@ import "./DarkMode.css";
 
     if (document.documentElement.getAttribute("theme") === "dark") {
       document.documentElement.setAttribute("theme", "light");
-      document.documentElement.setAttribute("data-theme", "solarized-light");
+      document.documentElement.setAttribute("data-theme", "github-light");
       modeIcon.innerHTML = moonIcon;
       localStorage.setItem("theme", "light");
     } else {
       document.documentElement.setAttribute("theme", "dark");
-      document.documentElement.setAttribute("data-theme", "kanagawa-wave");
+      document.documentElement.setAttribute("data-theme", "github-dark-dimmed");
       modeIcon.innerHTML = sunIcon;
       localStorage.setItem("theme", "dark");
     }
