@@ -11,6 +11,7 @@
   /* extras */
   --primary: hsl(15, 63%, 60%);
   --secondary: hsl(257, 100%, 76%);
+  --secondary-active: hsl(257, 100%, 70%);
   --tertiary: hsl(26, 6%, 45%);
   --drop-menu-highlight: #c9cbd1;
 
@@ -39,6 +40,7 @@
   /* extras */
   --primary: hsl(31, 100%, 71%);
   --secondary: hsl(257, 100%, 76%);
+  --secondary-active: hsl(257, 100%, 70%);
   --tertiary: #79716b;
   --drop-menu-highlight: #223249;
   /* same as bg-exli.  */
