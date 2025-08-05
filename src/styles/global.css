@@ -251,23 +251,27 @@ nav a {
   margin-bottom: 1.7em;
 }
 
-.blog-post-container h1:not(.post-title) {
+.blog-post-container h1:not(.post-title),
+h2,
+h3,
+h4 {
   padding-bottom: 0;
-  line-height: 1.7rem;
-  margin-bottom: -0.2rem;
   font-family: "Inter-Regular";
+}
+.blog-post-container h1:not(.post-title) {
+  line-height: 2.2rem;
+  margin-bottom: -0.4rem;
   margin-top: 2.5rem;
 }
 .blog-post-container h2 {
-  padding-bottom: 0;
   line-height: 1.7rem;
   margin-bottom: -0.5rem;
-  font-family: "Inter-Regular";
   margin-top: 2rem;
 }
 .blog-post-container h3 {
-  position: relative;
-  /* padding-left: 1em; */
+  line-height: 1.6rem;
+  margin-bottom: -0.6rem;
+  margin-top: 2rem;
 }
 
 /* .blog-post-container h1:not(.post-title) {
