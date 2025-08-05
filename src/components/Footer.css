@@ -1,73 +1,98 @@
 hr.rounded {
-	width: 70%;
-	max-width: 500px;
-	height: 1px;
-	border: none;
-	margin-bottom: 2rem;
-	margin-top: 1.5rem;
-	background: var(--bg-extra-light);
+  width: 70%;
+  max-width: 500px;
+  height: 1px;
+  border: none;
+  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+  background: var(--bg-extra-light);
 }
 
 #find {
-	font-size: 0.9rem;
-	margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
 }
 
 #find a {
-	text-decoration: none;
-	color: var(--secondary);
+  text-decoration: none;
+  color: var(--secondary);
 }
 
+.help {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.help a {
+  font-size: 0.9rem;
+  color: var(--secondary);
+  text-decoration: none;
+  padding: 0.1rem 0.3rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* .help a:hover {
+  color: var(--secondary);
+} */
+
+.help p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  user-select: none;
+}
 
 .slink {
-	background-color: var(--bg-light);
-	width: 40px;
-	height: 40px;
-	padding: 8px;
-	border-radius: 50px;
-	border: 1px solid;
-	border-color: var(--bg-extra-light);
+  background-color: var(--bg-light);
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 50px;
+  border: 1px solid;
+  border-color: var(--bg-extra-light);
 
-	display: flex;
-	justify-content: center;
-	/* center horizontally */
-	align-items: center;
-	/* center vertically */
+  display: flex;
+  justify-content: center;
+  /* center horizontally */
+  align-items: center;
+  /* center vertically */
 }
 
-
-.slink>a {
-	display: flex;
-	width: 100%;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
+.slink > a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
-
 
 #social {
-	display: flex;
-	justify-content: center;
-	gap: 0.5rem;
-	margin-bottom: 0.8rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
 }
 
 #social a {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 30px;
-	height: 30px;
-	overflow: hidden;
-	color: var(--footer-icon-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  color: var(--footer-icon-color);
 }
 
 #social svg {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 #copyright {
-	font-size: 0.8em;
-	color: var(--text-muted);
+  font-size: 0.8em;
+  color: var(--text-muted);
 }
