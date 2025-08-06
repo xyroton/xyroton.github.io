@@ -94,13 +94,6 @@ html[theme="dark"] .astro-code span {
 }
 
 @font-face {
-  font-family: "SpaceMono-Regular";
-  src: url("/public/fonts/spacemono/SpaceMono-Regular.woff2") format("woff2");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "GeistMono";
   src: url("/public/fonts/gheist/GeistMono-Regular.woff2") format("woff2");
   font-weight: 400;

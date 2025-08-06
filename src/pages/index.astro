@@ -49,12 +49,13 @@ const recentPosts = (await getCollection("blog"))
         <h1 class="hi">Hi, I'm Xyroton</h1>
 
         <p class="space">
-          LINUX, VIM, and the Terminal are home. With a background in Data
-          Science, my work involves exploring various AI technologies. While
-          that’s my main focus, curiosity extends into many other areas of
-          computer science. This space is a place to share those interests in
-          written form with others. You can checkout my <a href="blog">Blog</a> section
-          for more.
+          <span class="highlight">LINUX</span>, <span class="highlight"
+            >VIM</span
+          >, and the <span class="highlight">Terminal</span> are home. With a background
+          in Data Science, my work involves exploring various AI technologies. While
+          that’s my main focus, curiosity extends into many other areas of computer
+          science. This space is a place to share those interests in written form
+          with others. You can checkout my <a href="blog">Blog</a> section for more.
         </p>
 
         <h1 class="indexh">Latest Blog Posts</h1>
@@ -82,6 +83,9 @@ const recentPosts = (await getCollection("blog"))
 </BaseLayout>
 
 <style>
+  .highlight {
+    font-family: "Mynerve-Regular";
+  }
   .space {
     text-align: justify;
   }
@@ -127,7 +131,6 @@ const recentPosts = (await getCollection("blog"))
   }
 
   .bubble {
-    /* font-family: "SpaceMono-Regular"; */
     position: relative;
     z-index: 2;
     background-color: var(--bg-light);
