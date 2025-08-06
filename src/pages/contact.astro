@@ -2,8 +2,32 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Contact">
+<BaseLayout title="Privacy Policy">
   <div class="rlayout animate-on-load">
-    <p>Info</p>
+    <h1>Contact</h1>
+    <p>
+      Unfortunately, for the time being there is no way to contact me directly.
+      If you wish to reach out, it is best to do so via <a
+        href="https://github.com/xyroton/xyroton.github.io/issues"
+      >
+        GitHub Issues</a
+      >.
+    </p>
+    <p>
+      If you have a question regarding a blog post, it is best to use the
+      comment system under the corresponding post which utilizes <a
+        href="https://github.com/xyroton/xyroton.github.io/discussions"
+        >GitHub Discussions</a
+      >.
+    </p>
   </div>
+
+  <style>
+    h2 {
+      margin-bottom: -0.6rem;
+    }
+    a {
+      color: var(--secondary);
+    }
+  </style>
 </BaseLayout>
