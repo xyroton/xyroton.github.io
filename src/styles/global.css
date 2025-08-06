@@ -76,19 +76,19 @@ html[theme="dark"] .astro-code span {
 
 @font-face {
   font-family: "Inter-SemiBold";
-  src: url("/public/fonts/inter/Inter-SemiBold.woff2") format("woff2");
+  src: url("/fonts/inter/Inter-SemiBold.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: "Inter-ExtraBold";
-  src: url("/public/fonts/inter/Inter-ExtraBold.woff2") format("woff2");
+  src: url("/fonts/inter/Inter-ExtraBold.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: "Inter-Regular";
-  src: url("/public/fonts/inter/Inter-Regular.woff2") format("woff2");
+  src: url("/fonts/inter/Inter-Regular.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
 }
