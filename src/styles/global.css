@@ -95,7 +95,7 @@ html[theme="dark"] .astro-code span {
 
 @font-face {
   font-family: "GeistMono";
-  src: url("/public/fonts/gheist/GeistMono-Regular.woff2") format("woff2");
+  src: url("/fonts/gheist/GeistMono-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
