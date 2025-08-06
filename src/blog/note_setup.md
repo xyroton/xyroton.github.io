@@ -3,7 +3,7 @@ title: Managing Notes on Linux
 author: Xyroton
 description: "Taking notes, syncing, and backing them up on Linux."
 image:
-  url: "/blog/managing_notes_on_linux/thumbnail.png"
+  url: "/posts/managing_notes_on_linux/thumbnail.png"
   alt: "A girl taking notes."
 pubDate: 2025-06-25
 updatedDate: 2025-08-04
