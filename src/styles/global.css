@@ -734,16 +734,6 @@ body {
   #nav-toggle {
     display: block;
   }
-
-  .typewriter {
-    /* reserve space for welcome */
-  }
-}
-
-@media (max-width: 415px) {
-  .typewriter {
-    /* reserve space for welcome */
-  }
 }
 
 /* hide on scroll */
