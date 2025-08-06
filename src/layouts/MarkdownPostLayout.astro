@@ -62,7 +62,9 @@ const { frontmatter, headings } = Astro.props;
           )
         }
       </div>
-      <slot />
+      <div class="blog-content">
+        <slot />
+      </div>
     </div>
   </div>
 

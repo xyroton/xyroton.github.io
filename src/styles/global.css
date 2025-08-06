@@ -245,6 +245,12 @@ nav a {
   margin-top: 1.2rem;
   margin-bottom: 1.7em;
 }
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--bg-extra-light);
+  border-radius: 8px;
+}
 
 .blog-post-container h1:not(.post-title),
 h2,
@@ -268,7 +274,17 @@ h4 {
   margin-bottom: -0.6rem;
   margin-top: 2rem;
 }
+.blog-post-container h4 {
+  line-height: 1.4rem;
+  margin-bottom: -0.6rem;
+  margin-top: 2rem;
+}
 
+.blog-post-container h5 {
+  line-height: 1.2rem;
+  margin-bottom: -0.6rem;
+  margin-top: 2rem;
+}
 /* .blog-post-container h1:not(.post-title) {
   color: var(--h1-color);
 }
@@ -293,7 +309,7 @@ h4 {
   border-radius: 2px;
 } */
 
-.blog-post-container h1:not(.post-title)::before {
+/* .blog-post-container h1:not(.post-title)::before {
   background-color: var(--h1-color);
 }
 
@@ -303,31 +319,10 @@ h4 {
 
 .blog-post-container h3::before {
   background-color: var(--h3-color);
-}
+} */
 
 .blog-post-container h4 {
   scroll-margin-top: 80px;
-  border-bottom: 1px solid transparent;
-  /* Start with a transparent border */
-  background-image: linear-gradient(
-    to right,
-    var(--h4-color) 0%,
-    transparent 100%
-  );
-  background-repeat: no-repeat;
-  background-position: 0 100%;
-  /* Position at the bottom */
-  background-size: 100% 1px;
-  /* Make it a thin line */
-  padding-bottom: 0px;
-  /* Space between text and line */
-  margin-bottom: 0;
-  /* Remove default bottom margin */
-  margin-top: 0;
-  /* Remove default top margin */
-  display: inline-block;
-  /* Ensure it wraps with text */
-  color: var(--h4-color);
 }
 
 .blog-post-container h1,
