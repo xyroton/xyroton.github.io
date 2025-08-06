@@ -6,7 +6,7 @@ image:
   url: "/blog/managing_notes_on_linux/thumbnail.png"
   alt: "A girl taking notes."
 pubDate: 2025-06-25
-updatedDate: 2025-08-34
+updatedDate: 2025-08-04
 tags: ["notes", "linux"]
 ---
 
