@@ -1,7 +1,7 @@
 ---
 title: The Dactyl Manuform Keyboard
 author: Xyroton
-draft: true
+
 description: "A DIY ortholinear split keyboard with a keywell."
 image:
   url: "/posts/"
@@ -11,7 +11,8 @@ updatedDate:
 tags: ["Keyboards", "Ergonomics"]
 ---
 
-The Dactyl Manuform is a DIY ortholinear split keyboard with a keywell. In the following I will describe the experience of building and using it.
+The Dactyl Manuform is a DIY ortholinear split keyboard with a keywell. In the following I will describe the experience of building and using it. 
+After 1 year.
 
 # Design Choices and how they Feel
 Explain why we mention everything
@@ -33,7 +34,10 @@ Traditional keyboards have a staggered  key arrangement. Which means keys are no
 
 This will lead to unnecessary left and right motion when typing and moving between rows.
 This extra effort will be eliminated on ortholinear keyboard, since it allows your fingers to travel up and down in a straight line without having these micro left and right motions.
-Side Note: Ortholinear really only makes sense on a split keyboard, since on a normal but ortholinear Keyboard one would need to bend ones wrists quite heavily in order to be able to move the fingers in a straight line  up and down. 
+
+DM mention
+
+Note: Ortholinear really only makes sense on a split keyboard, since on a normal but ortholinear Keyboard one would need to bend ones wrists quite heavily in order to be able to move the fingers in a straight line  up and down. 
 
 ## Keywell
 Some people treat this as a gimmick (most likely because they have never actually typed a Keyboard with one), but let me tell you it is not. Even if you have not yet fully learned to  type on it you will be able to tell the difference. For one, the distance to move from one row to the next become smaller, and secondly the change of motion is not as noticeable/none existent. By that I mean, for instance, moving you finger from the home row on a traditional keyboard (is the row where your fingers naturally rest on the f and j key) to one row above it (R3) to press a key there. That requires you to move you finger forward over the key and then change to a downward motion in order to press it.
@@ -46,6 +50,16 @@ With all that said, I am not a big fan of the thumb cluster, simply due to mispl
 Though that problem could be evaded by simply picking a different thumb cluster to begin with, or by changing the thumb key positions manually in the configurator. More about that later.
 
 ## Tenting
-Means your keyboard is not sitting flat on the table. Instead each keyboard half is slightly elevated, allowing you to type with you hands in a slightly outward rotated position. This is also the natural resting positions of your hands which you can check by standing up straight and letting your arms hang relaxed on the side. As you will observe, your palms will not face fully backwards.
+Means your keyboard is not sitting flat on the table. Instead each keyboard half is slightly elevated on the inside, allowing you to type with your hands in a slightly outward rotated position. This is also the natural resting positions of your hands which you can check by standing up straight and letting your arms hang relaxed on the side. As you will observe, your palms will not face fully backwards.
+There are a few different ways to achieve tenting. The cheapest way is to placing books under the inside of each half. More Luxurious ways are using stands with mag safe mounting you Keyboard half's on those and tilting it or even using clamps for meant for cameras. The community is fairly creative here.
 
+The Dactyl-Manuform however comes with some degree of tenting already build in, which you also can adjust to your liking when designing you own case.
+
+# Build
+Creating a Dactyl-Manuform is a very labor intensive undertaking when compared to keyboards that are build using PCB as a base, such as the Ferris Sweep. Therefore it is important to determine for yourself if the effort is worth it. If not there are plenty of sellers on AliExpress or Etsy who offer prebuilt ones.
+
+
+## Case Creation
+It is possible to find ready to go Dactyl-Manuform cases on any of the big 3D Model sharing Platforms such as Printables or Makerworld. But using these ready to go models does not align with the spirit of the Dactyl-Manuform.
+The Dactyl-Manuform features a parametric design, which means one can change parameters around to change certain design aspects of it such as, tenting angle, keywell curvature or thumb cluster layout. You do this by utilizing one of the specic Dactyl-Manuform configurators.
 
