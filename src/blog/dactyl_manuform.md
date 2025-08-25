@@ -59,7 +59,18 @@ The Dactyl-Manuform however comes with some degree of tenting already build in, 
 Creating a Dactyl-Manuform is a very labor intensive undertaking when compared to keyboards that are build using PCB as a base, such as the Ferris Sweep. Therefore it is important to determine for yourself if the effort is worth it. If not there are plenty of sellers on AliExpress or Etsy who offer prebuilt ones.
 
 
-## Case Creation
+## Case
 It is possible to find ready to go Dactyl-Manuform cases on any of the big 3D Model sharing Platforms such as Printables or Makerworld. But using these ready to go models does not align with the spirit of the Dactyl-Manuform.
 The Dactyl-Manuform features a parametric design, which means one can change parameters around to change certain design aspects of it such as, tenting angle, keywell curvature or thumb cluster layout. You do this by utilizing one of the specic Dactyl-Manuform configurators.
+
+### Configurator
+The popular choice these days is the Cosmos Keyboard Generator, which in comparison to other configurators is relatively easy to use since you use it through the official website with its nice GUI to modify things, and you do not have to manually set up a local build environment. It also has good documentation about how to use the configurator and build your own Dactyl-Manuform.
+Another decent option, which is the one I chose, is one of locally based Python Generators such as this one. If you are not coming from the programing world these can be cumbersome for you to use for various reasons.
+The reason for me not to use Cosmos back then was, that the python based Generator had better/edge design/placement which looked visually more pleasing.
+But Cosmos has come a long way since then and is probably the better choice now.
+
+### Printing
+Since the Dactyl-Manuform is meant to be configured to ones personal needs, one will need to 3D print the case. It is best of course to own a capable 3D printer, to potentially play around with different designs. I can highly recommend the BambuLab A1, that is what I use. Else you can also use a 3D online printing service such as JLC, though I have no personal experience with them. 
+
+## Putting it Together
 
