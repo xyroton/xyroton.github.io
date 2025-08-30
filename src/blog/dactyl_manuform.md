@@ -21,6 +21,7 @@ As the name suggests, it splits the keyboard in half  shown in the image below.
 
 ![Split vs None Split](/posts/dactyl_manuform/split.png)
 
+
 This makes it possible to position each keyboard half where it feels most comfortable for you. Generally you would want to place the keyboard halves relative to your shoulder width apart to allow for an open shoulder and back position. This simultaneously also allows for a natural wrist position, by now not having to bend your wrist outward anymore as.
 
 
@@ -78,9 +79,12 @@ There are plenty of build guides out there, some of the popular ones are:
 They have wiring diagrams, part lists etc. with good explanation. With those things already existing I will not bother going into detail and rather explain the general steps to what to expect.
 
 ### General Parts list
-
 - **1x right case/1x left case:** Most cases are printed in PLA as is mine, some fancier ones are printed in Resin or even Nylon.
 - **?x Switches:** The ammount of switches you need depends on formfactor of Dactyl Manuform case that you picked, for me it was 80 switches. Usually you would want MX style switches, although if your case supports it other switches are possible such as Kailh Choc.
 - **?x Keycaps:** Same ammount as switches. Usually you would want them with the SA profile for the Dactyl Manuform to complement the keywell.
-- **2x MCU:**
-
+- **2x MCUs:** Dedide if you want wired or wireless.
+- **2x TRS Jacks (wired version):** You can also use TRRS but then you have to make sure you solder to the same contacts on each side.
+- **?x Diodes:** Get  as many as you have switches.
+- **~3m Single Copper Wire (insulated):** Mine was 26AWG (wire diameter).
+- **2x Batteries (wireless vesion):** Mine is wired therefor I have nothing to share.
+- **2x Reset Switches:** Although you wont necearily need them since can map keybind to *reset* in your firmware I would still recommend it, since when still need it for some reasons later on it is easily accesible.
