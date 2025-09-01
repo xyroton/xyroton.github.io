@@ -74,17 +74,28 @@ But Cosmos has come a long way since then and is probably the better choice now.
 Since the Dactyl-Manuform is meant to be configured to ones personal needs, one will need to 3D print the case. It is best of course to own a capable 3D printer, to potentially play around with different designs. I can highly recommend the BambuLab A1, that is what I personaly use. Else you can also use a 3D online printing service such as JLC, though I have no personal experience with them. 
 
 ## Putting it Together
-There are plenty of build guides out there, some of the popular ones are:
+There are plenty of build guides out there, some of the popular and good ones are:
+- https://nickgreen.info/dactyl-manuform-build-log/
+- https://blog.jfedor.org/2020/11/dactyl-manuform-build-log.html
+- https://medium.com/swlh/complete-idiot-guide-for-building-a-dactyl-manuform-keyboard-53454845b065
 
 They have wiring diagrams, part lists etc. with good explanation. With those things already existing I will not bother going into detail and rather explain the general steps to what to expect.
 
 ### General Parts list
 - **1x right case/1x left case:** Most cases are printed in PLA as is mine, some fancier ones are printed in Resin or even Nylon.
+- **2x MCU holders:** Different Cases need differnt designs, and often differnt MCUs need also slighly differnt designs.
 - **?x Switches:** The ammount of switches you need depends on formfactor of Dactyl Manuform case that you picked, for me it was 80 switches. Usually you would want MX style switches, although if your case supports it other switches are possible such as Kailh Choc.
 - **?x Keycaps:** Same ammount as switches. Usually you would want them with the SA profile for the Dactyl Manuform to complement the keywell.
 - **2x MCUs:** Dedide if you want wired or wireless.
 - **2x TRS Jacks (wired version):** You can also use TRRS but then you have to make sure you solder to the same contacts on each side.
 - **?x Diodes:** Get  as many as you have switches.
-- **~3m Single Copper Wire (insulated):** Mine was 26AWG (wire diameter).
+- **~3m Single Copper Wire (insulated):** Mine was 26AWG (wire diameter), which made it esay to work with.
 - **2x Batteries (wireless vesion):** Mine is wired therefor I have nothing to share.
 - **2x Reset Switches:** Although you wont necearily need them since can map keybind to *reset* in your firmware I would still recommend it, since when still need it for some reasons later on it is easily accesible.
+- **Brass Hot Melt Insert Nut:** These go into the case, wher you will screw the botthom plate into. The size of them depends on case screw whole size.
+- **Screws:** Ones that fit into your *Brass Hot Melt Insert Nut*.
+
+### Tools
+- **Wire Stripper (recommendet):** It will save you a ton of time by making the process of removing the insulation very easy.
+- **Soldering Iron:** Absolut must have. If you can also get a pair of heat insert tips for your soldering iron for the heat inserts.
+- **Multimeter (recommendet):** Used to check if there is an connection between two points. Helpful in assiting you to find potentiall errors later on.
