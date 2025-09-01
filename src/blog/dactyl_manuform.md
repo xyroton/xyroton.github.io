@@ -73,15 +73,8 @@ But Cosmos has come a long way since then and is probably the better choice now.
 ### Printing
 Since the Dactyl-Manuform is meant to be configured to ones personal needs, one will need to 3D print the case. It is best of course to own a capable 3D printer, to potentially play around with different designs. I can highly recommend the BambuLab A1, that is what I personaly use. Else you can also use a 3D online printing service such as JLC, though I have no personal experience with them. 
 
-## Putting it Together
-There are plenty of build guides out there, some of the popular and good ones are:
-- https://nickgreen.info/dactyl-manuform-build-log/
-- https://blog.jfedor.org/2020/11/dactyl-manuform-build-log.html
-- https://medium.com/swlh/complete-idiot-guide-for-building-a-dactyl-manuform-keyboard-53454845b065
 
-They have wiring diagrams, part lists etc. with good explanation. With those things already existing I will not bother going into detail and rather explain the general steps to what to expect.
-
-### General Parts list
+## Parts you need
 - **1x right case/1x left case:** Most cases are printed in PLA as is mine, some fancier ones are printed in Resin or even Nylon.
 - **2x MCU holders:** Different Cases need differnt designs, and often differnt MCUs need also slighly differnt designs.
 - **?x Switches:** The ammount of switches you need depends on formfactor of Dactyl Manuform case that you picked, for me it was 80 switches. Usually you would want MX style switches, although if your case supports it other switches are possible such as Kailh Choc.
@@ -95,7 +88,41 @@ They have wiring diagrams, part lists etc. with good explanation. With those thi
 - **Brass Hot Melt Insert Nut:** These go into the case, wher you will screw the botthom plate into. The size of them depends on case screw whole size.
 - **Screws:** Ones that fit into your *Brass Hot Melt Insert Nut*.
 
-### Tools
+## Tools
 - **Wire Stripper (recommendet):** It will save you a ton of time by making the process of removing the insulation very easy.
 - **Soldering Iron:** Absolut must have. If you can also get a pair of heat insert tips for your soldering iron for the heat inserts.
 - **Multimeter (recommendet):** Used to check if there is an connection between two points. Helpful in assiting you to find potentiall errors later on.
+
+
+## Put it all Together
+There are plenty of build guides out there, some of the popular and good ones are:
+- https://nickgreen.info/dactyl-manuform-build-log/
+- https://blog.jfedor.org/2020/11/dactyl-manuform-build-log.html
+- https://medium.com/swlh/complete-idiot-guide-for-building-a-dactyl-manuform-keyboard-53454845b065
+
+They have wiring diagrams, part lists etc. with good explanation. With those things already existing I will not bother going into detail and rather explain the general steps to what to expect. 
+
+## Flashing 
+Depending on if you go wired or wireless you would either want ZMK for wirelss or QMK for the wired versions. Since mine is wired I can omly speak about QMK. 
+If you use Linux the setup process is very smooth if you are familiar with git and the CLI you shuld not face any major difficulties.
+
+## What can you expect
+Spending an insane amount of time with soldering. It Probably took me somewhere between 10-15h cutting the wires, stripping, bending and realigning them. When compared to my Ferris Sweep is which took me around 2h to get from bare bone PCB to finished and functioning keyboard is quite hefty.
+Other then the time consumption it is not difficult at all to put it together. If you stick to the wire diagrams pointed out in the build guides and you make sure to allign the diodes correctly there is not really anything you could do wrong.
+
+
+# Takeaway and thing I would do differnt
+The Dactyl Manuform is a very nice keybard to type on, do to the features pointed out in the beginning of this article. I also thing it is worth the hassle to go through if you seek a superior typing experience. But there are a few things I would do differntly if I were to build another Dactyl Manuform: 
+
+1. Rearanging the thunbcluster
+2. Making the switches hotswapable by using such [single PCBs](https://github.com/JKing-B16/keyboard-pcbs/tree/master/amoeba-king).
+
+All in all it is a solid keyboard especially if you take the time to adjust it to your ergonomic needs, because that is what the Dactyl Manuform truly lives off.
+If you have any question or cretiqes feel free to use the comment section below.
+
+**Stats you might find interesting:**
+This Article was typed to:
+- 40% on a *Svalboard*
+- 30% on a *Dactyl Manuform*
+- 20% on a *Zuoya GMK 67*
+- 10% on a *Ferris Sweep*
