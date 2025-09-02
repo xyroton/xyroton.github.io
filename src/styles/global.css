@@ -252,6 +252,10 @@ nav a {
   border-radius: 8px;
 }
 
+.blog-content strong {
+	font-family: "Inter-SemiBold";
+}
+
 .blog-post-container h1:not(.post-title),
 h2,
 h3,
