@@ -93,7 +93,7 @@ Since the Dactyl-Manuform is meant to be configured to ones personal needs, one 
 - **Multimeter (recommended):** Used to check if there is an connection between two points. Helpful in assisting you to find potential errors later on.
 
 
-## How to put it together
+## Assembly Overview
 There are plenty of build guides out there, some of the popular and good ones are:
 - https://nickgreen.info/dactyl-manuform-build-log/
 - https://blog.jfedor.org/2020/11/dactyl-manuform-build-log.html
@@ -101,11 +101,17 @@ There are plenty of build guides out there, some of the popular and good ones ar
 
 They have wiring diagrams, part lists etc. with good explanation. With those things already in existence, I will layout the general steps and the potential difficulties rather then describe the whole process in meticulous steps.
 
-### Getting the switches in
-If you are not using Hot Swap, it is recommended to glue in the switches. Otherwise if they are not sitting firm enough in the slot, there is a good chance, that when you change the Key caps latter on you rip the switch out with it and mess up your wiring. Hot glue is a solid choice for that.
+### Installing the Switches
+If you are not using Hot Swap, it is recommended to glue in the switches like so:
 
-### Wiring
-The goal here is to create a matrix, consisting of 
+Otherwise if they are not sitting firm enough in the slot, there is a good chance, that when you change the Key caps latter on you rip the switch out with it and mess up your wiring. Hot glue is a solid choice for that.
+
+### Wiring the Keyboard Matrix
+Patience is key here because you will be spending a substantial amount of time with soldering.  It Probably took me somewhere between 10-15h cutting the wires, stripping, bending and realigning them.
+
+The goal here is to create a matrix, consisting of wires (row) and diodes (columns) (as shown in the image below), because there are to many keys to wire each switch directly directly to a MCU pin.
+
+But besides of running out of patience, pretty much the only thing you can mess up here is getting the diode direction wrong.
 
 ## Flashing 
 Depending on if you go wired or wireless you would either want ZMK for wireless or QMK for the wired versions. Since mine is wired I can only speak about QMK. 
