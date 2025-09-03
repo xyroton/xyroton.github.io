@@ -10,133 +10,146 @@ pubDate: 2025-05-30
 tags: ["Keyboards", "Ergonomics"]
 ---
 
-The Dactyl Manuform is a DIY ortholinear split keyboard with a keywell. In the following I will describe the experience of building and using it. 
-After 1 year.
+The Dactyl Manuform is a DIY ortholinear split keyboard with a keywell. Here’s my experience building and using it for one year.
 
-# Design Choices and how they Feel
-Explain why we mention everything
+
+# Design Choices and How They Feel
 ## Split
-As the name suggests, it splits the keyboard in half  shown in the image below. 
+As the name suggests, it splits the keyboard in half as shown in the image below. 
 
 ![Split vs None Split](/posts/dactyl_manuform/split.png)
 
 
-This makes it possible to position each keyboard half where it feels most comfortable for you. Generally you would want to place the keyboard halves relative to your shoulder width apart to allow for an open shoulder and back position. This simultaneously also allows for a natural wrist position, by now not having to bend your wrist outward anymore as.
-
-
+This makes it possible to position each keyboard half where it feels most comfortable. The idea is to place the halves about shoulder width apart to allow for an open shoulder and back position. This also promotes a more natural wrist position, since you no longer need to bend your wrists outward.
 
 This is generally understood as the biggest selling point of a split keyboard. 
 
 ## Ortholinear
-Traditional keyboards have a staggered  key arrangement. Which means keys are not vertically aligned (see image below). 
+Traditional keyboards have a staggered key arrangement, meaning the keys are not vertically aligned (see image below).
 
 ![Staggered vs Ortholinear](/posts/dactyl_manuform/ortholinear.png)
 
-This will lead to unnecessary left and right motion when typing and moving between rows.
-This extra effort will be eliminated on ortholinear keyboard, since it allows your fingers to travel up and down in a straight line without having these micro left and right motions.
+This forces unnecessary side-to-side motion when typing across rows.
+An ortholinear keyboard eliminates that extra effort, letting your fingers travel straight up and down without these micro side-to-side motions.
 
 
-Note: Ortholinear really only makes sense on a split keyboard, since on a normal but ortholinear Keyboard one would need to bend ones wrists quite heavily in order to be able to move the fingers in a straight line  up and down. 
+Note: Ortholinear really only makes sense on split keyboards. On a non-split ortholinear keyboard, you’d need to bend your wrists heavily to keep your fingers moving straight up and down.
 
 ## Keywell
-Some people treat this as a gimmick (most likely because they have never actually typed a Keyboard with one), but let me tell you it is not. Even if you have not yet fully learned to  type on it you will be able to tell the difference. For one, the distance to move from one row to the next become smaller, and secondly the change of motion is not as noticeable/none existent. By that I mean, for instance, moving you finger from the home row on a traditional keyboard (is the row where your fingers naturally rest on the f and j key) to one row above it (R3) to press a key there. That requires you to move you finger forward over the key and then change to a downward motion in order to press it.
-On a keyboard with a keywell this motion somewhat combines into one, where to press a key one row above the home row, it is more matter of only pushing your finger forward without now having to switch to a full downward motion again.
-Also note that the columns have a different height. For example the pinky row sits higher then the ring finger, to compensate for it beings shorter then other fingers. In addition, the columns shift slightly forward or backwards depending on the corresponding finger . 
+Some people treat the keywell as a gimmick, most likely because they’ve never typed on a keyboard with one, but it’s not. Even if you haven’t fully learned to type on it, you’ll notice the difference. The distance your fingers need to move from one row to the next is smaller, and the change in motion is less noticeable or even nonexistent.
+
+For example, on a traditional keyboard, moving your finger from the home row, which is where your fingers naturally rest on the F and J keys, to the row above (R3) requires first moving forward and then changing to a downward motion. On a keyboard with a keywell, these motions combine: pressing a key one row above the home row is mainly about moving your finger forward, without a full downward movement.
+
+Additionally, the columns have different heights. For example, the pinky row sits higher than the ring finger to compensate for it being shorter than the other fingers. The columns also shift slightly forward or backward depending on the corresponding finger which adds to typing comfort.
 
 ## Thumb Cluster
-In fairness I have to say that I can only share my opinion about the default 6 key thumb cluster, since there are different variations of thumb clusters, and that is the only one with which I have personal experience. So the following might be completely invalid for other thumb cluster designs. Although one thing they all have in common is, that they are not flat. Instead the thumb cluster falls down inwards and therefor one is pressing the keys not fully with the side of the thumb but also partially with the thumb pad. The motion itself becomes now more of a grabbing than a slapping down motion. This is particularly nice if one is typing with floating hands because this makes it easy to press the keys from different angles, but it can make the use a bit more difficult in combination with a palm rest. 
-With all that said, I am not a big fan of the thumb cluster, simply due to misplacement of the two primary keys. Neither of them is in a comfortable enough spot to serve as a primary action key for me, such as space bar. The comfort zone would be right in between those two.
-Though that problem could be evaded by simply picking a different thumb cluster to begin with, or by changing the thumb key positions manually in the configurator. More about that later.
+I can only share my opinion about the default six-key thumb cluster, as there are different variations and this is the only one I’ve personally used. My observations may not apply to other designs. One thing all thumb clusters have in common, however, is that they are not flat. Instead, the cluster slopes inward as shown here:
+
+So you press the keys not only with the side of your thumb but also partially with the thumb pad. The motion becomes more of a grabbing motion rather than a downward slap.
+
+This design is particularly nice when typing with floating hands, as it allows pressing keys from different angles. However, it can be slightly more difficult to use with a palm rest.
+
+Personally, I am not a big fan of the default cluster because of the placement of the two primary keys. Neither key is in a comfortable spot to serve as a primary action key, like the space bar; the ideal position would be between the two.
+
+In fairness, this problem can be avoided by choosing a different thumb cluster or by manually adjusting the thumb key positions in the configurator. But more on that later.
 
 ## Tenting
-Means your keyboard is not sitting flat on the table. Instead each keyboard half is slightly elevated on the inside, allowing you to type with your hands in a slightly outward rotated position. This is also the natural resting positions of your hands which you can check by standing up straight and letting your arms hang relaxed on the side. As you will observe, your palms will not face fully backwards.
-There are a few different ways to achieve tenting. The cheapest way is to placing books under the inside of each half. More Luxurious ways are using stands with mag safe mounting you Keyboard half's on those and tilting it or even using clamps for meant for cameras. The community is fairly creative here.
+Tenting means your keyboard is not sitting flat on the table. Instead, each keyboard half is slightly elevated on the inside, allowing you to type with your hands in a slightly outward-rotated position. This is also the natural resting position of your hands, which you can observe by standing up straight and letting your arms hang relaxed at your sides. Your palms will not face fully backward.
 
-The Dactyl-Manuform however comes with some degree of tenting already build in, which you also can adjust to your liking when designing you own case.
+There are a few ways to achieve tenting. The simplest method is to place books under the inside of each half. More luxurious options include using stands with MagSafe mounts to hold your keyboard halves and tilt them, or even using clamps designed for cameras. The community is fairly creative with these solutions.
+
+The Dactyl-Manuform, however, comes with some degree of tenting already built in, which you can adjust to your liking when designing your own case, providing a simple and stable solution.
 
 # Build
-Creating a Dactyl-Manuform is a very labor intensive undertaking when compared to keyboards that are build using PCB as a base, such as the Ferris Sweep. Therefore it is important to determine for yourself if the effort is worth it. If not there are plenty of sellers on AliExpress or Etsy who offer prebuilt ones.
+Creating a Dactyl-Manuform is a very labor-intensive undertaking compared to keyboards built using a PCB as a base, such as the Ferris Sweep. Therefore, it’s important to determine beforehand whether the effort is worth it. If not, there are plenty of sellers on AliExpress or Etsy who offer prebuilt ones.
 
 
 ## Case
-It is possible to find ready to go Dactyl-Manuform cases on any of the big 3D Model sharing Platforms such as Printables or Makerworld. But using these ready to go models does not align with the spirit of the Dactyl-Manuform.
-The Dactyl-Manuform features a parametric design, which means one can change parameters around to change certain design aspects of it such as, tenting angle, keywell curvature or thumb cluster layout. You do this by utilizing one of the specic Dactyl-Manuform configurators.
+You can find ready-to-go Dactyl-Manuform cases on major 3D model sharing platforms, such as Printables or Makerworld. However, using these models does not align with the spirit of the Dactyl-Manuform.
+
+The Dactyl-Manuform features a parametric design, allowing you to adjust parameters to modify aspects like tenting angle, keywell curvature, or thumb cluster layout. This is done using a configurator.
 
 ### Configurator
-The popular choice these days is the [Cosmos Keyboard Generator](https://ryanis.cool/cosmos/), which in comparison to other configurators is relatively easy to use since you use it through the official website with its nice GUI to modify things, and you do not have to manually set up a local build environment. It also has good documentation about how to use the configurator and build your own Dactyl-Manuform.
-Another decent option, which is the one I chose, is one of locally based [Python Generators](https://github.com/joshreve/dactyl-keyboard). ButIf you are not coming from the programing world these can be cumbersome for you to use for various reasons.
-The reason for me not to use Cosmos back then was, that the python based Generator had better edge placement which looked visually more pleasing.
-But Cosmos has come a long way since then and is probably the better choice now.
+The popular choice today is the [Cosmos Keyboard Generator](https://ryanis.cool/cosmos/). Compared to other configurators, Cosmos is relatively easy to use through its website interface, without requiring a local build environment. It also includes good documentation for building your own Dactyl-Manuform.
+
+Another option, which I chose, is one of the locally based [Python Generators](https://github.com/joshreve/dactyl-keyboard). But if you are not familiar with programming, these can be cumbersome. Back then, I chose the Python-based generator because it offered better edge placement, which looked more visually pleasing. Cosmos has improved since then and is probably the better choice now.
 
 ### Printing
-Since the Dactyl-Manuform is meant to be configured to ones personal needs, one will need to 3D print the case. It is best of course to own a capable 3D printer, to potentially play around with different designs. I can highly recommend the BambuLab A1, that is what I personaly use. Else you can also use a 3D online printing service such as [JLC](https://jlc3dp.com/), though I have no personal experience with them. 
+Since the Dactyl-Manuform is meant to be customized to one’s personal needs, you will need to 3D print the case. It’s best to own a capable 3D printer so you can experiment with different designs. I personally use the BambuLab A1 and highly recommend it. Alternatively, you can use an online 3D printing service such as [JLC](https://jlc3dp.com/), though I have no personal experience with them. 
 
 
-## Parts you need
-- **1x Right Case/1x Left Case:** Most cases are printed in PLA as is mine, some fancier ones are printed in Resin or even Nylon.
-- **2x MCU Holders:** Different Cases need different designs, and often different MCUs need also slightly different designs.
-- **xx Switches:** The amount of switches you need depends on form factor of Dactyl Manuform case that you picked, for me it was 80 switches. Usually you would want MX style switches, although if your case supports it other switches are possible such as Kailh Choc.
-- **xx Keycaps:** Same amount as switches. Usually you would want them with the SA profile for the Dactyl Manuform to complement the keywell.
-- **2x MCUs:** Pro Micro RP2040, is preferd over the ATmega32U insofar as it has more flash memory.
-- **2x TRS Jacks (wired version):** You can also use TRRS but then you have to make sure you solder to the same contacts on each side.
-- **xx Diodes:** Get as many as you have switches.
-- **~3m Single Copper Wire (insulated):** Mine was 26AWG (wire diameter), which made it esay to work with.
-- **2x Reset Switches:** Although you wont necearily need them since can map keybind to *reset* in your firmware I would still recommend it, since when still need it for some reasons later on it is easily accesible.
-- **Brass Hot Melt Insert Nut:** These go into the case, wher you will screw the botthom plate into. The size of them depends on case screw whole size.
-- **Screws:** Ones that fit into your *Brass Hot Melt Insert Nut*.
+## Parts You Need
+- **1x Right Case / 1x Left Case:** Most cases are printed in PLA, as mine is; some fancier ones are printed in resin or even nylon.
+- **2x MCU Holders:** Different cases require different designs, and different MCUs may need slightly different holders.
+- **Switches:** The number of switches depends on the form factor of the Dactyl-Manuform case you chose. For me, it was 80 switches. Usually MX-style switches are preferred, though if your case supports it, other switches like Kailh Choc are possible.
+- **Keycaps:** Same number as switches. SA-profile keycaps are commonly used to complement the keywell.
+- **2x MCUs:** Pro Micro RP2040 is preferred over the ATmega32U because it has more flash memory.
+- **2x TRS Jacks (wired version):** You can also use TRRS, but you must ensure you solder to the same contacts on each side.
+- **Diodes:** One per switch.
+- **~3m Single Copper Wire (insulated):** I used 26AWG wire, which was easy to work with.
+- **2x Reset Switches:** You won’t necessarily need these, since you can map a keybind to *reset* in your firmware. However, they are useful for occasional use, as they are easily accessible.
+- **Brass Hot Melt Insert Nuts:** These go into the case to secure the bottom plate. Their size depends on the case screw hole size.
+- **Screws:** Ones that fit into your brass hot melt insert nuts.
 
 ## Tools
-- **Wire Stripper (recommended):** It will save you a ton of time by making the process of removing the insulation very easy.
-- **Soldering Iron:** Absolute must have. If you can also get a pair of heat insert tips for your soldering iron for the heat inserts.
-- **Multimeter (recommended):** Used to check if there is an connection between two points. Helpful in assisting you to find potential errors later on.
+- **Wire Stripper (recommended):** Saves a lot of time by making insulation removal very easy.
+- **Soldering Iron:** An absolute must-have. If possible, also get heat insert tips for the brass inserts.
+- **Multimeter (recommended):** Used to check for a connection between two points, helping to identify potential errors later.
 
 
 ## Assembly Overview
-There are plenty of build guides out there, some of the popular and good ones are:
-- https://nickgreen.info/dactyl-manuform-build-log/
-- https://blog.jfedor.org/2020/11/dactyl-manuform-build-log.html
-- https://medium.com/swlh/complete-idiot-guide-for-building-a-dactyl-manuform-keyboard-53454845b065
+There are plenty of build guides available. Some popular and well-written ones include:  
+- [Nick Green’s Dactyl-Manuform Build Log](https://nickgreen.info/dactyl-manuform-build-log/)  
+- [JFedor’s Build Log](https://blog.jfedor.org/2020/11/dactyl-manuform-build-log.html)  
+- [Medium: Complete Idiot’s Guide for Building a Dactyl-Manuform Keyboard](https://medium.com/swlh/complete-idiot-guide-for-building-a-dactyl-manuform-keyboard-53454845b065)
 
-They have wiring diagrams, part lists etc. with good explanation. With those things already in existence, I will layout the general steps and the potential difficulties rather then describe the whole process in meticulous steps.
+These guides include wiring diagrams, part lists, and detailed explanations. With those resources available, I will outline the general steps and potential difficulties rather than describing the process in meticulous detail.
 
 ### Installing the Switches
-If you are not using Hot Swap, it is recommended to glue in the switches like so:
+If you are not using hot-swap sockets, it is recommended to glue the switches in place.
 
-Otherwise if they are not sitting firm enough in the slot, there is a good chance, that when you change the Key caps latter on you rip the switch out with it and mess up your wiring. Hot glue is a solid choice for that.
+If the switches are not seated firmly in their slots, there’s a good chance that when you later change the keycaps, you might pull the switch out and damage the wiring. Hot glue is a solid choice for securing the switches.
 
 ### Wiring the Keyboard Matrix
-Patience is key here because you will be spending a substantial amount of time with soldering.  It Probably took me somewhere between 10-15h cutting the wires, stripping, bending and realigning them.
+Patience is key here, as you will spend a substantial amount of time soldering. It probably took me somewhere between 10–15 hours cutting, stripping, bending, and realigning wires.
 
-The goal here is to create a matrix, consisting of wires (row) and diodes (columns) (as shown in the image below), because there are to many keys to wire each switch directly directly to a MCU pin.
+The goal is to create a matrix consisting of wires (rows) and diodes (columns), as shown in the image below. This is necessary because there are too many keys to wire each switch directly to an MCU pin.
 
-But besides of running out of patience, pretty much the only thing you can mess up here is getting the diode direction wrong.
+Aside from running out of patience, the main thing to watch for is the diode orientation—getting it wrong will prevent the keyboard from functioning correctly.
 
 ### Connecting to the MCU
-Instead of soldering directly to the MCU, it is recommened to use a connector instead, such as these [DuPont connector](https://www.mattmillman.com/info/crimpconnectors/dupont-and-dupont-connectors/). In case of MCU failure, you can easily unplug the bad MCU instead of having to desolder it.
+Instead of soldering directly to the MCU, it is recommended to use a connector, such as a [DuPont connector](https://www.mattmillman.com/info/crimpconnectors/dupont-and-dupont-connectors/). In case of an MCU failure, you can easily unplug the faulty MCU instead of having to desolder it.
 
-## Flashing 
-Before installing the MCU it is best to flash the MCU first. If it does not flash, you most likey have a broken MCU and you can throw it away.
 
-Mine is wired therfor it runs QMK. If you use Linux the setup process for QMK is very smooth if you are familiar with:
+## Flashing
+Before installing the MCU, it’s best to flash it first. If the MCU does not flash, it is most likely defective and should be replaced.
+
+My setup is wired, so it runs QMK. If you are using Linux, the QMK setup process should be fairly smooth, provided you are familiar with:
 
 1. **Git**
 2. **GitHub**
-2. **Linux CLI**
+3. **Linux CLI**
 
-In that case following the [QMK docs](https://docs.qmk.fm/newbs), to setup your environment, should not pose a major chanlange for you. Just do not forget to create the necesary udef rule, otherwise you will not be able to flash your device.
+In that case, following the [QMK documentation](https://docs.qmk.fm/newbs) to set up your environment should not pose a major challenge. Just make sure to create the necessary `udev` rule, otherwise you will not be able to flash your device.
 
-# Takeaway and thing I would do Different
-The Dactyl Manuform is a very nice keybard to type on, do to the features pointed out in the beginning of this article. I also thing it is worth the hassle (the build took me around 20h) to go through if what you seek is a superior typing experience. But there are a few things I would do differently if I were to build another Dactyl Manuform: 
 
-1. Rearranging the thumb cluster
-2. Making the switches hot swappable by using such [single PCBs](https://github.com/JKing-B16/keyboard-pcbs/tree/master/amoeba-king).
+# Takeaways and Things I Would Do Differently
+The Dactyl-Manuform is a very nice keyboard to type on, thanks to the features discussed earlier in this article. I also think it is worth the effort (the total build took me around 20 hours) if what you seek is a superior typing experience.
 
-All in all it is a solid keyboard especially if you take the time to adjust it to your ergonomic needs, because that is what the Dactyl Manuform truly lives off.
-If you have any question or cretiqes feel free to use the comment section below.
+However, there are a few things I would do differently now:
+
+1. Rearrange the thumb cluster.
+2. Make the switches hot-swappable by using [single PCBs](https://github.com/JKing-B16/keyboard-pcbs/tree/master/amoeba-king).
+
+
+Overall, it is a solid keyboard, especially if you take the time to adjust it to your ergonomic needs—because that is what the Dactyl-Manuform was truly meant for.
+
+If you have any questions or critiques, feel free to use the comment section below.
 
 **Stats you might find interesting:**
-This Article was typed to:
+This article was typed on:
 - 40% on a *Svalboard*
-- 30% on a *Dactyl Manuform*
+- 30% on a *Dactyl-Manuform*
 - 20% on a *Zuoya GMK 67*
 - 10% on a *Ferris Sweep*
+
