@@ -35,7 +35,6 @@ Traditional keyboards have a staggered  key arrangement. Which means keys are no
 This will lead to unnecessary left and right motion when typing and moving between rows.
 This extra effort will be eliminated on ortholinear keyboard, since it allows your fingers to travel up and down in a straight line without having these micro left and right motions.
 
-DM mention
 
 Note: Ortholinear really only makes sense on a split keyboard, since on a normal but ortholinear Keyboard one would need to bend ones wrists quite heavily in order to be able to move the fingers in a straight line  up and down. 
 
@@ -64,25 +63,24 @@ It is possible to find ready to go Dactyl-Manuform cases on any of the big 3D Mo
 The Dactyl-Manuform features a parametric design, which means one can change parameters around to change certain design aspects of it such as, tenting angle, keywell curvature or thumb cluster layout. You do this by utilizing one of the specic Dactyl-Manuform configurators.
 
 ### Configurator
-The popular choice these days is the Cosmos Keyboard Generator, which in comparison to other configurators is relatively easy to use since you use it through the official website with its nice GUI to modify things, and you do not have to manually set up a local build environment. It also has good documentation about how to use the configurator and build your own Dactyl-Manuform.
-Another decent option, which is the one I chose, is one of locally based Python Generators such as this one. If you are not coming from the programing world these can be cumbersome for you to use for various reasons.
-The reason for me not to use Cosmos back then was, that the python based Generator had better/edge design/placement which looked visually more pleasing.
+The popular choice these days is the [Cosmos Keyboard Generator](https://ryanis.cool/cosmos/), which in comparison to other configurators is relatively easy to use since you use it through the official website with its nice GUI to modify things, and you do not have to manually set up a local build environment. It also has good documentation about how to use the configurator and build your own Dactyl-Manuform.
+Another decent option, which is the one I chose, is one of locally based [Python Generators](https://github.com/joshreve/dactyl-keyboard). ButIf you are not coming from the programing world these can be cumbersome for you to use for various reasons.
+The reason for me not to use Cosmos back then was, that the python based Generator had better edge placement which looked visually more pleasing.
 But Cosmos has come a long way since then and is probably the better choice now.
 
 ### Printing
-Since the Dactyl-Manuform is meant to be configured to ones personal needs, one will need to 3D print the case. It is best of course to own a capable 3D printer, to potentially play around with different designs. I can highly recommend the BambuLab A1, that is what I personaly use. Else you can also use a 3D online printing service such as JLC, though I have no personal experience with them. 
+Since the Dactyl-Manuform is meant to be configured to ones personal needs, one will need to 3D print the case. It is best of course to own a capable 3D printer, to potentially play around with different designs. I can highly recommend the BambuLab A1, that is what I personaly use. Else you can also use a 3D online printing service such as [JLC](https://jlc3dp.com/), though I have no personal experience with them. 
 
 
 ## Parts you need
-- **1x right case/1x left case:** Most cases are printed in PLA as is mine, some fancier ones are printed in Resin or even Nylon.
-- **2x MCU holders:** Different Cases need different designs, and often different MCUs need also slightly different designs.
+- **1x Right Case/1x Left Case:** Most cases are printed in PLA as is mine, some fancier ones are printed in Resin or even Nylon.
+- **2x MCU Holders:** Different Cases need different designs, and often different MCUs need also slightly different designs.
 - **xx Switches:** The amount of switches you need depends on form factor of Dactyl Manuform case that you picked, for me it was 80 switches. Usually you would want MX style switches, although if your case supports it other switches are possible such as Kailh Choc.
 - **xx Keycaps:** Same amount as switches. Usually you would want them with the SA profile for the Dactyl Manuform to complement the keywell.
-- **2x MCUs:** Dedide if you want wired or wireless.
+- **2x MCUs:** Pro Micro RP2040, is preferd over the ATmega32U insofar as it has more flash memory.
 - **2x TRS Jacks (wired version):** You can also use TRRS but then you have to make sure you solder to the same contacts on each side.
-- **xx Diodes:** Get  as many as you have switches.
+- **xx Diodes:** Get as many as you have switches.
 - **~3m Single Copper Wire (insulated):** Mine was 26AWG (wire diameter), which made it esay to work with.
-- **2x Batteries (wireless vesion):** Mine is wired therefor I have nothing to share.
 - **2x Reset Switches:** Although you wont necearily need them since can map keybind to *reset* in your firmware I would still recommend it, since when still need it for some reasons later on it is easily accesible.
 - **Brass Hot Melt Insert Nut:** These go into the case, wher you will screw the botthom plate into. The size of them depends on case screw whole size.
 - **Screws:** Ones that fit into your *Brass Hot Melt Insert Nut*.
@@ -113,17 +111,22 @@ The goal here is to create a matrix, consisting of wires (row) and diodes (colum
 
 But besides of running out of patience, pretty much the only thing you can mess up here is getting the diode direction wrong.
 
+### Connecting to the MCU
+Instead of soldering directly to the MCU, it is recommened to use a connector instead, such as these [DuPont connector](https://www.mattmillman.com/info/crimpconnectors/dupont-and-dupont-connectors/). In case of MCU failure, you can easily unplug the bad MCU instead of having to desolder it.
+
 ## Flashing 
-Depending on if you go wired or wireless you would either want ZMK for wireless or QMK for the wired versions. Since mine is wired I can only speak about QMK. 
-If you use Linux the setup process is very smooth if you are familiar with git and the CLI you should not face any major difficulties.
+Before installing the MCU it is best to flash the MCU first. If it does not flash, you most likey have a broken MCU and you can throw it away.
 
-## What can you expect
-Spending a hefty amount of time with soldering. It Probably took me somewhere between 10-15h cutting the wires, stripping, bending and realigning them. When compared to my Ferris Sweep is which took me around 2h to get from bare bone PCB to finished and functioning keyboard is quite hefty.
-Other then the time consumption it is not difficult at all to put it together. If you stick to the wire diagrams pointed out in the build guides and you make sure to align the diodes correctly there is not really anything you could do wrong.
+Mine is wired therfor it runs QMK. If you use Linux the setup process for QMK is very smooth if you are familiar with:
 
+1. **Git**
+2. **GitHub**
+2. **Linux CLI**
 
-# Takeaway and thing I would do different
-The Dactyl Manuform is a very nice keybard to type on, do to the features pointed out in the beginning of this article. I also thing it is worth the hassle to go through if you seek a superior typing experience. But there are a few things I would do differently if I were to build another Dactyl Manuform: 
+In that case following the [QMK docs](https://docs.qmk.fm/newbs), to setup your environment, should not pose a major chanlange for you. Just do not forget to create the necesary udef rule, otherwise you will not be able to flash your device.
+
+# Takeaway and thing I would do Different
+The Dactyl Manuform is a very nice keybard to type on, do to the features pointed out in the beginning of this article. I also thing it is worth the hassle (the build took me around 20h) to go through if what you seek is a superior typing experience. But there are a few things I would do differently if I were to build another Dactyl Manuform: 
 
 1. Rearranging the thumb cluster
 2. Making the switches hot swappable by using such [single PCBs](https://github.com/JKing-B16/keyboard-pcbs/tree/master/amoeba-king).
