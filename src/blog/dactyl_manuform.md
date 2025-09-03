@@ -1,13 +1,12 @@
 ---
 title: The Dactyl Manuform Keyboard
 author: Xyroton
-
-description: "A DIY ortholinear split keyboard with a keywell."
+description: "A review of building and using the Dactyl-Manuform."
 image:
   url: "/posts/"
   alt: ""
 pubDate: 2025-05-30
-tags: ["Keyboards", "Ergonomics"]
+tags: ["keyboards", "ergonomics"]
 ---
 
 The Dactyl Manuform is a DIY ortholinear split keyboard with a keywell. Here’s my experience building and using it for one year.
