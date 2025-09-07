@@ -11,7 +11,6 @@ tags: ["keyboards", "ergonomics"]
 
 The Dactyl Manuform is a DIY *ortholinear split* keyboard with a *keywell*. Here’s my experience building and using it for one year.
 
-
 # Design Choices and How They Feel
 ## Split
 As the name suggests, it splits the keyboard in *half* as shown in the image below. 
@@ -80,17 +79,17 @@ Since the Dactyl-Manuform is meant to be customized to one’s personal needs, y
 
 
 ## Parts You Need
-- **1x Right Case / 1x Left Case:** Most cases are printed in PLA, as mine is. Some fancier ones are printed in resin or even nylon.
-- **2x MCU Holders:** Different cases require different designs, and different MCUs may need slightly different holders.
-- **Switches:** The number of switches depends on the form factor of the Dactyl-Manuform case you chose. For me, it was 80 switches. Usually MX-style switches are preferred, though if your case supports it, other switches like Kailh Choc are possible.
-- **Keycaps:** Same number as switches. SA-profile keycaps are commonly used to complement the keywell.
-- **2x MCUs:** Pro Micro RP2040 is preferred over the ATmega32U because it has more flash memory, although my build uses the ATmega32U.
-- **2x TRS Jacks (wired version):** You can also use TRRS, but you must ensure you solder to the same contacts on each side.
+- **1x Right Case / 1x Left Case:** Most cases are printed in *PLA*, as is mine. Some fancier ones are printed in *resin* or even *nylon*.
+- **2x MCU Holders:** Different cases require *different* designs, and different MCUs may need slightly different holders.
+- **Switches:** The number of switches depends on the form factor of the Dactyl-Manuform case you chose. For me, it was 80 switches. Usually *MX-style switches* are preferred, though if your case supports it, other switches like Kailh Choc are possible.
+- **Keycaps:** Same number as switches. *SA-profile* keycaps are commonly used to complement the keywell.
+- **2x MCUs:** Pro Micro RP2040 is *preferred* over the ATmega32U because it has more flash memory, although my build uses the ATmega32U.
+- **2x TRS Jacks:** You can also use TRRS, but you must ensure you solder to the *same* contacts on each side.
 - **Diodes:** One per switch.
-- **~3m Single Copper Wire (insulated):** I used 26AWG wire, which was easy to work with.
+- **~3m Single Copper Wire (insulated):** I used *26AWG* wire, which was easy to work with.
 - **2x Reset Switches:** You won’t necessarily need these, since you can map a keybind to *reset* in your firmware. However, they are useful when needed, as they are easily accessible.
 - **Brass Hot Melt Insert Nuts:** These go into the case to secure the bottom plate. Their size depends on the case screw hole size.
-- **Screws:** Ones that fit into your brass hot melt insert nuts.
+- **Screws:** Ones that fit into your brass inserts.
 
 ## Tools
 - **Wire Stripper (recommended):** Saves a lot of time by making insulation removal very easy.
@@ -134,7 +133,7 @@ My setup is wired, so it runs QMK. If you are using Linux, the QMK setup process
 In that case, following the [QMK documentation](https://docs.qmk.fm/newbs) to set up your environment should not pose a major challenge. Just make sure to create the necessary `udev` rule, otherwise you will not be able to flash your device.
 
 
-# Takeaways and Things I Would Do Differently
+# Takeaways and Improvements
 The Dactyl-Manuform is a very nice keyboard to type on, thanks to the features discussed earlier in this article. I also think it is worth the effort (the total build took me around 20 hours) if what you seek is a *superior* typing experience.
 
 However, there are a few things I would do *differently* now:
