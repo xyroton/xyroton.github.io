@@ -3,7 +3,7 @@ title: The Dactyl Manuform Keyboard
 author: Xyroton
 description: "A review of building and using the Dactyl-Manuform."
 image:
-  url: "/posts/"
+  url: "/posts/dactyl_manuform/thumbnail.JPG"
   alt: ""
 pubDate: 2025-05-30
 tags: ["keyboards", "ergonomics"]
