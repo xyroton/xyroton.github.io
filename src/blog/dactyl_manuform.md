@@ -36,6 +36,8 @@ Note: Ortholinear really only makes sense on split keyboards. On a non-split ort
 ## Keywell
 Some people dismiss the keywell as a gimmick, likely because they haven’t typed on a keyboard with one, but it isn’t. Even if you haven’t fully learned to type on it, you’ll notice the difference. The *distance* your fingers need to move from one row to the next is smaller, and the change in *motion* is less noticeable or even nonexistent.
 
+![Keywell](/posts/dactyl_manuform/keywell.jpg)
+
 For example, on a traditional keyboard, moving your finger from the home row, which is where your fingers naturally rest on the F and J keys, to the row above (R3) requires first moving forward and then changing to a downward motion. On a keyboard with a keywell, these motions combine: pressing a key one row above the home row is mainly about moving your finger forward, without a full downward movement.
 
 Additionally, the columns have different heights. For example, the pinky row sits higher than the ring finger to compensate for it being shorter than the other fingers. The columns also shift slightly forward or backward depending on the corresponding finger which adds to typing comfort.
