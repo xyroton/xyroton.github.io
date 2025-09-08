@@ -8,7 +8,23 @@ interface Props {
   headings?: MarkdownHeading[];
 }
 
-const { frontmatter, headings } = Astro.props;
+const { frontmatter, headings = [] } = Astro.props;
+
+// Precompute TOC numbers (h1 + h2 only)
+let h1Counter = 0;
+let h2Counter = 0;
+const tocHeadings = headings
+  .filter(({ depth }) => depth >= 1 && depth <= 2)
+  .map((heading) => {
+    if (heading.depth === 1) {
+      h1Counter++;
+      h2Counter = 0;
+      return { ...heading, number: `${h1Counter}.` };
+    } else {
+      h2Counter++;
+      return { ...heading, number: `${h1Counter}.${h2Counter}` };
+    }
+  });
 ---
 
 <BaseLayout title={frontmatter.title}>
@@ -61,6 +77,61 @@ const { frontmatter, headings } = Astro.props;
           )
         }
       </div>
+
+      <!-- TOC -->
+      {
+        tocHeadings.length > 0 && (
+          <details class="toc">
+            <summary class="toc-toggle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="toc-icon"
+              >
+                <path d="M16 12H3" />
+                <path d="M16 18H3" />
+                <path d="M16 6H3" />
+                <path d="M21 12h.01" />
+                <path d="M21 18h.01" />
+                <path d="M21 6h.01" />
+              </svg>
+              <span>Table of Contents</span>
+              <svg
+                class="chevron"
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </summary>
+
+            <ul class="toc-list">
+              {tocHeadings.map((heading) => (
+                <li class={`depth-${heading.depth}`}>
+                  <a href={`#${heading.slug}`} data-number={heading.number}>
+                    <span class="heading-text">{heading.text}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </details>
+        )
+      }
+
       <div class="blog-content">
         <slot />
       </div>
@@ -165,9 +236,8 @@ const { frontmatter, headings } = Astro.props;
         }
       }
     }).observe(document.documentElement, { attributes: true });
-  </script>
 
-  <script is:inline>
+    // External links new tab
     document.addEventListener("DOMContentLoaded", () => {
       const blogPostContainer = document.querySelector(".blog-post-container");
       if (!blogPostContainer) return;
@@ -182,6 +252,30 @@ const { frontmatter, headings } = Astro.props;
           link.setAttribute("target", "_blank");
           link.setAttribute("rel", "noopener noreferrer");
         }
+      });
+    });
+    document.querySelectorAll(".toc-list a").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute("href"));
+        if (target) {
+          const toc = link.closest("details");
+          const summary = toc?.querySelector("summary");
+          const tocHeight = toc ? toc.offsetHeight : 0;
+          const summaryHeight = summary ? summary.offsetHeight : 0;
+          const extraMargin = 70; // optional small buffer
+          const top =
+            target.getBoundingClientRect().top +
+            window.scrollY -
+            tocHeight +
+            summaryHeight -
+            extraMargin;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+
+        // Close TOC on mobile
+        const details = link.closest("details");
+        if (details) details.removeAttribute("open");
       });
     });
   </script>
@@ -230,7 +324,6 @@ const { frontmatter, headings } = Astro.props;
   html[theme="light"] .me-light {
     display: block;
   }
-
   html[theme="dark"] .me-dark {
     display: block;
   }
@@ -253,49 +346,12 @@ const { frontmatter, headings } = Astro.props;
     max-width: 700px;
   }
 
-  .syde {
-    width: 300px;
-    position: sticky;
-    top: 100px;
-    align-self: flex-start;
-    float: none;
-    flex-shrink: 0;
-  }
-
   .comment-section {
     max-width: 720px;
-    margin: 0 auto;
+    margin: 50px auto 0 auto;
     border-radius: 5px;
-    margin-top: 50px;
     background-color: var(--bg);
     text-align: center;
-  }
-
-  .btn {
-    background-color: var(--secondary);
-    color: white;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
-    font-family: "Inter-SemiBold";
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.2s ease;
-
-    /* Flex to center icon + text */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem; /* space between icon and text */
-    text-align: center;
-  }
-
-  .btn svg.comment-icon {
-    vertical-align: middle;
-  }
-
-  .btn:hover {
-    background-color: var(--secondary-active, #333);
   }
 
   .comment-consent-note {
@@ -307,6 +363,27 @@ const { frontmatter, headings } = Astro.props;
   .comment-consent-note a {
     color: var(--secondary);
     text-decoration: underline;
+  }
+
+  .btn {
+    background-color: var(--primary);
+    color: var(--bg);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-family: "Inter-SemiBold";
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .btn svg.comment-icon {
+    vertical-align: middle;
   }
 
   .post-title {
@@ -334,12 +411,120 @@ const { frontmatter, headings } = Astro.props;
 
   .hero-image img {
     display: block;
-    margin: 0 auto;
+    margin: 2rem auto 0 auto;
     max-width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: var(--box-shadow);
-    margin-top: 2rem;
-    margin-bottom: 3rem;
+  }
+
+  /* TOC Styles */
+  .toc {
+    margin: 2rem 0;
+    border: 1px solid var(--bg-extra-light);
+    border-radius: 8px;
+    background: var(--bg-light);
+    overflow: hidden;
+  }
+
+  .toc-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    font-family: "Inter-SemiBold";
+    font-size: 1rem;
+    user-select: none;
+  }
+
+  .toc-toggle::-webkit-details-marker {
+    display: none;
+  }
+
+  .toc-toggle::marker {
+    content: "";
+  }
+
+  .toc-count {
+    margin-left: auto;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .chevron {
+    margin-left: auto;
+    transition: transform 0.3s ease;
+  }
+
+  details[open] .chevron {
+    transform: rotate(180deg);
+  }
+
+  .toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      max-height 0.35s ease,
+      opacity 0.25s ease;
+  }
+
+  details[open] .toc-list {
+    max-height: 1000px; /* large enough for any TOC */
+    opacity: 1;
+  }
+
+  .toc-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin: 0.25rem 0;
+  }
+
+  .toc-list li a {
+    display: block;
+    position: relative;
+    padding-left: 2.5em; /* space for number */
+    text-decoration: none;
+    color: inherit;
+    line-height: 1.4;
+    font-family: "GeistMono", monospace;
+  }
+
+  .toc-list li a::before {
+    content: attr(data-number);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2em;
+    text-align: right;
+    font-weight: bold;
+    color: var(--text);
+    font-family: "GeistMono", monospace;
+  }
+
+  .toc-list li a .heading-text {
+    display: inline;
+    line-height: 1.4;
+    font-family: "Inter-Regular";
+  }
+
+  .toc-list li.depth-1 a {
+    color: var(--text);
+    font-weight: bold;
+  }
+
+  .toc-list li.depth-2 a {
+    color: var(--text-muted);
+    font-weight: normal;
+    margin-left: 2rem; /* indent for subheadings */
+  }
+
+  .toc-list li.depth-2 a::before {
+    color: var(--text-muted);
   }
 </style>
