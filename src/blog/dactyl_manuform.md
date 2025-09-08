@@ -9,7 +9,7 @@ pubDate: 2025-09-08
 tags: ["keyboards", "ergonomics"]
 ---
 
-The Dactyl Manuform is a DIY *ortholinear split* keyboard with a *keywell*. Here’s my experience building and using it for one year.
+The Dactyl Manuform is a DIY *ortholinear split* keyboard with a *keywell*. Here’s my experience building and using it for *one* year.
 
 # Design Choices and How They Feel
 ## Split
