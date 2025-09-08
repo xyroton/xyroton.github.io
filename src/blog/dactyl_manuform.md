@@ -1,11 +1,11 @@
 ---
-title: The Dactyl Manuform Keyboard
+title: Dactyl Manuform Keyboard
 author: Xyroton
 description: "A review of building and using the Dactyl-Manuform."
 image:
   url: "/posts/dactyl_manuform/thumbnail.JPG"
   alt: ""
-pubDate: 2025-05-30
+pubDate: 2025-09-08
 tags: ["keyboards", "ergonomics"]
 ---
 
@@ -45,6 +45,8 @@ Additionally, the columns have different heights. For example, the pinky row sit
 ## Thumb Cluster
 I can only share my opinion about the default six-key thumb cluster, as there are different variations and this is the only one I’ve personally used. My observations may not apply to other designs. One thing all thumb clusters have in common, however, is that they are not flat. Instead, the cluster *slopes inward* as shown here:
 
+![Thumb cluster](/posts/dactyl_manuform/thumb_cluster.JPG)
+
 So you press the keys not only with the side of your thumb but also partially with the thumb pad. The motion becomes more of a *grabbing motion* rather than a downward slap.
 
 This design is particularly nice when typing with floating hands, as it allows pressing keys from *different angles*. However, it can be slightly more difficult to use with a palm rest.
@@ -60,7 +62,9 @@ This is also the *natural* resting position of your hands, which you can observe
 
 There are a few ways to achieve tenting. The simplest method is to place books under the inside of each half. More luxurious options include using stands with MagSafe mounts to hold your keyboard halves and tilt them, or even using clamps designed for cameras. The community is fairly creative with these solutions.
 
-The Dactyl-Manuform, however, comes with some degree of tenting already built in, which you can *adjust* to your *liking* when designing your own case, providing a simple and stable solution.
+![Tenting](/posts/dactyl_manuform/tenting.JPG)
+
+The Dactyl-Manuform, however, comes with some degree of tenting already built in, which you can *adjust* to your *liking* when designing your own case.
 
 # Build
 Creating a Dactyl-Manuform is a very labor intensive undertaking compared to keyboards built using a PCB as a base, such as the Ferris Sweep. Therefore, it’s important to determine beforehand whether the effort is worth it. If not, there are plenty of sellers on AliExpress or Etsy who offer prebuilt ones.
@@ -115,7 +119,9 @@ If the switches are not seated firmly in their slots, there’s a good chance th
 ### Wiring the Keyboard Matrix
 *Patience* is key here, as you will spend a substantial amount of time soldering. It probably took me somewhere between 10–15 hours cutting, stripping, bending, and realigning wires.
 
-The goal is to create a matrix consisting of wires (rows) and diodes (columns), as shown in the image below. This is necessary because there are too many keys to wire each switch directly to an MCU pin.
+The goal is to create a matrix consisting of wires (columns) and diodes (rows), as shown in the image below. This is necessary because there are too many keys to wire each switch directly to an MCU pin.
+
+![Matrix](/posts/dactyl_manuform/matrix.JPG)
 
 Aside from running out of patience, the main thing to watch for is the *diode orientation*. Getting it wrong will prevent the keyboard from functioning correctly.
 
@@ -126,7 +132,7 @@ Instead of soldering directly to the MCU, it is recommended to use a connector, 
 ## Flashing
 Before installing the MCU, it’s best to flash it *first*. If the MCU does not flash, it is most likely defective and should be replaced.
 
-My setup is wired, so it runs QMK. If you are using Linux, the QMK setup process should be fairly smooth, provided you are familiar with:
+My setup is wired, so it runs [QMK](https://qmk.fm/). If you are using Linux, the QMK setup process should be fairly smooth, provided you are familiar with:
 
 1. **Git**
 2. **GitHub**
@@ -144,9 +150,9 @@ However, there are a few things I would do *differently* now:
 2. Make the switches hot-swappable by using [single PCBs](https://github.com/JKing-B16/keyboard-pcbs/tree/master/amoeba-king).
 
 
-Overall, it is a solid keyboard, especially if you take the time to adjust it to your ergonomic needs, because that is what the Dactyl-Manuform was truly meant for.
+Therefore, one needs to take the time to adjust the keyboard to one’s ergonomic needs, because that is what the Dactyl-Manuform was truly meant for.
 
-If you have any questions or critiques, feel free to use the comment section below.
+If you have any questions or suggestions, feel free to use the comment section below.
 
 **Stats you might find interesting:**
 This article was typed on:
