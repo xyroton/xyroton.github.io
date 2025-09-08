@@ -18,7 +18,7 @@ As the name suggests, it splits the keyboard in *half* as shown in the image bel
 ![Split vs None Split](/posts/dactyl_manuform/split.png)
 
 
-This makes it possible to position each keyboard half where it feels most comfortable. The idea is to place the halves about shoulder width apart to allow for an open *shoulder and back position*. This also promotes a more *natural wrist position*, since you no longer need to bend your wrists outward.
+This makes it possible to position each keyboard half where it feels most comfortable. The ideal is to place the halves about shoulder width apart to allow for an open *shoulder and back position*. This also promotes a more *natural wrist position*, since you no longer need to bend your wrists inwards.
 
 This is generally understood as the biggest selling point of a split keyboard. 
 
@@ -31,14 +31,14 @@ This forces unnecessary side-to-side motion when typing across rows.
 An ortholinear keyboard *eliminates* that extra effort, letting your fingers travel straight up and down without these micro side-to-side motions.
 
 
-Note: Ortholinear really only makes sense on split keyboards. On a non-split ortholinear keyboard, you’d need to bend your wrists heavily to keep your fingers moving straight up and down.
+**Note:** Ortholinear really only makes sense on split keyboards. On a non-split ortholinear keyboard, you’d need to bend your wrists heavily to keep your fingers moving straight up and down.
 
 ## Keywell
 Some people dismiss the keywell as a gimmick, likely because they haven’t typed on a keyboard with one, but it isn’t. Even if you haven’t fully learned to type on it, you’ll notice the difference. The *distance* your fingers need to move from one row to the next is smaller, and the change in *motion* is less noticeable or even nonexistent.
 
 ![Keywell](/posts/dactyl_manuform/keywell.jpg)
 
-For example, on a traditional keyboard, moving your finger from the home row, which is where your fingers naturally rest on the F and J keys, to the row above (R3) requires first moving forward and then changing to a downward motion. On a keyboard with a keywell, these motions combine: pressing a key one row above the home row is mainly about moving your finger forward, without a full downward movement.
+For example, on a traditional keyboard, moving your finger from the home row, which is where your fingers naturally rest on the F and J keys, to the row above (R3) requires first moving forward and then changing to a downward motion. On a keyboard with a keywell, these motions combine: pressing a key one row above the home row is mainly about moving your finger forward, without changing a full on downward movement.
 
 Additionally, the columns have different heights. For example, the pinky row sits higher than the ring finger to compensate for it being shorter than the other fingers. The columns also shift slightly forward or backward depending on the corresponding finger which adds to typing comfort.
 
@@ -64,7 +64,7 @@ There are a few ways to achieve tenting. The simplest method is to place books u
 
 ![Tenting](/posts/dactyl_manuform/tenting.JPG)
 
-The Dactyl-Manuform, however, comes with some degree of tenting already built in, which you can *adjust* to your *liking* when designing your own case.
+The Dactyl-Manuform, however, comes with some degree of tenting already built in, which you can *adjust* to your liking when designing your own case.
 
 # Build
 Creating a Dactyl-Manuform is a very labor intensive undertaking compared to keyboards built using a PCB as a base, such as the Ferris Sweep. Therefore, it’s important to determine beforehand whether the effort is worth it. If not, there are plenty of sellers on AliExpress or Etsy who offer prebuilt ones.
@@ -81,7 +81,7 @@ The popular choice today is the [Cosmos Keyboard Generator](https://ryanis.cool/
 Another option, which I chose, is one of the locally based [Python Generators](https://github.com/joshreve/dactyl-keyboard). But if you are not familiar with programming, these can be *cumbersome*. Back then, I chose the Python-based generator because it offered better edge placement, which looked more visually pleasing. Cosmos has improved since then and is probably the better choice now.
 
 ### Printing
-Since the Dactyl-Manuform is meant to be customized to one’s personal needs, you will need to 3D print the case. It’s best to own a capable 3D printer so you can experiment with different designs. I personally use the BambuLab A1 and highly recommend it. Alternatively, you can use an online 3D printing service such as [JLC](https://jlc3dp.com/), though I have no personal experience with them. 
+Since the Dactyl-Manuform is meant to be customized to one’s personal needs, you will need to *3D print* the case. It’s best to own a capable 3D printer so you can experiment with different designs. I personally use the BambuLab A1 and highly recommend it. Alternatively, you can use an online 3D printing service such as [JLC](https://jlc3dp.com/), though I have no personal experience with their printing service. 
 
 
 ## Parts You Need
