@@ -6,6 +6,7 @@ image:
   url: "/posts/dactyl_manuform/thumbnail.JPG"
   alt: ""
 pubDate: 2025-09-08
+updatedDate: 2025-09-10
 tags: ["keyboards", "ergonomics"]
 ---
 
@@ -71,7 +72,7 @@ Creating a Dactyl-Manuform is a very labor intensive undertaking compared to key
 
 
 ## Case
-You can find ready-to-go Dactyl-Manuform cases on major 3D model sharing platforms, such as Printables or Makerworld. However, using these models does not align with the spirit of the Dactyl-Manuform.
+You can find ready-to-go Dactyl-Manuform cases on major 3D model sharing platforms, such as [Printables](https://www.printables.com/) or [Makerworld](https://makerworld.com/en). However, using these models does not align with the spirit of the Dactyl-Manuform.
 
 The Dactyl-Manuform features a *parametric* design, allowing you to adjust parameters to modify aspects like *tenting angle*, *keywell curvature*, or *thumb cluster layout*. This is done using a configurator.
 
