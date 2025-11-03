@@ -39,7 +39,7 @@ Some people dismiss the keywell as a gimmick, likely because they haven’t type
 
 ![Keywell](/posts/dactyl_manuform/keywell.jpg)
 
-For example, on a traditional keyboard, moving your finger from the home row, which is where your fingers naturally rest on the F and J keys, to the row above (R3) requires first moving forward and then changing to a downward motion. On a keyboard with a keywell, these motions combine: pressing a key one row above the home row is mainly about moving your finger forward, without changing a full on downward movement.
+For example, on a traditional keyboard, moving your finger from the home row, which is where your fingers naturally rest on the F and J keys, to the row above (R3) requires first moving forward and then changing to a downward motion. On a keyboard with a keywell, these motions combine: pressing a key one row above the home row is mainly about moving your finger forward, without changing to a full on downward movement.
 
 Additionally, the columns have different heights. For example, the pinky row sits higher than the ring finger to compensate for it being shorter than the other fingers. The columns also shift slightly forward or backward depending on the corresponding finger which adds to typing comfort.
 
@@ -94,7 +94,7 @@ Since the Dactyl-Manuform is meant to be customized to one’s personal needs, y
 - **2x TRS Jacks:** You can also use TRRS, but you must ensure you solder to the *same* contacts on each side.
 - **Diodes:** One per switch.
 - **~3m Single Copper Wire (insulated):** I used *26AWG* wire, which was easy to work with.
-- **2x Reset Switches:** You won’t necessarily need these, since you can map a keybind to *reset* in your firmware. However, they are useful when needed, as they are easily accessible.
+- **2x Reset Switches:** You won’t necessarily need these, since you can map a keybind to *reset (enter bootloader)* in your firmware. However, they are useful when needed, as they are easily accessible.
 - **Brass Hot Melt Insert Nuts:** These go into the case to secure the bottom plate. Their size depends on the case screw hole size.
 - **Screws:** Ones that fit into your brass inserts.
 
@@ -107,7 +107,6 @@ Since the Dactyl-Manuform is meant to be customized to one’s personal needs, y
 ## Assembly Overview
 There are plenty of build guides available. Some popular and well written ones include:
 - [Nick Green’s Dactyl-Manuform Build Log](https://nickgreen.info/dactyl-manuform-build-log/)
-- [JFedor’s Build Log](https://blog.jfedor.org/2020/11/dactyl-manuform-build-log.html)
 - [Medium: Complete Idiot’s Guide for Building a Dactyl-Manuform Keyboard](https://medium.com/swlh/complete-idiot-guide-for-building-a-dactyl-manuform-keyboard-53454845b065)
 
 These guides include *wiring diagrams*, *part lists*, and *detailed explanations*. With those resources available, I will outline the general steps and potential difficulties rather than describing the process in meticulous detail.
