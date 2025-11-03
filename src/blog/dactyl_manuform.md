@@ -6,7 +6,7 @@ image:
   url: "/posts/dactyl_manuform/thumbnail.JPG"
   alt: ""
 pubDate: 2025-09-08
-updatedDate: 2025-09-10
+updatedDate: 2025-11-03
 tags: ["keyboards", "ergonomics"]
 ---
 
