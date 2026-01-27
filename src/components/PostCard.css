@@ -129,26 +129,11 @@
   /* take all remaining space */
 }
 
-/* .thumbnail { */
-/*   width: 40%; */
-/*   padding: 10px; */
-/*   border-radius: 20px; */
-/*   aspect-ratio: 16 / 9; */
-/*   flex-shrink: 0; */
-/*   max-width: 300px; */
-/* } */
-
-.thumbnail:hover {
-  filter: brightness(0.7);
-  /* Darkens the image slightly */
-}
-
 .image-container {
   position: relative;
   width: 100%;
-  /* Ensure it takes full width */
+  /* ensure it takes full width */
   order: -1;
-  /* Keep image at the top */
 }
 
 .date-overlay {
