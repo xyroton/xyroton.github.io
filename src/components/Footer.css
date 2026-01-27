@@ -35,10 +35,6 @@ hr.rounded {
   transition: color 0.3s ease;
 }
 
-/* .help a:hover {
-  color: var(--secondary);
-} */
-
 .help p {
   margin: 0;
   font-size: 0.9rem;
@@ -48,10 +44,10 @@ hr.rounded {
 
 .slink {
   background-color: var(--bg-light);
-  width: 40px;
-  height: 40px;
-  padding: 8px;
-  border-radius: 50px;
+  width: 35px;
+  height: 35px;
+  padding: 6px;
+  border-radius: 8px;
   border: 1px solid;
   border-color: var(--bg-extra-light);
 
