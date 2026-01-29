@@ -3,7 +3,7 @@ hr.rounded {
   max-width: 500px;
   height: 1px;
   border: none;
-  margin-bottom: 2rem;
+  margin-bottom: 1.3rem;
   margin-top: 1.5rem;
   background: var(--bg-extra-light);
 }
@@ -44,8 +44,8 @@ hr.rounded {
 
 .slink {
   background-color: var(--bg-light);
-  width: 35px;
-  height: 35px;
+  width: 32px;
+  height: 32px;
   padding: 6px;
   border-radius: 8px;
   border: 1px solid;
