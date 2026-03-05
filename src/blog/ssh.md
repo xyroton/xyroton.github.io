@@ -6,6 +6,7 @@ image:
   url: "/posts/ssh/thumbnail.png"
   alt: "A boy typing on a Computer."
 pubDate: 2026-03-04
+updatedDate: 2025-08-05
 tags: ["tools", "linux"]
 ---
 
@@ -62,15 +63,18 @@ Host myserver
   HostName 192.168.1.10
   User root
   Port 22
+  # IdentityFile ~/.ssh/id_ed25519
 ```
 
-> You only need to specify `Port` if it is different from the default (22).
+> You only need to specify **Port** if it is different from the default (22). **IdentityFile** specifies the private key that you want to use for the connection if you have one.
 
 Now you can connect using:
 
 ```bash
 ssh myserver
 ```
+
+You may need to point to the key (private) with the `-i` flag, if you did not go along with the default name or did not specify the `IdentityFile` in the ssh config.
 
 This improves convenience and reduces typing errors.
 
@@ -135,7 +139,7 @@ If your private key is protected with a passphrase, you normally need to enter i
 The SSH agent stores your decrypted key in memory after you unlock it once.
 
 ## Starting the SSH Agent
-
+**Note:** If you use *fish shell* you need to switch to a POSIX complaint shell like *bash* for the next commands. 
 ```bash
 eval "$(ssh-agent -s)"
 ```
@@ -149,7 +153,7 @@ ssh-add ~/.ssh/id_ed25519
 Important:
 You always add the **private key**, never the `.pub` file.
 
-After entering your passphrase once, the agent will handle authentication for future connections during your session.
+After entering your passphrase once, the agent will handle authentication for future connections during your **current session**.
 
 
 # Server-Side Configuration
