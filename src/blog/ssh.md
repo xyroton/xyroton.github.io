@@ -6,7 +6,7 @@ image:
   url: "/posts/ssh/thumbnail.png"
   alt: "A boy typing on a Computer."
 pubDate: 2026-03-04
-updatedDate: 2025-08-05
+updatedDate: 2026-03-05
 tags: ["tools", "linux"]
 ---
 
@@ -63,10 +63,11 @@ Host myserver
   HostName 192.168.1.10
   User root
   Port 22
-  # IdentityFile ~/.ssh/id_ed25519
+  IdentityFile ~/.ssh/id_ed25519
 ```
 
-> You only need to specify **Port** if it is different from the default (22). **IdentityFile** specifies the private key that you want to use for the connection if you have one.
+> - You only need to specify **Port** if it is different from the default (22). 
+> - **IdentityFile** specifies the private key that you want to use for the connection if you have one.
 
 Now you can connect using:
 
